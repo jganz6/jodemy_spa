@@ -1,61 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 :root {
     --color_main: #5784BA;
     --color_secondary: #ADA9BB;
 }
-*{
-    margin: 0;
-    padding: 0;
-}
 body{
     background-color: #E6EDF6;
 }
-h2{
+.Login>.container-fluid>main h2{
     font-weight: 700;
     font-size: 40px;
-    margin-bottom: 5%;
 }
-.btn{
-    border-radius: 5px;
-    border: none;
-    box-sizing: border-box;
-    padding: 0;
-    font-family: 'Kanit';
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    height: 40px;
-}
-.btn:hover{
-    cursor: pointer;
-}
-.btn:focus{
-    border: 2px solid #fff;
-}
-.container-fluid{
-    position: relative;
-    width: 100vw;
+.Login>.container-fluid{
     height: 100vh;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family:'Kanit';
-    flex-direction: column;
-    box-sizing: border-box;
+    font-family:Kanit;
 }
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.Login>.container-fluid>main{
     width: 50%;
-    height: 100%;
+    height: 100vh;
     font-weight: 500;
-    box-sizing: border-box;
 }
-.main-form{
+.Login>.container-fluid>main .main-form{
     width: 50%;
     min-width: 300px;
     display: flex;
@@ -63,20 +28,20 @@ main{
     align-items: center;
     text-align: center;
     height: 70%;
-    margin-top: 1em;
+    margin-top: 10%;
     position: relative;
 }
-.footer{
+.Login>.container-fluid>main .footer{
     font-size: 14px;
     color:var(--color_secondary);
     position: absolute;
-    bottom: 5%;
+    bottom:0.5rem;
 }
-.footer a{
+.Login>.container-fluid>main .footer a{
     text-decoration: none;
     color:var(--color_main);
 }
-.main-form label[for="input-email"],label[for="input-password"]{
+.Login>.container-fluid>main .main-form label[for="input-email"], .Login>.container-fluid>main .main-form label[for="input-password"]{
     position: absolute;
     padding: 2px;
     color:var(--color_secondary);
@@ -85,12 +50,12 @@ main{
     font-size:10px;
     background: linear-gradient(180deg,#E6EDF6 50%,#fff 50%);
 }
-.main-form label[for="input-password"]{
+.Login>.container-fluid>main .main-form label[for="input-password"]{
     top: 52px;
 }
-button.eye-visibility{
+.Login>.container-fluid>main .main-form button.eye-visibility{
     position: absolute;
-    top: 60px;
+    top: 56px;
     right: 15px;
     padding: 0;
     text-decoration: none;
@@ -99,14 +64,14 @@ button.eye-visibility{
     width: fit-content;
     background-color: transparent;
 }
-.main-form input,button{
+.Login>.container-fluid>main .main-form input,button{
     width: 100%;
     margin-top: 10px;
     height: 40px;
     padding: 10px;
     box-sizing: border-box;
 }
-a.forgot-password{
+.Login>.container-fluid>main .main-form a.forgot-password{
     text-decoration: none;
     color: #010620;
     font-size: 12px;
@@ -114,48 +79,48 @@ a.forgot-password{
     align-self: flex-end;
     margin-bottom: 20%;
 }
-.login-google img{
+.Login>.container-fluid>main .main-form .login-google img{
     width: 30px;
     height: 30px;
 }
-.main-form input{
+.Login>.container-fluid>main .main-form input{
     border: 1px solid var(--color_secondary);
     border-radius: .25rem;
     outline: none;
 }
-.main-form input[type="email"]::placeholder{
+.Login>.container-fluid>main .main-form input[type="email"]::placeholder{
     font-weight: 500;
     font-style: normal;
     color: rgb(165, 165, 165);
 }
-.main-form input:focus{
+.Login>.container-fluid>main .main-form input:focus{
     border: 3px solid var(--color_main);
 }
-.main-form input:focus + label{
+.Login>.container-fluid>main .main-form input:focus + label{
     font-weight: 600;
     color:var(--color_main);
 }
-.main-form button.btn{
+.Login>.container-fluid>main .main-form button.btn{
     background-color:var(--color_main);
     color: white;
 }
-.main-form button:hover{
+.Login>.container-fluid>main .main-form button:hover{
     color: white;
 }
-.main-form button.login-google{
+.Login>.container-fluid>main .main-form button.login-google{
     color: #010620;
     background-color: #fff;
+    padding: 5px;
     font-size: 16px;
-    margin-bottom: 1em;
 }
 @media only screen and (max-height: 400px){
-    h2{
+    .Login>.container-fluid>main .main-form{
+        margin-top: 0;
+    }
+    .Login>.container-fluid>main .main-form a.forgot-password{
         margin-bottom: 0;
     }
-    .main-form a.forgot-password{
-        margin-bottom: 0;
-    }
-    .footer{
+    .Login>.container-fluid>main .footer{
         bottom: 0;
     }
 }

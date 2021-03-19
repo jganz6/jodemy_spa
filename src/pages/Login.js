@@ -1,7 +1,8 @@
 import React from "react";
 import eye_icon from "./../assets/eye-icon.png";
 import google_icon from "./../assets/google-icon.png";
-import "./Login.css";
+import "./../css/Login.css";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   constructor(props) {
@@ -41,8 +42,8 @@ class Login extends React.Component {
   render() {
     return (
       <div className="Login">
-        <div className="container-fluid">
-          <main>
+        <div className="container-fluid d-flex justify-content-center align-items-center">
+          <main className="d-flex flex-column align-items-center justify-content-center">
             <h2>Login</h2>
             <form className="main-form" onSubmit={this.handleSubmit}>
               <input
@@ -64,9 +65,9 @@ class Login extends React.Component {
               <button className="eye-visibility" type="button">
                 <img src={eye_icon} alt="eye-icon.png" />
               </button>
-              <a className="forgot-password" href="ForgotPassword.html">
+              <Link className="forgot-password" to="/ForgotPassword">
                 Forgot password?
-              </a>
+              </Link>
               <button className="btn" type="submit">
                 Login
               </button>
@@ -75,7 +76,7 @@ class Login extends React.Component {
               </button>
             </form>
             <div className="footer">
-              New user? <a href="http://">Register</a>
+              New user? <Link to="/Register">Register</Link>
             </div>
           </main>
         </div>

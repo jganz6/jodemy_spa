@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./pages/App";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import ForgotPassword from "./pages/ForgotPassword";
 const AppWithRouter = () => {
   return (
     <Router>
       <Route path="/" exact component={Login} />
       <Route path="/Main/:content" component={Main} />
+      <Route path="/ForgotPassword" component={ForgotPassword} />
     </Router>
   );
 };

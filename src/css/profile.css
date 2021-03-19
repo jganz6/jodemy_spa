@@ -1,13 +1,13 @@
 /*==========================================================*/
-main>header{
+main.profile>header{
     height: 40%;
-    background-image: url(/assets/kalen-emsley-Bkci_8qcdvQ-unsplash\ 1.png);
+    background-image: url(./../assets/kalen-emsley-Bkci_8qcdvQ-unsplash\ 1.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px 20px 0 0;
     box-sizing: border-box;
 }
-main{
+main.profile{
     height: 100vh;
 }
 .profile-name{
@@ -21,7 +21,7 @@ main{
     padding: 20px;
     padding-bottom: 0;
 }
-.profile-picture>img[alt="Profile-Picture-banner.png"]{
+.profile-picture>img[alt="profile-pictur"]{
     width: 100px;
     height: 100px;
 }
@@ -34,11 +34,11 @@ main{
 .profile-picture>img[alt="Edit Icon.png"]:hover{
     cursor: pointer;
 }
-main>div{
+main.profile>div{
     height: 60%;
     padding: 20px;
 }
-main>div>h2.profile-title{
+main.profile>div>h2.profile-title{
     font-size: 16pt;
     font-weight: bold;
     margin-bottom: 1.5em;
@@ -74,7 +74,7 @@ main>div>h2.profile-title{
 }
 
 @media only screen and (max-width:767px){
-    .profile-picture>img[alt="Profile-Picture-banner.png"]{
+    .profile-picture>img[alt="profile-pictur"]{
         width: 80px;
         height: 80px;
     }

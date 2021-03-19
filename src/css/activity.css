@@ -1,16 +1,13 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-header{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+main.Activity header{
     display: flex;
 }
-header img{
+main.Activity header img{
     width: 20px;
     height: 30px;
     margin-right: 10px;
 }
-.menu-profile{
+/* .menu-profile{
     background-color: #5784BA;
     color: #fff;
 }
@@ -20,24 +17,24 @@ header img{
 }
 .menu_activity img{
     filter: invert(1);
-}
+} */
 /* =================================== */
 .my-class{
     font-family: Montserrat;
     /* border: 2px solid black; */
 }
-main{
-    background-color: transparent;
+main.Activity{
+    background-color: #E6EDF6 !important;
     font-family: Montserrat;
     height: fit-content;
 }
-h3,h6{
+main.Activity h3,main.Activity .my-class h6,main.Activity .new-class h6{
     font-weight: bolder;
 }
 table{
     width: 100%;
 }
-.my-class>h6:first-child{
+main.Activity .my-class>h6:first-child{
     padding-left: 20px;
 }
 thead>tr>th{
@@ -181,22 +178,23 @@ tfoot>tr>td>a{
     box-sizing: border-box;
     position: relative;
 }
-input[name="input-search"]{
+.search-new-class input[name="input-search"]{
     padding: 5px;
     padding-left: 25px;
     width: calc(100% - 80px);
 }
-label[for="input-search"]{
+.search-new-class label[for="input-search"]{
     position: absolute;
     left: 5px;
     top: 5px;
 }
-.btn-search{
+.search-new-class .btn-search{
     position: absolute;
     background-color: #5784BA;
     color: #fff;
     width: 80px;
     height: inherit;
+    margin-top: 0;
     margin-left: 0;
 }
 .search-filter{
@@ -309,15 +307,15 @@ label[for="input-search"]{
         color: #fff;
         background-color: #5784BA;
     }
-    input[name="input-search"]{
+    .search-new-class input[name="input-search"]{
         font-size: 10px;
     }
-    label[for="input-search"]{
+    .search-new-class label[for="input-search"]{
         position: absolute;
         left: 5px;
         top: 2px;
     }
-    .btn-search{
+    .search-new-class .btn-search{
         font-size: 10px;
         position: absolute;
     }

@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.menu-profile{
+    background-color: #5784BA;
+    color: #fff;
+}
+.menu-profile:hover .notif{
+    filter: invert(0.6);
+}
+.menu_dashboard{
+    background-color: #fff;
+    color: #000;
+}
+.menu_dashboard img{
+    filter: invert(1);
+}
+main{
+    width: calc(100% - 270px - 30% - 30px);
+    background-color: transparent;
+    font-family: Montserrat;
+    height: fit-content;
+}
+/* ====================================== */
+.btn-chat{
+    display: none;
+    background-color: #5784BA;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+header, .all-schedule{
+    background-color: #fff;
+    border-radius: inherit;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+    width: 100%;
+}
+.news-picture{
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+}
+.news-picture>img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+.shadow-picture{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    border-radius: inherit;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(0deg, #000000 -15.5%, rgba(0, 0, 0, 0) 100%);
+}
+.news-title{
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+.navigation-point{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 20px;
+}
+.point{
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.point-selected{
+    width: 20px;
+    border-radius: 5px;
+    background-color: #5784BA;
+}
+.all-schedule{
+    height: fit-content;
+    padding: 1em;
+}
+.title-schedule{
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 1em;
+}
+.date-now{
+    font-size: 24px;
+}
+.title-schedule>img{
+    position: absolute;
+    right: 0;
+}
+.date-week{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+}
+.day-description{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    border-radius: 20px 20px;
+    width: 30px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.name-day{
+    color: #989898;
+    font-weight: 400;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+.date-day{
+    color: #000;
+}
+.day-selected{
+    background-color: #5784BA;
+    font-family: Kanit;
+}
+.day-selected>.name-day,.day-selected>.date-day{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+}
+.option-schedule{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.option-schedule>a{
+    font-family: Roboto;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ADA9BB;
+    padding: 5px;
+}
+.option-schedule>a.option-schedule-selected{
+    color: #5784BA;
+}
+.schedule-list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
+.finish-label{
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 16px;
+    width: 60px;
+    background-color: #fff;
+    bottom: -12px;
+    right: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    position: absolute;
+}
+.layer-time{
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 20px;
+    border-top: 1px solid black;
+    padding-top: 20px;
+}
+.schedule-detail{
+    position: relative;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+.shadow-right{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 20px;
+    height: calc(100% - 20px);
+    box-sizing: border-box;
+    background-image:linear-gradient(270deg, #000000 -512.5%, rgba(0, 0, 0, 0) 100%);
+}
+.schedule-detail::-webkit-scrollbar{
+    display: none;
+}
+.schedule-time{
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    width: fit-content;
+    height: fit-content;
+    top: -15px;
+    right: 50%;
+    left: 50%;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px;
+}
+.schedule-description{
+    position: relative;    
+    background-color:#f0f0f0;
+    min-width: 300px;
+    width: 300px;
+    height: 180px;
+    padding: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    font-family: Kanit;
+    font-weight: 500;
+    border-radius: 20px;
+}
+.description-title{
+    width: 150px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+.class-time{
+    font-size: 14px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.option-description{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 0;
+    top: 15px;
+    right: 20px;
+}
+.schedule-description>img{
+    position: absolute;
+    right: 0;
+    bottom:20px;
+}
+.schedule-description>img[src="/assets/dashboard/Math Icon.png"],.schedule-description>img[src="/assets/dashboard/Science Icon.png"]{
+    width: 150px;
+    height: 60%;
+    filter: invert(40%) opacity(40%);
+}
+/* ===================================== */
+aside{
+    background-color: #fff;
+    border-radius: 20px;
+    width: 30%;
+    min-width: 200px;
+    max-width: 400px;
+    margin: 20px;
+    margin-left: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+aside::-webkit-scrollbar {
+    display: none;
+}
+.message-head{
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 85%;
+    padding: 5px;
+    position: relative;
+    box-sizing: border-box;
+}
+.message-head>img{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.message-search{
+    position: relative;
+    width: 80%;
+    height: 40px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.message-search>input[type="search"]{
+    width: 100%;
+    height: 100%;
+    background-color: #E6EDF6;
+    border-radius: 20px;
+    border: none;
+    padding-left: 40px;
+}
+.message-search>label[for="message_search"]{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+.message-search>label[for="message_search"]img{
+    width: 40px;
+    height: 100%;
+}
+.message-photo>img{
+    width: 80%;
+    height: 100%;
+}
+.message-text{
+    font-size: 14px;
+    color: #787878;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.message-detail{
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.message-name, .message-text, .message-time{
+    width:160px;
+    height:20px;
+    box-sizing:border-box;
+    overflow: hidden;
+}
+.message-time{
+    color: #787878;
+    text-align: right;
+    width: 80px;
+}
+/* ======================================== */
+
+@media only screen and (max-width:1200px){
+    .news-title{
+        width: 100%;
+        padding-bottom: 0;
+        color: #fff;
+        font-size: 16px;
+    }
+    .message-time{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .btn-chat{
+        display: block;
+    }
+    aside{
+        display: none;
+    }
+    main{
+        width: calc(100% - 270px);
+        margin-right: 40px;
+    }
+    .news-title{
+        width: 100%;
+        padding-bottom: 0;
+        color: #fff;
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .btn-chat{
+        background-color: #fff;
+    }
+    main{
+        width: calc(100% - 40px);
+        margin-right: 20px;
+    }
+    .news-title{
+        font-size: 16px;
+    }
+    .date-now{
+        font-size: 16px;
+    }
+}

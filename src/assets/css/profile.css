@@ -1,0 +1,84 @@
+/*==========================================================*/
+main>header{
+    height: 40%;
+    background-image: url(/assets/kalen-emsley-Bkci_8qcdvQ-unsplash\ 1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px 20px 0 0;
+    box-sizing: border-box;
+}
+main{
+    height: 100vh;
+}
+.profile-name{
+    font-size: 16pt;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px #727272;
+}
+.profile-picture{
+    position: relative;
+    padding: 20px;
+    padding-bottom: 0;
+}
+.profile-picture>img[alt="Profile-Picture-banner.png"]{
+    width: 100px;
+    height: 100px;
+}
+.profile-picture>img[alt="Edit Icon.png"]{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    filter:drop-shadow(8px 8px 10px rgb(0, 0, 0));
+}
+.profile-picture>img[alt="Edit Icon.png"]:hover{
+    cursor: pointer;
+}
+main>div{
+    height: 60%;
+    padding: 20px;
+}
+main>div>h2.profile-title{
+    font-size: 16pt;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+.profile-option{
+    overflow: auto;
+    height: 80%;
+    box-sizing: border-box;
+}
+.option-list{
+    display: flex;
+    box-sizing: border-box;
+    height: 40px;
+    position: relative;
+    border-bottom: 2px solid #ADA9BB;
+    padding: 5px;
+}
+.option-list>img{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+}
+.option-list>span{
+    font-size: 18px;
+}
+.option-list>span.setting_text{
+    margin-left: 20px;
+}
+.option-list>.arrow{
+    font-weight: bolder;
+    position: absolute;
+    right: 0;
+}
+
+@media only screen and (max-width:767px){
+    .profile-picture>img[alt="Profile-Picture-banner.png"]{
+        width: 80px;
+        height: 80px;
+    }
+    .profile-name{
+        font-size: 14pt;
+    }
+}

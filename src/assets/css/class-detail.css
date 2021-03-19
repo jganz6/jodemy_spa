@@ -1,0 +1,224 @@
+.new-class-register{
+    width: 200px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    border-radius: 40px;
+}
+.container-fluid{
+    background-color: #E6EDF6;
+}
+/* ==================================== */
+.detail-body-head{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+}
+.detail-void{
+    width: 100%;
+    height: 40px;
+}
+.class-detail{
+    border-radius: inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.class-detail-head{
+    background-image: url("/assets/activity/christina-wocintechchat-com-sjO_VsSkN9s-unsplash\ 1.png");
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 20px 20px 0 0;
+}
+.foreground{
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: #edededa8;
+}
+.class-head-text{
+    width: 70%;
+    font-family:Montserrat;
+    font-size:32px;
+    display: block;
+    font-weight:bolder;
+    position: relative;
+    box-sizing: border-box;
+}
+.head-text-detail{
+    display: inline-block;
+    font-size: 16px;
+}
+.category-icon{
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    padding: 15px;
+    bottom: -70px;
+    left: -245px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #5784BA;
+    box-sizing: border-box;
+}
+.category-icon>img{
+    width: 100%;
+    height: 100%;
+}
+.class-detail-body{
+    padding: 50px;
+    padding-top: 20px;
+    background-color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+.class-detail-body>h6{
+    font-weight: bolder;
+    font-size: 22px;
+}
+.section-class-detail{
+    border-bottom: 0.5px solid #000;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+.section-class-detail> .section-option{
+    color: #000;
+    text-decoration: none;
+    margin-right: 50px;
+}
+.section-class-detail> .option-selected{
+    color: #5784BA;
+    border-bottom: 3px solid #5784BA;
+}
+@media only screen and (max-width:1200px){
+    .category-icon{
+        width: 150px;
+        height: 150px;
+        left: -160px;
+        bottom: -50px;
+    }
+    .class-detail-head{
+        height: 200px;
+    }
+    .class-head-text{
+        font-size: 24px;
+    }
+    .head-text-detail{
+        font-size: 12px;
+    }
+    .new-class-register{
+        width: 80px;
+        font-size: 14px;
+        right: 10px;
+    }
+}
+@media only screen and (max-width:900px){
+    .category-icon{
+        width: 130px;
+        height: 130px;
+        left: -140px;
+        bottom: -50px;
+    }
+    .class-detail-head{
+        height: 200px;
+    }
+    .class-head-text{
+        font-size: 20px;
+    }
+    .head-text-detail{
+        font-size: 10px;
+    }
+    .new-class-register{
+        width: 60px;
+        font-size: 10px;
+        right: 10px;
+        bottom: 20px;
+    }
+    .section-class-detail>a{
+        font-size: 12px;
+    }
+    .class-detail-body>h6{
+        font-size: 16px;
+    }
+    .class-detail-body{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width:767px){
+    main{
+        width: calc(100% - 40px);
+    }
+    .category-icon{
+        width: 150px;
+        height: 150px;
+        left: -160px;
+        bottom: -50px;
+    }
+    .class-detail-head{
+        height: 200px;
+    }
+    .class-head-text{
+        font-size: 24px;
+    }
+    .head-text-detail{
+        font-size: 12px;
+    }
+    .new-class-register{
+        width: 80px;
+        font-size: 14px;
+        right: 10px;
+        bottom: 10px;
+    }
+}
+@media only screen and (max-width:600px){
+    .category-icon{
+        width: 65px;
+        height: 65px;
+        left: -70px;
+        bottom: -30px;
+    }
+    .class-detail-head{
+        height: 100px;
+    }
+    .class-head-text{
+        font-size: 12px;
+    }
+    .head-text-detail{
+        font-size: 6px;
+    }
+    .new-class-register{
+        width: 40px;
+        font-size: 6px;
+        right: 10px;
+    }
+    .class-detail-body{
+        padding: 10px;
+    }
+    .detail-body-head{
+        height: 50px;
+    }
+    .class-detail-body>h6{
+        font-size: 14px;
+    }
+    .section-class-detail{
+        border-bottom: 0.5px solid #000;
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+    }
+    .section-class-detail> .section-option{
+        color: #000;
+        font-size: 10px;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+    .section-class-detail> .option-selected{
+        color: #5784BA;
+        border-bottom: 3px solid #5784BA;
+    }
+}

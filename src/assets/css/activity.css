@@ -1,0 +1,324 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    display: flex;
+}
+header img{
+    width: 20px;
+    height: 30px;
+    margin-right: 10px;
+}
+.menu-profile{
+    background-color: #5784BA;
+    color: #fff;
+}
+.menu_activity{
+    background-color: #fff;
+    color: #000;
+}
+.menu_activity img{
+    filter: invert(1);
+}
+/* =================================== */
+.my-class{
+    font-family: Montserrat;
+    /* border: 2px solid black; */
+}
+main{
+    background-color: transparent;
+    font-family: Montserrat;
+    height: fit-content;
+}
+h3,h6{
+    font-weight: bolder;
+}
+table{
+    width: 100%;
+}
+.my-class>h6:first-child{
+    padding-left: 20px;
+}
+thead>tr>th{
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+}
+tbody>tr{
+    background-color: #fff;
+    border-bottom: 2px solid #E6EDF6;
+}
+tbody>tr:hover{
+    cursor: pointer;
+}
+tr>th:first-child{
+    padding-left: 20px;
+}
+tr>td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 20px;
+}
+tr>td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 8px 4px 6px -6px #ccc;    
+}
+tbody>tr>td{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    position: relative;
+    box-shadow: 0px 4px 6px -6px #ccc;
+}
+.ellipsis-td{
+    border: 2px solid red;
+}
+.my-class tbody>tr>td:nth-child(4){
+    width: 20%;
+    min-width: 20px;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.new-class tbody>tr>td:nth-child(3){
+    width: 20%;
+    min-width: 50px;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+tfoot>tr{
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+tfoot>tr>td>a{
+    text-decoration: none;
+    color: #000;
+}
+.status-my-class{
+    border-radius: 20px;
+    background-color: #D2DEED;
+    color: #5784BA;
+    text-align: center;
+}
+/* ===================percentage====================== */
+
+.progress {
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+    color: #5784BA;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #FFF;
+    text-align: center;
+    line-height: 40px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.progress::after {
+    content: "%";
+}
+.progress .title {
+    position: relative;
+    padding-left: 8px;
+    z-index: 2;
+    box-sizing: border-box;
+}
+.progress .overlay {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #FFF;
+    box-sizing: border-box;
+}
+.progress .left,
+.progress .right {
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 3px solid #5784BA;
+    border-radius: 20px 0px 0px 20px;
+    border-right: 0;
+    transform-origin: right;
+}
+.right{
+    transform: rotate(0deg);
+    z-index: 0;
+}
+.left{
+    transform: rotate(0deg);
+    z-index: 0;
+}
+/* ============================================ */
+.new-class-register{
+    background-color: #57BA61;
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.new-class{
+    background-color: #fff;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+}
+.search-new-class{
+    box-sizing: border-box;
+    position: relative;
+}
+input[name="input-search"]{
+    padding: 5px;
+    padding-left: 25px;
+    width: calc(100% - 80px);
+}
+label[for="input-search"]{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.btn-search{
+    position: absolute;
+    background-color: #5784BA;
+    color: #fff;
+    width: 80px;
+    height: inherit;
+    margin-left: 0;
+}
+.search-filter{
+    background-color: #EEEEEE;
+    border-radius: 0 0 10px 10px;
+}
+.search-filter>div{
+    display: inline-block;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 5px;
+}
+.search-filter>div>img{
+    margin-left: 5px;
+    width: 10px;
+    height: 15px;
+    transform: rotate(270deg);
+}
+.footer-table-newclass{
+    display: flex; 
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    position: relative;
+}
+.list-page-newclass{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0px;
+}
+.list-page-newclass>div{
+    margin-left: 5px;
+}
+.list-page-newclass .rectangle-shadow{
+    background-color: #fff;
+    text-align: center;
+    width: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.288);    
+}
+.list-page-newclass .rectangle-shadow:hover{
+    color: #fff;
+    background-color: #5784BA;
+}
+.list-page-newclass .rectangle_on{
+    color: #fff;
+    background-color: #5784BA;
+}
+@media only screen and (max-width: 1024px){
+    thead>tr>th{
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px;
+    }
+    tbody>tr>td{
+        font-size: 10px;
+        font-weight: 400;
+        padding: 10px;
+    }
+    tfoot>tr{
+        font-size: 8px;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 900px){
+    .my-class tr>th:nth-child(3),.my-class tr>th:nth-child(4),.my-class tr>th:nth-child(6){
+        display: none;
+    }
+    .my-class tr>td:nth-child(3),.my-class tr>td:nth-child(4),.my-class tr>td:nth-child(6){
+        display: none;
+    }
+    .my-class tfoot>tr>td{
+        column-span: 5;
+    }
+    .new-class tr>th:nth-child(2),.new-class tr>th:nth-child(3){
+        display: none;
+    }
+    .new-class tr>td:nth-child(2),.new-class tr>td:nth-child(3){
+        display: none;
+    }
+    .footer-table-newclass{
+        font-size: 10px;
+    }
+    thead>tr>th{
+        font-size: 12px;
+        font-weight: 500;
+        padding: 5px;
+    }
+    tbody>tr>td{
+        font-size: 8px;
+        font-weight: 400;
+        padding: 5px;
+    }
+    tfoot>tr{
+        font-size: 10x;
+        font-weight: 300;
+        text-align: center;
+    }
+    .list-page-newclass .rectangle-shadow{
+        background-color: #fff;
+        text-align: center;
+        width: 10px;
+        border-radius: 5px;
+        font-size: 10px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.288);    
+    }
+    .list-page-newclass .rectangle_on{
+        color: #fff;
+        background-color: #5784BA;
+    }
+    input[name="input-search"]{
+        font-size: 10px;
+    }
+    label[for="input-search"]{
+        position: absolute;
+        left: 5px;
+        top: 2px;
+    }
+    .btn-search{
+        font-size: 10px;
+        position: absolute;
+    }
+}

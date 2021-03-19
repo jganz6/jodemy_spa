@@ -1,0 +1,101 @@
+.search-my-class{
+    box-sizing: border-box;
+    position: relative;
+}
+.search-my-class input[type="search"]{
+    width: calc(100% - 290px);
+    border: none;
+    border-radius: 5px;
+}
+.btn-search{
+    right: 200px;
+}
+.my-class-sort{
+    background: linear-gradient(90deg,#fff 86%,#E9E9E9 14%);
+    display: flex;
+    flex-direction: row;
+    width: 190px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    align-items: center;
+    border-radius: 10px;
+}
+.my-class-sort>label{
+    color: #9A9A9A;
+    font-size: 10px;
+}
+.my-class-sort select{
+    border: none;
+    height: inherit;
+    background-color: transparent;
+}
+.my-class-sort select::after{
+    border: none;
+}
+/* .my-class-sort .arrow-down{
+    position: absolute;
+    right: 0;
+    width: 20px;
+    text-align: center;
+    height: inherit;
+    box-sizing: border-box;
+    background-color: #E9E9E9;
+}
+.my-class-sort .arrow-down img{
+    width: 5px;
+    height: 10px;
+    transform: rotate(-90deg);
+} */
+@media only screen and (max-width: 767px){
+    .my-class-sort{
+        background: linear-gradient(90deg,#fff 80%,#E9E9E9 20%);
+        width: 130px;
+        padding-left: 15px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        align-items: center;
+        border-radius: 10px;
+        font-size: 8px;
+    }
+    .my-class-sort>label{
+        color: #9A9A9A;
+        font-size: 8px;
+    }
+    .my-class-sort select{
+        border: none;
+        height: inherit;
+        background-color: transparent;
+    }
+    .my-class-sort select::after{
+        border: none;
+    }
+    .search-my-class{
+        box-sizing: border-box;
+        position: relative;
+        height: 30px;
+    }
+    .search-my-class input[type="search"]{
+        width: calc(100% - 170px);
+        border: none;
+        font-size: 8px;
+        height: 100%;
+        border-radius: 5px;
+    }
+    .btn-search{
+        width: 40px;
+        padding: 0;
+        height: 100%;
+        font-size: 10px;
+        right: 130px;
+    }
+    .search-my-class>label{
+        top: 2px;
+    }
+}

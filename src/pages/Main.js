@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import "./../css/style.css";
 import Profile from "./../components/Profile";
+import Activity from "./../components/Activity";
 
 export class Main extends Component {
   state = {
     userName: "",
     value: "",
+    content: "",
   };
   componentDidMount() {
     const { history, match, location } = this.props;
+    this.setState({ content: match.params.content });
     const action = () => history.push(`/`);
     const dataAkun = {
       email: "jodiemanopo28@gmail.com",
@@ -29,7 +32,7 @@ export class Main extends Component {
     console.log("unmount Main");
   }
   render() {
-    const dash_board = () => (
+    return (
       <div className="App_Main">
         <div className="nav-bar">
           <button id="btn-nav" type="button">
@@ -76,12 +79,20 @@ export class Main extends Component {
               </div>
             </div>
           </nav>
-          <Profile userName={this.state.userName} />
+          <ContentList data={this.state.content} />
         </div>
       </div>
     );
-    return dash_board();
   }
 }
-
+const ContentList = (props) => {
+  console.log(props.data);
+  let result = <Profile />;
+  if (props.data === "Dashboard") {
+    result = <Profile />;
+  } else if (props.data === "Activity") {
+    result = <Activity />;
+  }
+  return result;
+};
 export default Main;

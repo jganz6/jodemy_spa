@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./../css/style.css";
 import Profile from "./../components/Profile";
 import Activity from "./../components/Activity";
+import Dashboard from "./../components/Dashboard";
 
 export class Main extends Component {
   state = {
@@ -40,6 +41,12 @@ export class Main extends Component {
             &#x2630;
           </button>
         </div>
+        <button id="btn-chat" className="btn-chat" type="button">
+          <img
+            src="http://localhost:3000/assets/dashboard/chat.png"
+            alt="btn_chat.png"
+          />
+        </button>
         <div className="container-fluid">
           <nav id="nav-side" className="menu-main">
             <div className="menu-profile">
@@ -98,10 +105,12 @@ export class Main extends Component {
 const ContentList = (props) => {
   console.log(props.data);
   let result = null;
-  if (props.data.content === "Dashboard") {
+  if (props.data.content === "Profile") {
     result = <Profile userName={props.data.userName} />;
   } else if (props.data.content === "Activity") {
     result = <Activity />;
+  } else if (props.data.content === "Dashboard") {
+    result = <Dashboard />;
   }
   return result;
 };

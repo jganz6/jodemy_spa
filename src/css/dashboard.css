@@ -31,6 +31,8 @@ main.Dashboard {
     display: none;
     background-color: #5784BA;
     z-index: 2;
+    width: fit-content;
+    height: fit-content;
     position: fixed;
     top: 0;
     right: 0;

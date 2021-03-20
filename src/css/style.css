@@ -51,8 +51,10 @@
     height: 50%;
     border-radius: inherit;
 }
-.App_Main>.container-fluid main{
+.App_Main>.container-fluid main.Profile, .App_Main>.container-fluid main.Activity{
     width: calc(100% - 270px);
+}
+.App_Main>.container-fluid main{
     margin: 20px;
     margin-left: 270px;
     background-color: #fff;

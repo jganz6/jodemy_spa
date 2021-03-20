@@ -195,7 +195,10 @@ function Dashboard() {
         <div className="message-list">
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo1.png" alt="photo1.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo1.png"
+                alt="photo1.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Nissa Sabyan</div>
@@ -205,7 +208,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo2.png" alt="photo2.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo2.png"
+                alt="photo2.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Rio Dewanto</div>
@@ -215,7 +221,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo3.png" alt="photo3.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo3.png"
+                alt="photo3.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Discussion Group 21 (5)</div>
@@ -227,7 +236,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo4.png" alt="photo4.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo4.png"
+                alt="photo4.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Isyana Sarasvati</div>
@@ -237,7 +249,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo5.png" alt="photo5.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo5.png"
+                alt="photo5.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Tompi</div>
@@ -247,7 +262,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo6.png" alt="photo6.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo6.png"
+                alt="photo6.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">
@@ -261,7 +279,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo7.png" alt="photo7.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo7.png"
+                alt="photo7.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Peppy</div>
@@ -271,7 +292,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo8.png" alt="photo8.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo8.png"
+                alt="photo8.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Sandra Dewi</div>
@@ -281,7 +305,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo9.png" alt="photo9.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo9.png"
+                alt="photo9.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Reza Rahardian</div>
@@ -291,7 +318,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo10.png" alt="photo10.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo10.png"
+                alt="photo10.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Discussion Group 23 (5)</div>
@@ -303,7 +333,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo11.png" alt="photo11.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo11.png"
+                alt="photo11.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Raissa</div>
@@ -313,7 +346,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo12.png" alt="photo12.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo12.png"
+                alt="photo12.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">dr. Adrian</div>
@@ -323,7 +359,10 @@ function Dashboard() {
           </div>
           <div className="message-detail">
             <div className="message-photo">
-              <img src="assets/photo_profile/photo13.png" alt="photo13.png" />
+              <img
+                src="http://localhost:3000/assets/photo_profile/photo13.png"
+                alt="photo13.png"
+              />
             </div>
             <div className="message-spoiler">
               <div className="message-name">Uus</div>

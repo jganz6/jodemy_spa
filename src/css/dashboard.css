@@ -1,29 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.menu-profile{
+/* .menu-profile {
     background-color: #5784BA;
     color: #fff;
 }
-.menu-profile:hover .notif{
+
+.menu-profile:hover .notif {
     filter: invert(0.6);
 }
-.menu_dashboard{
+
+.menu_dashboard {
     background-color: #fff;
     color: #000;
 }
-.menu_dashboard img{
+
+.menu_dashboard img {
     filter: invert(1);
-}
-main{
+} */
+
+main.Dashboard {
     width: calc(100% - 270px - 30% - 30px);
     background-color: transparent;
     font-family: Montserrat;
     height: fit-content;
 }
+
 /* ====================================== */
-.btn-chat{
+.btn-chat {
     display: none;
     background-color: #5784BA;
     z-index: 2;
@@ -34,7 +38,9 @@ main{
     padding: 10px;
     box-sizing: border-box;
 }
-header, .all-schedule{
+
+main.Dashboard header,
+.all-schedule {
     background-color: #fff;
     border-radius: inherit;
     margin-bottom: 20px;
@@ -43,17 +49,20 @@ header, .all-schedule{
     color: #000;
     width: 100%;
 }
-.news-picture{
+
+.news-picture {
     width: 100%;
     border-radius: 0 0 20px 20px;
     position: relative;
 }
-.news-picture>img{
+
+.news-picture>img {
     width: 100%;
     height: 100%;
     border-radius: inherit;
 }
-.shadow-picture{
+
+.shadow-picture {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -64,35 +73,41 @@ header, .all-schedule{
     height: 50%;
     background: linear-gradient(0deg, #000000 -15.5%, rgba(0, 0, 0, 0) 100%);
 }
-.news-title{
+
+.news-title {
     width: 100%;
     padding: 20px;
     color: #fff;
     font-size: 24px;
 }
-.navigation-point{
+
+.navigation-point {
     display: flex;
     width: 100%;
     justify-content: center;
     padding: 20px;
 }
-.point{
+
+.point {
     width: 10px;
     height: 10px;
     margin-right: 10px;
     background-color: #fff;
     border-radius: 50%;
 }
-.point-selected{
+
+.point-selected {
     width: 20px;
     border-radius: 5px;
     background-color: #5784BA;
 }
-.all-schedule{
+
+.all-schedule {
     height: fit-content;
     padding: 1em;
 }
-.title-schedule{
+
+.title-schedule {
     width: 100%;
     display: flex;
     position: relative;
@@ -100,14 +115,17 @@ header, .all-schedule{
     box-sizing: border-box;
     padding: 1em;
 }
-.date-now{
+
+.date-now {
     font-size: 24px;
 }
-.title-schedule>img{
+
+.title-schedule>img {
     position: absolute;
     right: 0;
 }
-.date-week{
+
+.date-week {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -115,7 +133,8 @@ header, .all-schedule{
     padding-bottom: 15px;
     box-sizing: border-box;
 }
-.day-description{
+
+.day-description {
     display: flex;
     flex-direction: column;
     font-size: 12px;
@@ -126,30 +145,37 @@ header, .all-schedule{
     align-items: center;
     box-sizing: border-box;
 }
-.name-day{
+
+.name-day {
     color: #989898;
     font-weight: 400;
     font-size: 10px;
     margin-bottom: 5px;
 }
-.date-day{
+
+.date-day {
     color: #000;
 }
-.day-selected{
+
+.day-selected {
     background-color: #5784BA;
     font-family: Kanit;
 }
-.day-selected>.name-day,.day-selected>.date-day{
+
+.day-selected>.name-day,
+.day-selected>.date-day {
     color: #fff;
     font-size: 12px;
     font-weight: 400;
 }
-.option-schedule{
+
+.option-schedule {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.option-schedule>a{
+
+.option-schedule>a {
     font-family: Roboto;
     font-weight: 500;
     text-decoration: none;
@@ -157,10 +183,12 @@ header, .all-schedule{
     color: #ADA9BB;
     padding: 5px;
 }
-.option-schedule>a.option-schedule-selected{
+
+.option-schedule>a.option-schedule-selected {
     color: #5784BA;
 }
-.schedule-list{
+
+.schedule-list {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -169,7 +197,8 @@ header, .all-schedule{
     padding-bottom: 20px;
     border-bottom: 2px solid black;
 }
-.finish-label{
+
+.finish-label {
     text-align: center;
     font-family: Roboto;
     font-weight: 500;
@@ -182,7 +211,8 @@ header, .all-schedule{
     box-sizing: border-box;
     position: absolute;
 }
-.layer-time{
+
+.layer-time {
     width: 100%;
     height: fit-content;
     box-sizing: border-box;
@@ -191,26 +221,30 @@ header, .all-schedule{
     border-top: 1px solid black;
     padding-top: 20px;
 }
-.schedule-detail{
+
+.schedule-detail {
     position: relative;
     width: 100%;
     display: flex;
     box-sizing: border-box;
     overflow-x: auto;
 }
-.shadow-right{
+
+.shadow-right {
     position: absolute;
     right: 0;
     top: 20px;
     width: 20px;
     height: calc(100% - 20px);
     box-sizing: border-box;
-    background-image:linear-gradient(270deg, #000000 -512.5%, rgba(0, 0, 0, 0) 100%);
+    background-image: linear-gradient(270deg, #000000 -512.5%, rgba(0, 0, 0, 0) 100%);
 }
-.schedule-detail::-webkit-scrollbar{
+
+.schedule-detail::-webkit-scrollbar {
     display: none;
 }
-.schedule-time{
+
+.schedule-time {
     display: block;
     position: absolute;
     background-color: #fff;
@@ -224,9 +258,10 @@ header, .all-schedule{
     font-weight: 400;
     padding: 5px;
 }
-.schedule-description{
-    position: relative;    
-    background-color:#f0f0f0;
+
+.schedule-description {
+    position: relative;
+    background-color: #f0f0f0;
     min-width: 300px;
     width: 300px;
     height: 180px;
@@ -237,18 +272,21 @@ header, .all-schedule{
     font-weight: 500;
     border-radius: 20px;
 }
-.description-title{
+
+.description-title {
     width: 150px;
     font-size: 20px;
     box-sizing: border-box;
 }
-.class-time{
+
+.class-time {
     font-size: 14px;
     position: absolute;
     bottom: 20px;
     left: 20px;
 }
-.option-description{
+
+.option-description {
     position: absolute;
     width: fit-content;
     height: fit-content;
@@ -257,18 +295,22 @@ header, .all-schedule{
     top: 15px;
     right: 20px;
 }
-.schedule-description>img{
+
+.schedule-description>img {
     position: absolute;
     right: 0;
-    bottom:20px;
+    bottom: 20px;
 }
-.schedule-description>img[src="/assets/dashboard/Math Icon.png"],.schedule-description>img[src="/assets/dashboard/Science Icon.png"]{
+
+.schedule-description>img[src="/assets/dashboard/Math Icon.png"],
+.schedule-description>img[src="/assets/dashboard/Science Icon.png"] {
     width: 150px;
     height: 60%;
     filter: invert(40%) opacity(40%);
 }
+
 /* ===================================== */
-aside{
+aside {
     background-color: #fff;
     border-radius: 20px;
     width: 30%;
@@ -286,10 +328,12 @@ aside{
     top: 0;
     bottom: 0;
 }
+
 aside::-webkit-scrollbar {
     display: none;
 }
-.message-head{
+
+.message-head {
     font-family: Montserrat;
     font-weight: 700;
     width: 85%;
@@ -297,19 +341,22 @@ aside::-webkit-scrollbar {
     position: relative;
     box-sizing: border-box;
 }
-.message-head>img{
+
+.message-head>img {
     position: absolute;
     top: 0;
     right: 0;
 }
-.message-search{
+
+.message-search {
     position: relative;
     width: 80%;
     height: 40px;
     justify-content: center;
     box-sizing: border-box;
 }
-.message-search>input[type="search"]{
+
+.message-search>input[type="search"] {
     width: 100%;
     height: 100%;
     background-color: #E6EDF6;
@@ -317,84 +364,103 @@ aside::-webkit-scrollbar {
     border: none;
     padding-left: 40px;
 }
-.message-search>label[for="message_search"]{
+
+.message-search>label[for="message_search"] {
     position: absolute;
     top: 5px;
     left: 10px;
 }
-.message-search>label[for="message_search"]img{
+
+.message-search>label[for="message_search"]img {
     width: 40px;
     height: 100%;
 }
-.message-photo>img{
+
+.message-photo>img {
     width: 80%;
     height: 100%;
 }
-.message-text{
+
+.message-text {
     font-size: 14px;
     color: #787878;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.message-detail{
+
+.message-detail {
     display: flex;
     padding: 10px;
     box-sizing: border-box;
 }
-.message-name, .message-text, .message-time{
-    width:160px;
-    height:20px;
-    box-sizing:border-box;
+
+.message-name,
+.message-text,
+.message-time {
+    width: 160px;
+    height: 20px;
+    box-sizing: border-box;
     overflow: hidden;
 }
-.message-time{
+
+.message-time {
     color: #787878;
     text-align: right;
     width: 80px;
 }
+
 /* ======================================== */
 
-@media only screen and (max-width:1200px){
-    .news-title{
+@media only screen and (max-width:1200px) {
+    .news-title {
         width: 100%;
         padding-bottom: 0;
         color: #fff;
         font-size: 16px;
     }
-    .message-time{
+
+    .message-time {
         font-size: 10px;
     }
 }
+
 @media only screen and (max-width: 992px) {
-    .btn-chat{
+    .btn-chat {
         display: block;
     }
-    aside{
+
+    aside {
         display: none;
     }
-    main{
+
+    main.Dashboard {
         width: calc(100% - 270px);
         margin-right: 40px;
     }
-    .news-title{
+
+    .news-title {
         width: 100%;
         padding-bottom: 0;
         color: #fff;
         font-size: 20px;
     }
 }
+
 @media only screen and (max-width: 767px) {
-    .btn-chat{
+    .btn-chat {
         background-color: #fff;
     }
-    main{
+
+    main {
         width: calc(100% - 40px);
         margin-right: 20px;
     }
-    .news-title{
+
+    .news-title {
         font-size: 16px;
     }
-    .date-now{
+
+    .date-now {
         font-size: 16px;
     }
 }

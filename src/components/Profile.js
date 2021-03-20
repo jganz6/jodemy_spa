@@ -7,10 +7,13 @@ function profile(props) {
       <header className=" d-flex flex-column justify-content-center align-items-center">
         <div className="profile-picture">
           <img
-            src="./../../assets/Profile-Picture-banner.png"
+            src="http://localhost:3000/assets/Profile-Picture-banner.png"
             alt="profile-pictur"
           />
-          <img src="./../../assets/Edit Icon.png" alt="Edit Icon.png" />
+          <img
+            src="http://localhost:3000/assets/Edit Icon.png"
+            alt="Edit Icon.png"
+          />
         </div>
         <div className="profile-name">{`${props.userName}`}</div>
       </header>
@@ -19,7 +22,7 @@ function profile(props) {
         <div className="profile-option">
           <div className="option-list">
             <img
-              src="./../../assets/profil-settings/Phone Icon.png"
+              src="http://localhost:3000/assets/profil-settings/Phone Icon.png"
               alt="Phone Icon.png"
             />
             <span className="setting_text">Phone Number</span>
@@ -27,7 +30,7 @@ function profile(props) {
           </div>
           <div className="option-list">
             <img
-              src="./../../assets/profil-settings/PIN Icon.png"
+              src="http://localhost:3000/assets/profil-settings/PIN Icon.png"
               alt="PIN Icon.png"
             />
             <span className="setting_text">Change Password</span>
@@ -35,7 +38,7 @@ function profile(props) {
           </div>
           <div className="option-list">
             <img
-              src="./../../assets/profil-settings/Chats Icon.png"
+              src="http://localhost:3000/assets/profil-settings/Chats Icon.png"
               alt="Chats Icon.png"
             />
             <span className="setting_text">Chat settings</span>
@@ -43,7 +46,7 @@ function profile(props) {
           </div>
           <div className="option-list">
             <img
-              src="./../../assets/profil-settings/Notif Icon.png"
+              src="http://localhost:3000/assets/profil-settings/Notif Icon.png"
               alt="Notif Icon.png"
             />
             <span className="setting_text">Push Notification</span>
@@ -51,7 +54,7 @@ function profile(props) {
           </div>
           <div className="option-list">
             <img
-              src="./../../assets/profil-settings/Security Icon.png"
+              src="http://localhost:3000/assets/profil-settings/Security Icon.png"
               alt="Security Icon.png"
             />
             <span className="setting_text">Privacy and Security</span>
@@ -59,7 +62,7 @@ function profile(props) {
           </div>
           <div className="option-list">
             <img
-              src="./../../assets/profil-settings/Storage Icon.png"
+              src="http://localhost:3000/assets/profil-settings/Storage Icon.png"
               alt="Storage Icon.png"
             />
             <span className="setting_text">Data and Storage</span>

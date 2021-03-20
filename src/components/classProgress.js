@@ -6,7 +6,10 @@ function classProgress() {
     <>
       <header>
         <a href="/Activity.html">
-          <img src="./../assets/back-icon.png" alt="back-icon.png" />
+          <img
+            src="http://localhost:3000/assets/back-icon.png"
+            alt="back-icon.png"
+          />
         </a>
         <h3>Know More Javascript</h3>
       </header>
@@ -16,7 +19,7 @@ function classProgress() {
             <div className="class-head-text">
               <div className="category-icon">
                 <img
-                  src="./../assets/activity/Software Icon.png"
+                  src="http://localhost:3000/assets/activity/Software Icon.png"
                   alt="Software Icon.png"
                 />
               </div>

@@ -11,10 +11,16 @@ export class ForgotPassword extends Component {
         <div className="container-fluid">
           <div className="row">
             <button className="back_btn" onClick={this.state.back_action}>
-              <img src="./assets/back-icon.png" alt="back-icon" />
+              <img
+                src="http://localhost:3000/assets/back-icon.png"
+                alt="back-icon"
+              />
             </button>
             <section className="col d-flex flex-column justify-content-center align-items-center section-1">
-              <img src="./assets/user-icon.png" alt="user-icon.png" />
+              <img
+                src="http://localhost:3000/assets/user-icon.png"
+                alt="user-icon.png"
+              />
             </section>
             <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
               <div className="header-reset-password">

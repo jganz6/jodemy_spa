@@ -6,7 +6,10 @@ function myClass() {
     <>
       <header>
         <a href="/Activity.html">
-          <img src="./../assets/back-icon.png" alt="back-icon.png" />
+          <img
+            src="http://localhost:3000/assets/back-icon.png"
+            alt="back-icon.png"
+          />
         </a>
         <h3>My Class</h3>
       </header>
@@ -19,7 +22,10 @@ function myClass() {
             placeholder="Quick Search"
           />
           <label htmlFor="input-search">
-            <img src="./../assets/Search Icon.png" alt="Search Icon.png" />
+            <img
+              src="http://localhost:3000/assets/Search-Icon.png"
+              alt="Search Icon.png"
+            />
           </label>
           <button className="btn btn-search">Search</button>
           <div className="my-class-sort">

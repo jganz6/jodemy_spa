@@ -36,7 +36,7 @@ class Login extends React.Component {
     console.log(this.props);
     console.log(this.state);
     const action = () =>
-      this.props.history.push(`/Main/Dashboard/`, this.state);
+      this.props.history.push(`/Main/Activity/myClass`, this.state);
     action();
     event.preventDefault();
   }

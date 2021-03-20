@@ -9,7 +9,8 @@ const AppWithRouter = () => {
   return (
     <Router>
       <Route path="/" exact component={Login} />
-      <Route path="/Main/:content" component={Main} />
+      <Route path="/Main/:content/" component={Main} />
+      <Route path="/Main/:content/:section" component={Main} />
       <Route path="/ForgotPassword" component={ForgotPassword} />
     </Router>
   );

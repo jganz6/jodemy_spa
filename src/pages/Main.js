@@ -43,11 +43,11 @@ export class Main extends Component {
           <nav id="nav-side" className="menu-main">
             <div className="menu-profile">
               <div className="menu_notif">
-                <img src="./../assets/Notif-icon.png" alt="Notif-Icon.png" />
+                <img src="./../../assets/Notif-icon.png" alt="Notif-Icon.png" />
               </div>
               <div className="menu_picture">
                 <img
-                  src="./../assets/Profile Picture.png"
+                  src="./../../assets/Profile Picture.png"
                   alt=" Profile Pictur"
                 />
               </div>
@@ -57,29 +57,32 @@ export class Main extends Component {
             <div className="menu-list">
               <div className="menu_dashboard">
                 <img
-                  src="./../assets/Dashboard Icon.png"
+                  src="./../../assets/Dashboard Icon.png"
                   alt="Dashboard Icon.png"
                 />
                 <span>Dashboard</span>
               </div>
               <div className="menu_activity">
                 <img
-                  src="./../assets/Activity Icon.png"
+                  src="./../../assets/Activity Icon.png"
                   alt="Activity Icon.png"
                 />
                 <span>Activity</span>
               </div>
               <div className="menu_help">
-                <img src="./../assets/Help Icon.png" alt="Help Icon.png" />
+                <img src="./../../assets/Help Icon.png" alt="Help Icon.png" />
                 <span>Help</span>
               </div>
               <div className="menu_logout">
-                <img src="./../assets/Logout Icon.png" alt="Logout Icon.png" />
+                <img
+                  src="./../../assets/Logout Icon.png"
+                  alt="Logout Icon.png"
+                />
                 <span>Logout</span>
               </div>
             </div>
           </nav>
-          <ContentList data={this.state.content} />
+          <ContentList data={this.state} />
         </div>
       </div>
     );
@@ -88,9 +91,9 @@ export class Main extends Component {
 const ContentList = (props) => {
   console.log(props.data);
   let result = <Profile />;
-  if (props.data === "Dashboard") {
-    result = <Profile />;
-  } else if (props.data === "Activity") {
+  if (props.data.content === "Dashboard") {
+    result = <Profile userName={props.data.userName} />;
+  } else if (props.data.content === "Activity") {
     result = <Activity />;
   }
   return result;

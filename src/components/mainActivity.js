@@ -154,20 +154,21 @@ function mainActivity() {
             placeholder="Quick Search"
           />
           <label htmlFor="input-search">
-            <img src="./../assets/Search Icon.png" alt="Search Icon.png" />
+            <img src="./../../assets/Search Icon.png" alt="Search Icon.png" />
           </label>
           <button className="btn btn-search">Search</button>
         </div>
         <div className="search-filter">
           <div>
             Categories{" "}
-            <img src="./../assets/back-icon.png" alt="back-icon.png" />
+            <img src="./../../assets/back-icon.png" alt="back-icon.png" />
           </div>
           <div>
-            Level <img src="./../assets/back-icon.png" alt="back-icon.png" />
+            Level <img src="./../../assets/back-icon.png" alt="back-icon.png" />
           </div>
           <div>
-            Pricing <img src="./../assets/back-icon.png" alt="back-icon.png" />
+            Pricing{" "}
+            <img src="./../../assets/back-icon.png" alt="back-icon.png" />
           </div>
         </div>
         <table>

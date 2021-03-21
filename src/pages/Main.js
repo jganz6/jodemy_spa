@@ -8,13 +8,26 @@ export class Main extends Component {
   state = {
     userName: "",
     value: "",
-    content: "",
-    content2: "",
+    buttonList: [
+      {
+        buttonAction: () => this.props.history.push(`/Main/Profile`),
+      },
+      {
+        buttonAction: () => this.props.history.push(`/Main/Dashboard`),
+      },
+      {
+        buttonAction: () => this.props.history.push(`/Main/Activity/v1`),
+        buttonAction1: () => this.props.history.push(`/Main/Activity/v2`),
+        buttonAction2: () => this.props.history.push(`/Main/Activity/v3`),
+        buttonAction3: () => this.props.history.push(`/Main/Activity/v4`),
+      },
+      {
+        buttonAction: () => this.props.history.push(`/`),
+      },
+    ],
   };
   componentDidMount() {
-    const { history, match, location } = this.props;
-    this.setState({ content: match.params.content });
-    this.setState({ content2: match.params.content2 });
+    const { history, location } = this.props;
     const action = () => history.push(`/`);
     const dataAkun = {
       email: "jodiemanopo28@gmail.com",
@@ -30,10 +43,14 @@ export class Main extends Component {
       action();
     }
   }
+  componentDidUpdate() {
+    console.log("update");
+  }
   componentWillUnmount() {
     console.log("unmount Main");
   }
   render() {
+    const { match } = this.props;
     return (
       <div className="App_Main">
         <div className="nav-bar">
@@ -49,11 +66,23 @@ export class Main extends Component {
         </button>
         <div className="container-fluid">
           <nav id="nav-side" className="menu-main">
-            <div className="menu-profile">
+            <div
+              className={
+                match.params.content === "Profile"
+                  ? "menu-profile profile-clicked"
+                  : "menu-profile"
+              }
+              onClick={this.state.buttonList[0].buttonAction}
+            >
               <div className="menu_notif">
                 <img
-                  src="http://localhost:3000/assets/Notif-icon.png"
-                  alt="Notif-Icon.png"
+                  className="notif"
+                  src={
+                    match.params.content === "Profile"
+                      ? "http://localhost:3000/assets/Notif-Icon.png"
+                      : "http://localhost:3000/assets/white-notif-icon.png"
+                  }
+                  alt="notif-Icon"
                 />
               </div>
               <div className="menu_picture">
@@ -66,14 +95,28 @@ export class Main extends Component {
               <div className="menu_status">online</div>
             </div>
             <div className="menu-list">
-              <div className="menu_dashboard">
+              <div
+                className={
+                  match.params.content === "Dashboard"
+                    ? "menu_dashboard menu-list-clicked"
+                    : "menu_dashboard"
+                }
+                onClick={this.state.buttonList[1].buttonAction}
+              >
                 <img
                   src="http://localhost:3000/assets/Dashboard Icon.png"
                   alt="Dashboard Icon.png"
                 />
                 <span>Dashboard</span>
               </div>
-              <div className="menu_activity">
+              <div
+                className={
+                  match.params.content === "Activity"
+                    ? "menu_activity menu-list-clicked"
+                    : "menu_activity"
+                }
+                onClick={this.state.buttonList[2].buttonAction}
+              >
                 <img
                   src="http://localhost:3000/assets/Activity Icon.png"
                   alt="Activity Icon.png"
@@ -87,7 +130,10 @@ export class Main extends Component {
                 />
                 <span>Help</span>
               </div>
-              <div className="menu_logout">
+              <div
+                className="menu_logout"
+                onClick={this.state.buttonList[3].buttonAction}
+              >
                 <img
                   src="http://localhost:3000/assets/Logout Icon.png"
                   alt="Logout Icon.png"
@@ -96,7 +142,11 @@ export class Main extends Component {
               </div>
             </div>
           </nav>
-          <ContentList data={this.state} />
+          <ContentList
+            data={this.state}
+            content={match.params.content}
+            content2={match.params.content2}
+          />
         </div>
       </div>
     );
@@ -105,11 +155,13 @@ export class Main extends Component {
 const ContentList = (props) => {
   console.log(props.data);
   let result = null;
-  if (props.data.content === "Profile") {
+  if (props.content === "Profile") {
     result = <Profile userName={props.data.userName} />;
-  } else if (props.data.content === "Activity") {
-    result = <Activity />;
-  } else if (props.data.content === "Dashboard") {
+  } else if (props.content === "Activity") {
+    result = (
+      <Activity content2={props.content2} buttonList={props.data.buttonList} />
+    );
+  } else if (props.content === "Dashboard") {
     result = <Dashboard />;
   }
   return result;

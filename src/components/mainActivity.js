@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function mainActivity() {
+function mainActivity(props) {
   return (
     <>
       <header>
@@ -138,7 +139,7 @@ function mainActivity() {
           <tfoot>
             <tr>
               <td colSpan="8">
-                <a href="/My-class.html">{`view all >`}</a>
+                <Link to="/Main/Activity/v2">{`view all >`}</Link>
               </td>
             </tr>
           </tfoot>
@@ -195,7 +196,7 @@ function mainActivity() {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr onClick={props.buttonList[2].buttonAction2}>
               <td>Know more Javascript</td>
               <td>Software</td>
               <td>Javascript from the basic for...</td>

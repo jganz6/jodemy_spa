@@ -1,5 +1,6 @@
 import React from "react";
 import "./../css/class-detail.css";
+import { Link } from "react-router-dom";
 
 function classDetail() {
   return (
@@ -39,9 +40,9 @@ function classDetail() {
             <a href="/" className="section-option option-selected">
               Information
             </a>
-            <a href="/Class-progress.html" className="section-option">
+            <Link to="/Main/Activity/v4" className="section-option">
               Class Progress
-            </a>
+            </Link>
             <a href="/" className="section-option">
               Class Discussion
             </a>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./../css/class-progress.css";
+import { Link } from "react-router-dom";
 
 function classProgress() {
   return (
@@ -39,9 +40,9 @@ function classProgress() {
             <div className="line-percent">80% to complete</div>
           </div>
           <div className="section-class-detail">
-            <a href="/Class-detail.html" className="section-option">
+            <Link to="/Main/Activity/v3" className="section-option">
               Information
-            </a>
+            </Link>
             <a href="/" className="section-option option-selected">
               Class Progress
             </a>

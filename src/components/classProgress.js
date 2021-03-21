@@ -6,12 +6,12 @@ function classProgress() {
   return (
     <>
       <header>
-        <a href="/Activity.html">
+        <Link to="/Main/Activity/v1">
           <img
             src="http://localhost:3000/assets/back-icon.png"
             alt="back-icon.png"
           />
-        </a>
+        </Link>
         <h3>Know More Javascript</h3>
       </header>
       <div className="class-detail">

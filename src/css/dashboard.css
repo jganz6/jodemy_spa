@@ -453,7 +453,7 @@ aside::-webkit-scrollbar {
         background-color: #fff;
     }
 
-    main.Dashboard {
+    .App_Main>.container-fluid main.Dashboard {
         width: calc(100% - 40px);
         margin-right: 20px;
     }

@@ -1,16 +1,17 @@
 import React from "react";
 import "./../css/my-class.css";
+import { Link } from "react-router-dom";
 
 function myClass() {
   return (
     <>
       <header>
-        <a href="/Activity.html">
+        <Link to="/Main/Activity/v1">
           <img
             src="http://localhost:3000/assets/back-icon.png"
             alt="back-icon.png"
           />
-        </a>
+        </Link>
         <h3>My Class</h3>
       </header>
       <div className="my-class" style={{ overflowX: "auto" }}>
@@ -23,7 +24,7 @@ function myClass() {
           />
           <label htmlFor="input-search">
             <img
-              src="http://localhost:3000/assets/Search-Icon.png"
+              src="http://localhost:3000/assets/Search Icon.png"
               alt="Search Icon.png"
             />
           </label>

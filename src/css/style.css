@@ -22,6 +22,9 @@
     color: #5784BA;
     background-color: #fff;
 }
+.btn-none{
+    display: none;
+}
 .container-fluid{
     padding:0;
     height: 100%;
@@ -61,7 +64,7 @@
 .App_Main>.container-fluid main.profile, .App_Main>.container-fluid main.Activity{
     width: calc(100% - 270px);
 }
-.App_Main>.container-fluid main{
+.App_Main>.container-fluid main.profile, .App_Main>.container-fluid main.Activity, .App_Main>.container-fluid main.Dashboard{
     margin: 20px;
     margin-left: 270px;
     background-color: #fff;
@@ -159,7 +162,7 @@
         left: -250px;
         display: none;
     }
-    .App_Main>.container-fluid main.profile, .App_Main>.container-fluid main.Activity{
+    .App_Main>.container-fluid main.profile, .App_Main>.container-fluid main.Activity, .App_Main>.container-fluid main.Dashboard{
         width: calc(100% - 40px);
         max-width: 100vw;
         margin-left: 20px;

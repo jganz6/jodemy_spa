@@ -1,14 +1,29 @@
 .search-my-class{
     box-sizing: border-box;
     position: relative;
+    margin-bottom: 1em;
 }
 .search-my-class input[type="search"]{
     width: calc(100% - 290px);
     border: none;
+    padding: 5px;
+    padding-left: 25px;
     border-radius: 5px;
 }
+
 .search-my-class .btn-search{
-    right: 200px;
+    margin-top: 0;
+    position: absolute;
+    background-color: #5784BA;
+    color: #fff;
+    width: 80px;
+    height: 100%;
+    margin-right: 200px;
+}
+.search-my-class> label{
+    position: absolute;
+    left: 5px;
+    top: 3px;
 }
 .my-class-sort{
     background: linear-gradient(90deg,#fff 86%,#E9E9E9 14%);
@@ -79,7 +94,7 @@
         padding: 0;
         height: 100%;
         font-size: 10px;
-        right: 130px;
+        margin-right: 180px;
     }
     .search-my-class>label{
         top: 2px;

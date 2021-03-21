@@ -32,7 +32,7 @@ export class Main extends Component {
     const dataAkun = {
       email: "jodiemanopo28@gmail.com",
       password: "henning1915",
-      username: "jodie soluna manopo",
+      username: "Jodie Soluna Manopo",
     };
     if (
       location.state.value === dataAkun.email &&
@@ -58,7 +58,13 @@ export class Main extends Component {
             &#x2630;
           </button>
         </div>
-        <button id="btn-chat" className="btn-chat" type="button">
+        <button
+          id="btn-chat"
+          className={
+            match.params.content === "Dashboard" ? "btn-chat" : "btn-none"
+          }
+          type="button"
+        >
           <img
             src="http://localhost:3000/assets/dashboard/chat.png"
             alt="btn_chat.png"

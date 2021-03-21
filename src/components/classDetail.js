@@ -6,12 +6,12 @@ function classDetail() {
   return (
     <>
       <header>
-        <a href="/Activity.html">
+        <Link to="/Main/Activity/v1">
           <img
             src="http://localhost:3000/assets/back-icon.png"
             alt="back-icon.png"
           />
-        </a>
+        </Link>
         <h3>Know More Javascript</h3>
       </header>
       <div className="class-detail">
@@ -48,7 +48,7 @@ function classDetail() {
             </a>
           </div>
           <h6>Description</h6>
-          <div>
+          <div className="class-descption-text">
             Javascript from the basic for beginner. JavaScript is a programming
             language that adds interactivity to your website. This happens in
             games, in the behavior of responses when buttons are pressed or with
@@ -57,7 +57,7 @@ function classDetail() {
             understanding of what is possible.
           </div>
           <h6>What will I learn?</h6>
-          <div>
+          <div className="class-descption-text">
             <ul>
               <li>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
@@ -80,7 +80,7 @@ function classDetail() {
             </ul>
           </div>
           <h6>Content 2</h6>
-          <div>
+          <div className="class-descption-text">
             <ul>
               <li>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,

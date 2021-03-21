@@ -320,3 +320,8 @@ tfoot>tr>td>a{
         position: absolute;
     }
 }
+@media only screen and (max-width: 768px){
+    main.Activity header h3{
+        font-size: 20px;
+    }
+}

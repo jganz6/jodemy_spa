@@ -46,22 +46,26 @@ class Login extends React.Component {
           <main className="d-flex flex-column align-items-center justify-content-center">
             <h2>Login</h2>
             <form className="main-form" onSubmit={this.handleSubmit}>
-              <input
-                type="email"
-                name="input-email"
-                placeholder="Example@gmail.com"
-                value={this.state.value}
-                onChange={(e) => this.setState({ value: e.target.value })}
-              />
-              <label htmlFor="input-email">Email</label>
-              <input
-                type="password"
-                name="input-password"
-                placeholder="password"
-                value={this.state.password}
-                onChange={(e) => this.setState({ password: e.target.value })}
-              />
-              <label htmlFor="input-password">Password</label>
+              <div className="box-input">
+                <input
+                  type="email"
+                  name="input-email"
+                  placeholder="Example@gmail.com"
+                  value={this.state.value}
+                  onChange={(e) => this.setState({ value: e.target.value })}
+                />
+                <label htmlFor="input-email">Email</label>
+              </div>
+              <div className="box-input">
+                <input
+                  type="password"
+                  name="input-password"
+                  placeholder="password"
+                  value={this.state.password}
+                  onChange={(e) => this.setState({ password: e.target.value })}
+                />
+                <label htmlFor="input-password">Password</label>
+              </div>
               <button className="eye-visibility" type="button">
                 <img src={eye_icon} alt="eye-icon.png" />
               </button>

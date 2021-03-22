@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./../css/FacilitatorPops.css";
 
 function FacilitatorMember() {
   return (
@@ -52,70 +53,152 @@ function FacilitatorMember() {
               Member
             </Link>
           </div>
-          <div className="popsScoringMember" style={{ display: "none" }}>
-            <div className="header-popsScoringMember">
-              <img
-                src="http://localhost:3000/assets/photo_profile/photo14.png"
-                alt="photo14"
-              />
-              Deddy Corbuzier
-              <div>X</div>
+          <div className="pops-background" style={{ display: "none" }}>
+            <div className="popsScoringMember">
+              <div className="header-popsScoringMember">
+                <img
+                  src="http://localhost:3000/assets/photo_profile/photo14.png"
+                  alt="photo14"
+                />
+                Deddy Corbuzier
+                <button className="closePops">X</button>
+              </div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>HTML Essential Training</td>
+                    <td className="scoreColor" style={{ color: "#2BE7D0" }}>
+                      100
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>CSS Essential Training</td>
+                    <td className="scoreColor" style={{ color: "#E7852B" }}>
+                      42
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Javascript Essential Training</td>
+                    <td className="scoreColor" style={{ color: "#E6422B" }}>
+                      21
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Responsive Layout</td>
+                    <td className="scoreColor" style={{ color: "#2BE7D0" }}>
+                      98
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mid-term Exam</td>
+                    <td className="scoreColor" style={{ color: "#51E72B" }}>
+                      86
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Learning React.js</td>
+                    <td>
+                      <div className="unfinished">Unfinished</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>UX for Web Design</td>
+                    <td>
+                      <div className="unfinished">Unfinished</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Final-term Exam</td>
+                    <td>
+                      <div className="unfinished">Unfinished</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <table>
-              <tbody>
-                <tr>
-                  <td>HTML Essential Training</td>
-                  <td className="scoreColor" style={{ color: "#2BE7D0" }}>
-                    100
-                  </td>
-                </tr>
-                <tr>
-                  <td>CSS Essential Training</td>
-                  <td className="scoreColor" style={{ color: "#E7852B" }}>
-                    42
-                  </td>
-                </tr>
-                <tr>
-                  <td>Javascript Essential Training</td>
-                  <td className="scoreColor" style={{ color: "#E6422B" }}>
-                    21
-                  </td>
-                </tr>
-                <tr>
-                  <td>Responsive Layout</td>
-                  <td className="scoreColor" style={{ color: "#2BE7D0" }}>
-                    98
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mid-term Exam</td>
-                  <td className="scoreColor" style={{ color: "#51E72B" }}>
-                    86
-                  </td>
-                </tr>
-                <tr>
-                  <td>Learning React.js</td>
-                  <td>
-                    <div className="unfinished">Unfinished</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>UX for Web Design</td>
-                  <td>
-                    <div className="unfinished">Unfinished</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Final-term Exam</td>
-                  <td>
-                    <div className="unfinished">Unfinished</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
           <table>
             <tbody>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    alt="photo14"
+                  />
+                </td>
+                <td>Deddy Cobuzier</td>
+                <td>&#x22EE;</td>
+              </tr>
               <tr>
                 <td>
                   <img

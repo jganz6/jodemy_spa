@@ -447,7 +447,31 @@ aside::-webkit-scrollbar {
         font-size: 20px;
     }
 }
-
+.schedule-facilitator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.monthYear{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.btn-plusNewTask{
+    border: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5784BA;
+}
+.btn-plusNewTask:focus{
+    border: none;
+}
 @media only screen and (max-width: 767px) {
     .btn-chat {
         background-color: #fff;

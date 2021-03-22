@@ -3,6 +3,7 @@ import "./../css/style.css";
 import Profile from "./../components/Profile";
 import Activity from "./../components/Activity";
 import Dashboard from "./../components/Dashboard";
+import DashboardFacilitator from "./../components/DashboardFacilitator";
 
 export class Main extends Component {
   state = {
@@ -14,6 +15,7 @@ export class Main extends Component {
       },
       {
         buttonAction: () => this.props.history.push(`/Main/Dashboard`),
+        buttonAction1: () => this.props.history.push(`/Main/Dashboard/f1`),
       },
       {
         buttonAction: () => this.props.history.push(`/Main/Activity/v1`),
@@ -109,7 +111,7 @@ export class Main extends Component {
                     ? "menu_dashboard menu-list-clicked"
                     : "menu_dashboard"
                 }
-                onClick={this.state.buttonList[1].buttonAction}
+                onClick={this.state.buttonList[1].buttonAction1}
               >
                 <img
                   src="http://localhost:3000/assets/Dashboard Icon.png"
@@ -170,7 +172,11 @@ const ContentList = (props) => {
       <Activity content2={props.content2} buttonList={props.data.buttonList} />
     );
   } else if (props.content === "Dashboard") {
-    result = <Dashboard />;
+    if (props.content2 === "f1") {
+      result = <DashboardFacilitator />;
+    } else {
+      result = <Dashboard />;
+    }
   }
   return result;
 };

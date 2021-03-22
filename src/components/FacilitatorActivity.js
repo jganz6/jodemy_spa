@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./../css/activity-facilitator.css";
 
 function FacilitatorActivity() {
   return (
@@ -83,6 +84,59 @@ function FacilitatorActivity() {
             </tr>
           </tfoot>
         </table>
+      </div>
+      <div className="create-new-class">
+        <h6>Create New Class</h6>
+        <form>
+          <div className="flex-box-input">
+            <div className="box-create-class">
+              <div className="input-create-class">
+                <label for="cn">Class Name</label>:
+                <input name="cn" type="text" />
+              </div>
+              <div className="input-create-class">
+                <label for="categories">Categories</label>:
+                <select name="categories">
+                  <option value="software">Software</option>
+                  <option value="history">History</option>
+                  <option value="finance">Finance</option>
+                  <option value="science">Science</option>
+                  <option value="math">Math</option>
+                </select>
+              </div>
+            </div>
+            <div className="box-create-class">
+              <div className="input-create-class">
+                <div>Pricing :</div>
+                <div>
+                  <input type="radio" name="free" value="free" />
+                  <label for="free">Free</label>
+                  <input type="radio" name="paid" value="paid" />
+                  <label for="paid">Paid</label>
+                </div>
+              </div>
+              <div className="input-create-class">
+                <div>Schedule</div>:
+                <div>
+                  <select name="schedule-select">
+                    <option value="friday">Friday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="monday">Monday</option>
+                  </select>
+                  <input type="time" value="00:00" /> -{" "}
+                  <input type="time" value="00:00" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="input-text-area">
+            <label>Description</label>
+            <textarea rows="10" cols="100"></textarea>
+          </div>
+          <button type="submit">Create</button>
+        </form>
       </div>
     </>
   );

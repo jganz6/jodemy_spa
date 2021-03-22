@@ -1,0 +1,70 @@
+.create-new-class>form{
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px;
+    position: inherit;
+    padding-bottom: 80px;
+}
+.flex-box-input, .box-input-create-class, .input-create-class{
+    box-sizing: border-box;
+}
+.flex-box-input{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.box-create-class{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.input-create-class{
+    display: flex;
+    flex-direction: row;
+}
+.input-create-class label{
+    width: 30%;
+}
+.input-create-class input, .input-create-class select{
+    align-self:center;
+}
+.input-create-class input{
+    border: none;
+    background-color: transparent;
+}
+.input-text-area{
+    display: flex;
+    flex-direction: column;
+}
+.input-text-area textarea{
+    background-color: #e5e5e5;
+}
+input[type="time"]{
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #e5e5e5;
+}
+input[type="time"]::-webkit-calendar-picker-indicator{
+    display: none;
+}
+.create-new-class>form button[type="submit"]{
+    box-sizing: border-box;
+    width: 30%;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    background-color: #57BA61;
+    color: #fff;
+    position: absolute;
+    right: 40px;
+}
+@media only screen and (max-width:768px){
+    .flex-box-input{
+        flex-direction: column;
+    }
+    .box-create-class{
+        width: 100%;
+    }
+}

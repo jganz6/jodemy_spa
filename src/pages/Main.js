@@ -20,6 +20,7 @@ export class Main extends Component {
         buttonAction1: () => this.props.history.push(`/Main/Activity/v2`),
         buttonAction2: () => this.props.history.push(`/Main/Activity/v3`),
         buttonAction3: () => this.props.history.push(`/Main/Activity/v4`),
+        buttonAction4: () => this.props.history.push(`/Main/Activity/f1`),
       },
       {
         buttonAction: () => this.props.history.push(`/`),
@@ -121,7 +122,7 @@ export class Main extends Component {
                     ? "menu_activity menu-list-clicked"
                     : "menu_activity"
                 }
-                onClick={this.state.buttonList[2].buttonAction}
+                onClick={this.state.buttonList[2].buttonAction4}
               >
                 <img
                   src="http://localhost:3000/assets/Activity Icon.png"

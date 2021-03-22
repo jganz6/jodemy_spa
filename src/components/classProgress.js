@@ -12,7 +12,7 @@ function classProgress() {
             alt="back-icon.png"
           />
         </Link>
-        <h3>Know More Javascript</h3>
+        <h3>Front-end Fundamentals</h3>
       </header>
       <div className="class-detail">
         <div className="class-detail-head">
@@ -24,7 +24,7 @@ function classProgress() {
                   alt="Software Icon.png"
                 />
               </div>
-              <div className="title-class">Know More Javascript</div>
+              <div className="title-class">Front-end Fundamentals</div>
               <div className="head-text-detail">Level : Beginner</div>
               <div className="head-text-detail">Category : Software</div>
               <div className="head-text-detail">Price : Free</div>

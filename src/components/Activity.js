@@ -4,6 +4,7 @@ import MainActivity from "./mainActivity";
 import MyClass from "./myClass";
 import ClassDetail from "./classDetail";
 import ClassProgress from "./classProgress";
+import FacilitatorActivity from "./FacilitatorActivity";
 
 function Activity(props) {
   return (
@@ -22,6 +23,8 @@ function Content2List(props) {
     result = <ClassDetail />;
   } else if (props.content2 === "v4") {
     result = <ClassProgress />;
+  } else if (props.content2 === "f1") {
+    result = <FacilitatorActivity />;
   }
   return result;
 }

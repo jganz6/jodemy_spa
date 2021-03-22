@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./../css/activity-facilitator.css";
 
-function FacilitatorActivity() {
+function FacilitatorActivity(props) {
   return (
     <>
       <header>
@@ -24,7 +24,7 @@ function FacilitatorActivity() {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr onClick={props.buttonList[2].buttonAction5}>
               <td>
                 <input type="checkbox" name="" id="" />
               </td>
@@ -91,11 +91,11 @@ function FacilitatorActivity() {
           <div className="flex-box-input">
             <div className="box-create-class">
               <div className="input-create-class">
-                <label for="cn">Class Name</label>:
+                <label htmlFor="cn">Class Name</label>:
                 <input name="cn" type="text" />
               </div>
               <div className="input-create-class">
-                <label for="categories">Categories</label>:
+                <label htmlFor="categories">Categories</label>:
                 <select name="categories">
                   <option value="software">Software</option>
                   <option value="history">History</option>
@@ -110,23 +110,22 @@ function FacilitatorActivity() {
                 <div>Pricing :</div>
                 <div>
                   <input type="radio" name="free" value="free" />
-                  <label for="free">Free</label>
+                  <label htmlFor="free">Free</label>
                   <input type="radio" name="paid" value="paid" />
-                  <label for="paid">Paid</label>
+                  <label htmlFor="paid">Paid</label>
                 </div>
               </div>
               <div className="input-create-class">
                 <div>Schedule</div>:
                 <div>
                   <select name="schedule-select">
-                    <option value="friday">Friday</option>
-                    <option value="thursday">Thursday</option>
-                    <option value="wednesday">Wednesday</option>
-                    <option value="tuesday">Tuesday</option>
-                    <option value="monday">Monday</option>
+                    <option>Friday</option>
+                    <option>Thursday</option>
+                    <option>Wednesday</option>
+                    <option>Tuesday</option>
+                    <option>Monday</option>
                   </select>
-                  <input type="time" value="00:00" /> -{" "}
-                  <input type="time" value="00:00" />
+                  <input type="time" /> - <input type="time" />
                 </div>
               </div>
             </div>

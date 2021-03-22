@@ -21,6 +21,7 @@ export class Main extends Component {
         buttonAction2: () => this.props.history.push(`/Main/Activity/v3`),
         buttonAction3: () => this.props.history.push(`/Main/Activity/v4`),
         buttonAction4: () => this.props.history.push(`/Main/Activity/f1`),
+        buttonAction5: () => this.props.history.push(`/Main/Activity/f2`),
       },
       {
         buttonAction: () => this.props.history.push(`/`),

@@ -5,6 +5,8 @@ import MyClass from "./myClass";
 import ClassDetail from "./classDetail";
 import ClassProgress from "./classProgress";
 import FacilitatorActivity from "./FacilitatorActivity";
+import FacilitatorClassDetail from "./Facilitator_ClassDetail";
+import FacilitatorMember from "./FacilitatorMember";
 
 function Activity(props) {
   return (
@@ -24,7 +26,11 @@ function Content2List(props) {
   } else if (props.content2 === "v4") {
     result = <ClassProgress />;
   } else if (props.content2 === "f1") {
-    result = <FacilitatorActivity />;
+    result = <FacilitatorActivity buttonList={props.buttonList} />;
+  } else if (props.content2 === "f2") {
+    result = <FacilitatorClassDetail />;
+  } else if (props.content2 === "f3") {
+    result = <FacilitatorMember />;
   }
   return result;
 }

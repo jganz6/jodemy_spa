@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./../css/FacilitatorPops.css";
 
 function FacilitatorMember() {
+  const [modal, setModal] = useState(false);
+  function openPops() {
+    setModal(true);
+  }
+  function closePops() {
+    setModal(false);
+  }
   return (
     <>
       <header>
@@ -53,7 +60,11 @@ function FacilitatorMember() {
               Member
             </Link>
           </div>
-          <div className="pops-background" style={{ display: "none" }}>
+          <div
+            className={
+              modal === true ? "pops-background" : "props-background modalHide"
+            }
+          >
             <div className="popsScoringMember">
               <div className="header-popsScoringMember">
                 <img
@@ -61,7 +72,9 @@ function FacilitatorMember() {
                   alt="photo14"
                 />
                 Deddy Corbuzier
-                <button className="closePops">X</button>
+                <button className="closePops" onClick={closePops}>
+                  X
+                </button>
               </div>
               <table>
                 <tbody>
@@ -119,7 +132,7 @@ function FacilitatorMember() {
           </div>
           <table>
             <tbody>
-              <tr>
+              <tr onClick={openPops}>
                 <td>
                   <img
                     src="http://localhost:3000/assets/photo_profile/photo14.png"

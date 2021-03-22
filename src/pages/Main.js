@@ -29,6 +29,23 @@ export class Main extends Component {
         buttonAction: () => this.props.history.push(`/`),
       },
     ],
+    statusNav: false,
+    chat: false,
+    styleChat: {
+      display: "flex",
+      right: "-20px",
+      zIndex: "5",
+      top: "-20px",
+      width: "calc(100vw - 60px)",
+    },
+    styleNav: {
+      display: "flex",
+      marginTop: "-10px",
+      zIndex: "4",
+      left: "-20px",
+      height: "100vh",
+      marginBottom: "-20px",
+    },
   };
   componentDidMount() {
     const { history, location } = this.props;
@@ -57,8 +74,31 @@ export class Main extends Component {
     const { match } = this.props;
     return (
       <div className="App_Main">
-        <div className="nav-bar">
-          <button id="btn-nav" type="button">
+        <div
+          className="nav-bar"
+          style={
+            this.state.statusNav === true
+              ? {
+                  width: "100vw",
+                  height: "100vh",
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  overflow: "hidden",
+                }
+              : null
+          }
+        >
+          <button
+            id="btn-nav"
+            type="button"
+            style={
+              this.state.statusNav === true ? { marginLeft: "230px" } : null
+            }
+            onClick={() => {
+              this.state.statusNav === false
+                ? this.setState({ statusNav: true })
+                : this.setState({ statusNav: false });
+            }}
+          >
             &#x2630;
           </button>
         </div>
@@ -67,7 +107,13 @@ export class Main extends Component {
           className={
             match.params.content === "Dashboard" ? "btn-chat" : "btn-none"
           }
+          style={this.state.chat === true ? { left: "0", zIndex: "5" } : null}
           type="button"
+          onClick={() => {
+            this.state.chat === false
+              ? this.setState({ chat: true })
+              : this.setState({ chat: false });
+          }}
         >
           <img
             src="http://localhost:3000/assets/dashboard/chat.png"
@@ -75,7 +121,11 @@ export class Main extends Component {
           />
         </button>
         <div className="container-fluid">
-          <nav id="nav-side" className="menu-main">
+          <nav
+            id="nav-side"
+            className="menu-main"
+            style={this.state.statusNav === true ? this.state.styleNav : null}
+          >
             <div
               className={
                 match.params.content === "Profile"
@@ -173,9 +223,9 @@ const ContentList = (props) => {
     );
   } else if (props.content === "Dashboard") {
     if (props.content2 === "f1") {
-      result = <DashboardFacilitator />;
+      result = <DashboardFacilitator buttonShow={props.data} />;
     } else {
-      result = <Dashboard />;
+      result = <Dashboard buttonShow={props.data} />;
     }
   }
   return result;

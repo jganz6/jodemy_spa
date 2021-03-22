@@ -1,7 +1,7 @@
 import React from "react";
 import "./../css/dashboard.css";
 
-function Dashboard() {
+function Dashboard(props) {
   return (
     <>
       <main className="Dashboard">
@@ -170,7 +170,12 @@ function Dashboard() {
           </div>
         </div>
       </main>
-      <aside id="chat-side" style={{ overflowY: "auto" }}>
+      <aside
+        id="chat-side"
+        style={
+          props.buttonShow.chat === true ? props.buttonShow.styleChat : null
+        }
+      >
         <div className="message-head">
           Messages
           <img

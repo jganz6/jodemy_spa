@@ -11,6 +11,9 @@
     align-items: center;
     z-index: 6;
 }
+.modalHide{
+    display:none;
+}
 .popsScoringMember{
     padding: 20px;
     background-color: #fff;

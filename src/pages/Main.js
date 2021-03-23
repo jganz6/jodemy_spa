@@ -88,7 +88,15 @@ export class Main extends Component {
             id="btn-nav"
             type="button"
             style={
-              this.state.statusNav === true ? { marginLeft: "230px" } : null
+              this.state.statusNav === true
+                ? {
+                    marginLeft: "230px",
+                    backgroundColor: "red",
+                    borderRadius: "50%",
+                    width: "50px",
+                    color: "#fff",
+                  }
+                : null
             }
             onClick={() => {
               this.state.statusNav === false
@@ -96,7 +104,7 @@ export class Main extends Component {
                 : this.setState({ statusNav: false });
             }}
           >
-            &#x2630;
+            {this.state.statusNav === true ? " X " : "\u2630"}
           </button>
         </div>
         <button

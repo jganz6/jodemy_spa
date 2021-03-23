@@ -104,7 +104,16 @@ export class Main extends Component {
           className={
             match.params.content === "Dashboard" ? "btn-chat" : "btn-none"
           }
-          style={this.state.chat === true ? { left: "0", zIndex: "5" } : null}
+          style={
+            this.state.chat === true
+              ? {
+                  left: "0",
+                  zIndex: "5",
+                  backgroundColor: "red",
+                  top: "0",
+                }
+              : null
+          }
           type="button"
           onClick={() => {
             this.state.chat === false
@@ -112,10 +121,14 @@ export class Main extends Component {
               : this.setState({ chat: false });
           }}
         >
-          <img
-            src="https://jodemy.netlify.app/assets/dashboard/chat.png"
-            alt="btn_chat.png"
-          />
+          {this.state.chat === true ? (
+            " X "
+          ) : (
+            <img
+              src="https://jodemy.netlify.app/assets/dashboard/white-chat.png"
+              alt="btn_chat.png"
+            />
+          )}
         </button>
         <div className="container-fluid">
           <nav

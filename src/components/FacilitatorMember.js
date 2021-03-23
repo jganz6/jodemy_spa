@@ -15,7 +15,7 @@ function FacilitatorMember() {
       <header>
         <Link to="/Main/Activity/f1">
           <img
-            src="http://localhost:3000/assets/back-icon.png"
+            src="https://jodemy.netlify.app/assets/back-icon.png"
             alt="back-icon.png"
           />
         </Link>
@@ -27,7 +27,7 @@ function FacilitatorMember() {
             <div className="class-head-text">
               <div className="category-icon">
                 <img
-                  src="http://localhost:3000/assets/activity/Software Icon.png"
+                  src="https://jodemy.netlify.app/assets/activity/Software Icon.png"
                   alt="Software Icon.png"
                 />
               </div>
@@ -68,7 +68,7 @@ function FacilitatorMember() {
             <div className="popsScoringMember">
               <div className="header-popsScoringMember">
                 <img
-                  src="http://localhost:3000/assets/photo_profile/photo14.png"
+                  src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                   alt="photo14"
                 />
                 Deddy Corbuzier
@@ -135,7 +135,7 @@ function FacilitatorMember() {
               <tr onClick={openPops}>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -145,7 +145,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -155,7 +155,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -165,7 +165,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -175,7 +175,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -185,7 +185,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -195,7 +195,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -205,7 +205,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>
@@ -215,7 +215,7 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="http://localhost:3000/assets/photo_profile/photo14.png"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                     alt="photo14"
                   />
                 </td>

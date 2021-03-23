@@ -156,7 +156,7 @@ function mainActivity(props) {
           />
           <label htmlFor="input-search">
             <img
-              src="http://localhost:3000/assets/Search Icon.png"
+              src="https://jodemy.netlify.app/assets/Search Icon.png"
               alt="Search Icon.png"
             />
           </label>
@@ -166,21 +166,21 @@ function mainActivity(props) {
           <div>
             Categories{" "}
             <img
-              src="http://localhost:3000/assets/back-icon.png"
+              src="https://jodemy.netlify.app/assets/back-icon.png"
               alt="back-icon.png"
             />
           </div>
           <div>
             Level{" "}
             <img
-              src="http://localhost:3000/assets/back-icon.png"
+              src="https://jodemy.netlify.app/assets/back-icon.png"
               alt="back-icon.png"
             />
           </div>
           <div>
             Pricing{" "}
             <img
-              src="http://localhost:3000/assets/back-icon.png"
+              src="https://jodemy.netlify.app/assets/back-icon.png"
               alt="back-icon.png"
             />
           </div>

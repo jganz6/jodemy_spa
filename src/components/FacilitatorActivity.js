@@ -35,7 +35,7 @@ function FacilitatorActivity(props) {
               <td>
                 24{" "}
                 <img
-                  src="http://localhost:3000/assets/activity/Student Icon.png"
+                  src="https://jodemy.netlify.app/assets/activity/Student Icon.png"
                   alt="student icon"
                 />
               </td>
@@ -52,7 +52,7 @@ function FacilitatorActivity(props) {
               <td>
                 24{" "}
                 <img
-                  src="http://localhost:3000/assets/activity/Student Icon.png"
+                  src="https://jodemy.netlify.app/assets/activity/Student Icon.png"
                   alt="student icon"
                 />
               </td>
@@ -69,7 +69,7 @@ function FacilitatorActivity(props) {
               <td>
                 24{" "}
                 <img
-                  src="http://localhost:3000/assets/activity/Student Icon.png"
+                  src="https://jodemy.netlify.app/assets/activity/Student Icon.png"
                   alt="student icon"
                 />
               </td>

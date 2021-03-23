@@ -8,7 +8,7 @@ function myClass() {
       <header>
         <Link to="/Main/Activity/v1">
           <img
-            src="http://localhost:3000/assets/back-icon.png"
+            src="https://jodemy.netlify.app/assets/back-icon.png"
             alt="back-icon.png"
           />
         </Link>
@@ -24,7 +24,7 @@ function myClass() {
           />
           <label htmlFor="input-search">
             <img
-              src="http://localhost:3000/assets/Search Icon.png"
+              src="https://jodemy.netlify.app/assets/Search Icon.png"
               alt="Search Icon.png"
             />
           </label>

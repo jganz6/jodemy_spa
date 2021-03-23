@@ -8,7 +8,7 @@ function classProgress() {
       <header>
         <Link to="/Main/Activity/v1">
           <img
-            src="http://localhost:3000/assets/back-icon.png"
+            src="https://jodemy.netlify.app/assets/back-icon.png"
             alt="back-icon.png"
           />
         </Link>
@@ -20,7 +20,7 @@ function classProgress() {
             <div className="class-head-text">
               <div className="category-icon">
                 <img
-                  src="http://localhost:3000/assets/activity/Software Icon.png"
+                  src="https://jodemy.netlify.app/assets/activity/Software Icon.png"
                   alt="Software Icon.png"
                 />
               </div>

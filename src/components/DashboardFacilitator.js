@@ -9,7 +9,7 @@ function Dashboard(props) {
           <div style={{ padding: "10px" }}>News</div>
           <div className="news-picture">
             <img
-              src="http://localhost:3000/assets/dashboard/news-picture.png"
+              src="https://jodemy.netlify.app/assets/dashboard/news-picture.png"
               alt="news_picture.png"
             />
             <div className="shadow-picture">
@@ -30,7 +30,7 @@ function Dashboard(props) {
             <div className="title-schedule">
               <div className="date-now">My Class</div>
               <img
-                src="http://localhost:3000/assets/dashboard/Calendar Icon.png"
+                src="https://jodemy.netlify.app/assets/dashboard/Calendar Icon.png"
                 alt="Calendar Icon.png"
               />
             </div>
@@ -75,7 +75,7 @@ function Dashboard(props) {
                   <td>
                     24{" "}
                     <img
-                      src="http://localhost:3000/assets/activity/Student Icon.png"
+                      src="https://jodemy.netlify.app/assets/activity/Student Icon.png"
                       alt="student icon"
                     />
                   </td>
@@ -87,7 +87,7 @@ function Dashboard(props) {
                   <td>
                     24{" "}
                     <img
-                      src="http://localhost:3000/assets/activity/Student Icon.png"
+                      src="https://jodemy.netlify.app/assets/activity/Student Icon.png"
                       alt="student icon"
                     />
                   </td>
@@ -97,7 +97,7 @@ function Dashboard(props) {
             </table>
             <button className="btn-plusNewTask">
               <img
-                src="http://localhost:3000/assets/activity/Plus Icon.png"
+                src="https://jodemy.netlify.app/assets/activity/Plus Icon.png"
                 alt="PlusIcon"
               />
               New Task
@@ -114,7 +114,7 @@ function Dashboard(props) {
         <div className="message-head">
           Messages
           <img
-            src="http://localhost:3000/assets/dashboard/Plus Icon.png"
+            src="https://jodemy.netlify.app/assets/dashboard/Plus Icon.png"
             alt="Plus Icon.png"
           />
         </div>
@@ -127,7 +127,7 @@ function Dashboard(props) {
           />
           <label htmlFor="message_search">
             <img
-              src="http://localhost:3000/assets/Dashboard/Search Icon.png"
+              src="https://jodemy.netlify.app/assets/Dashboard/Search Icon.png"
               alt="Search Icon.png"
             />
           </label>
@@ -136,7 +136,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo1.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo1.png"
                 alt="photo1.png"
               />
             </div>
@@ -149,7 +149,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo2.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo2.png"
                 alt="photo2.png"
               />
             </div>
@@ -162,7 +162,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo3.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo3.png"
                 alt="photo3.png"
               />
             </div>
@@ -177,7 +177,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo4.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo4.png"
                 alt="photo4.png"
               />
             </div>
@@ -190,7 +190,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo5.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo5.png"
                 alt="photo5.png"
               />
             </div>
@@ -203,7 +203,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo6.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo6.png"
                 alt="photo6.png"
               />
             </div>
@@ -220,7 +220,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo7.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo7.png"
                 alt="photo7.png"
               />
             </div>
@@ -233,7 +233,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo8.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo8.png"
                 alt="photo8.png"
               />
             </div>
@@ -246,7 +246,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo9.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo9.png"
                 alt="photo9.png"
               />
             </div>
@@ -259,7 +259,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo10.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo10.png"
                 alt="photo10.png"
               />
             </div>
@@ -274,7 +274,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo11.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo11.png"
                 alt="photo11.png"
               />
             </div>
@@ -287,7 +287,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo12.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo12.png"
                 alt="photo12.png"
               />
             </div>
@@ -300,7 +300,7 @@ function Dashboard(props) {
           <div className="message-detail">
             <div className="message-photo">
               <img
-                src="http://localhost:3000/assets/photo_profile/photo13.png"
+                src="https://jodemy.netlify.app/assets/photo_profile/photo13.png"
                 alt="photo13.png"
               />
             </div>

@@ -113,7 +113,7 @@ export class Main extends Component {
           }}
         >
           <img
-            src="http://localhost:3000/assets/dashboard/chat.png"
+            src="https://jodemy.netlify.app/assets/dashboard/chat.png"
             alt="btn_chat.png"
           />
         </button>
@@ -136,15 +136,15 @@ export class Main extends Component {
                   className="notif"
                   src={
                     match.params.content === "Profile"
-                      ? "http://localhost:3000/assets/Notif-Icon.png"
-                      : "http://localhost:3000/assets/white-notif-icon.png"
+                      ? "https://jodemy.netlify.app/assets/Notif-Icon.png"
+                      : "https://jodemy.netlify.app/assets/white-notif-icon.png"
                   }
                   alt="notif-Icon"
                 />
               </div>
               <div className="menu_picture">
                 <img
-                  src="http://localhost:3000/assets/Profile Picture.png"
+                  src="https://jodemy.netlify.app/assets/Profile Picture.png"
                   alt=" Profile Pictur"
                 />
               </div>
@@ -165,7 +165,7 @@ export class Main extends Component {
                 }
               >
                 <img
-                  src="http://localhost:3000/assets/Dashboard Icon.png"
+                  src="https://jodemy.netlify.app/assets/Dashboard Icon.png"
                   alt="Dashboard Icon.png"
                 />
                 <span>Dashboard</span>
@@ -183,14 +183,14 @@ export class Main extends Component {
                 }
               >
                 <img
-                  src="http://localhost:3000/assets/Activity Icon.png"
+                  src="https://jodemy.netlify.app/assets/Activity Icon.png"
                   alt="Activity Icon.png"
                 />
                 <span>Activity</span>
               </div>
               <div className="menu_help">
                 <img
-                  src="http://localhost:3000/assets/Help Icon.png"
+                  src="https://jodemy.netlify.app/assets/Help Icon.png"
                   alt="Help Icon.png"
                 />
                 <span>Help</span>
@@ -200,7 +200,7 @@ export class Main extends Component {
                 onClick={this.state.buttonList[3].buttonAction}
               >
                 <img
-                  src="http://localhost:3000/assets/Logout Icon.png"
+                  src="https://jodemy.netlify.app/assets/Logout Icon.png"
                   alt="Logout Icon.png"
                 />
                 <span>Logout</span>

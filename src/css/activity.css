@@ -28,7 +28,7 @@ main.Activity{
     font-family: Montserrat;
     height: fit-content;
 }
-main.Activity h3,main.Activity .my-class h6,main.Activity .new-class h6{
+main.Activity h3,main.Activity .my-class h6,main.Activity .new-class h6,main.Activity .create-new-class h6{
     font-weight: bolder;
 }
 table{

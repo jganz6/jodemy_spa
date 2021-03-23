@@ -44,9 +44,6 @@ export class Register extends Component {
                 />
                 <label htmlFor="input-password">Password</label>
               </div>
-              <button className="eye-visibility" type="button">
-                <img src={eye_icon} alt="eye-icon.png" />
-              </button>
               <button className="btn" type="submit">
                 Register
               </button>

@@ -26,7 +26,10 @@
     display: flex;
     flex-direction: row;
 }
-.input-create-class label{
+.input-create-class>select,.input-create-class>.radio-btn,.input-create-class>div>select{
+    margin-left: 20px;
+}
+.input-create-class label,.input-create-class>div.col-div1{
     width: 30%;
 }
 .input-create-class input, .input-create-class select{
@@ -50,6 +53,10 @@ input[type="time"]{
 }
 input[type="time"]::-webkit-calendar-picker-indicator{
     display: none;
+}
+.radio-btn>label{
+    margin-right: 10px;
+    width: fit-content;
 }
 .create-new-class>form button[type="submit"]{
     box-sizing: border-box;

@@ -107,8 +107,8 @@ function FacilitatorActivity(props) {
             </div>
             <div className="box-create-class">
               <div className="input-create-class">
-                <div>Pricing :</div>
-                <div>
+                <div className="col-div1">Pricing</div>:
+                <div className="radio-btn">
                   <input type="radio" name="free" value="free" />
                   <label htmlFor="free">Free</label>
                   <input type="radio" name="paid" value="paid" />
@@ -116,7 +116,7 @@ function FacilitatorActivity(props) {
                 </div>
               </div>
               <div className="input-create-class">
-                <div>Schedule</div>:
+                <div className="col-div1">Schedule</div>:
                 <div>
                   <select name="schedule-select">
                     <option>Friday</option>

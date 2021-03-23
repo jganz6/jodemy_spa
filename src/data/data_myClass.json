@@ -1,0 +1,82 @@
+[
+    {
+        "className":" front-endfundamentals",
+        "category":"Software",
+        "description":"Learn the fundamentals",
+        "progress":80,
+        "status":"Ongoing",
+        "score":86
+    },
+    {
+        "className":" HTML for beginners",
+        "category":"Software",
+        "description":"HTML from sctratch",
+        "progress":25,
+        "status":"Ongoing",
+        "score":71
+    },
+    {
+        "className":" History of Europe",
+        "category":"History",
+        "description":"The history of Europe concerns itself...",
+        "progress":69,
+        "status":"Ongoing",
+        "score":62
+    },
+    {
+        "className":" Trigonometry",
+        "category":"Math",
+        "description":"Trigonometry helps us find angles...",
+        "progress":89,
+        "status":"Ongoing",
+        "score":95
+    },
+    {
+        "className":" Algebra",
+        "category":"Math",
+        "description":"Branch of mathematics dealing with...",
+        "progress":100,
+        "status":"completed",
+        "score":100
+    },
+    {
+        "className":" Molecular Biology",
+        "category":"Science",
+        "description":"Study the composition, structure...",
+        "progress":80,
+        "status":"ongoing",
+        "score":42
+    },
+    {
+        "className":" Banking Finance",
+        "category":"Finance",
+        "description":"Explore the dynamic, fast-paced...",
+        "progress":10,
+        "status":"ongoing",
+        "score":21
+    },
+    {
+        "className":" Basic Excel",
+        "category":"Software",
+        "description":"Learn Excel from beginner to...",
+        "progress":100,
+        "status":"completed",
+        "score":98
+    },
+    {
+        "className":" Thermodynamics and phase equilibria",
+        "category":"science",
+        "description":"Learn thermodynamics and and how...",
+        "progress":100,
+        "status":"completed",
+        "score":86
+    },
+    {
+        "className":" Ancient Egypt and Its Civilization",
+        "category":"History",
+        "description":"Colossal pyramids, imposing temples...",
+        "progress":100,
+        "status":"completed",
+        "score":72
+    }
+]

@@ -4,10 +4,12 @@ import Profile from "./../components/Profile";
 import Activity from "./../components/Activity";
 import Dashboard from "./../components/Dashboard";
 import DashboardFacilitator from "./../components/DashboardFacilitator";
+import data from "./../data/data_akun.json";
 
 export class Main extends Component {
   state = {
     userName: "",
+    role: "",
     value: "",
     buttonList: [
       {
@@ -50,17 +52,14 @@ export class Main extends Component {
   componentDidMount() {
     const { history, location } = this.props;
     const action = () => history.push(`/`);
-    const dataAkun = {
-      email: "jodiemanopo28@gmail.com",
-      password: "henning1915",
-      username: "Jodie Soluna Manopo",
-    };
-    if (
-      location.state.value === dataAkun.email &&
-      location.state.password === dataAkun.password
-    ) {
-      this.setState({ userName: dataAkun.username });
+    const cekData = data.find(({ email }) => email === location.state.value);
+    console.log(cekData);
+    if (cekData) {
+      console.log(cekData);
+      this.setState({ userName: cekData.username });
+      this.setState({ role: cekData.access });
     } else {
+      console.log("tidak ada data");
       action();
     }
   }
@@ -76,16 +75,16 @@ export class Main extends Component {
       <div className="App_Main">
         <div
           className="nav-bar"
-          style={
-            this.state.statusNav === true
-              ? {
-                  width: "100vw",
-                  height: "100vh",
-                  backgroundColor: "rgba(0, 0, 0, 0.3)",
-                  overflow: "hidden",
-                }
-              : null
-          }
+          // style={
+          //   this.state.statusNav === true
+          //     ? {
+          //         width: "100vw",
+          //         height: "100vh",
+          //         backgroundColor: "rgba(0, 0, 0, 0.3)",
+          //         overflow: "hidden",
+          //       }
+          //     : null
+          // }
         >
           <button
             id="btn-nav"
@@ -161,7 +160,11 @@ export class Main extends Component {
                     ? "menu_dashboard menu-list-clicked"
                     : "menu_dashboard"
                 }
-                onClick={this.state.buttonList[1].buttonAction1}
+                onClick={
+                  this.state.role === "user"
+                    ? this.state.buttonList[1].buttonAction
+                    : this.state.buttonList[1].buttonAction1
+                }
               >
                 <img
                   src="http://localhost:3000/assets/Dashboard Icon.png"
@@ -175,7 +178,11 @@ export class Main extends Component {
                     ? "menu_activity menu-list-clicked"
                     : "menu_activity"
                 }
-                onClick={this.state.buttonList[2].buttonAction4}
+                onClick={
+                  this.state.role === "user"
+                    ? this.state.buttonList[2].buttonAction
+                    : this.state.buttonList[2].buttonAction4
+                }
               >
                 <img
                   src="http://localhost:3000/assets/Activity Icon.png"

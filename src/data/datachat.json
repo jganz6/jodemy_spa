@@ -1,0 +1,80 @@
+[
+    {
+        "photo":"profile 1",
+        "name":"Nissa Sabyan",
+        "text":"How about number 3?",
+        "time":"10.15 pm"
+    },
+    {
+        "photo":"profile 2",
+        "name":"Rio Dewanto",
+        "text":"I’m hungry.",
+        "time":"9.12 pm"
+    },
+    {
+        "photo":"profile 3",
+        "name":"Discussion Group 21 (5)",
+        "text":"Nissa : Let’s finish the task for tomorrow",
+        "time":"1.23 pm"
+    },
+    {
+        "photo":"profile 4",
+        "name":"Isyana Sarasvati",
+        "text":"Thanks.",
+        "time":"Yesterday"
+    },
+    {
+        "photo":"profile 5",
+        "name":"Tompi",
+        "text":"See you later!",
+        "time":"Yesterday"
+    },
+    {
+        "photo":"profile 6",
+        "name":"You, Tompi, Isyana Sarasvati, Peppy",
+        "text":"Haha. Yes, I heard it before that you and rossa.",
+        "time":"8/10"
+    },
+    {
+        "photo":"profile 7",
+        "name":"Peppy",
+        "text":"Haha. Me too",
+        "time":"7/10"
+    },
+    {
+        "photo":"profile 8",
+        "name":"Sandra Dewi",
+        "text":"How about number 3?",
+        "time":"1/10"
+    },
+    {
+        "photo":"profile 9",
+        "name":"Reza Rahadian",
+        "text":"I’m hungry.",
+        "time":"1/10"
+    },
+    {
+        "photo":"profile 10",
+        "name":"Discussion Group 23 (5)",
+        "text":"Nissa : Let’s finish the task for tomorrow",
+        "time":"22/9"
+    },
+    {
+        "photo":"profile 11",
+        "name":"Raisa",
+        "text":"Thanks.",
+        "time":"21/9"
+    },
+    {
+        "photo":"profile 12",
+        "name":"dr. Adrian",
+        "text":"See you later!",
+        "time":"21/9"
+    },
+    {
+        "photo":"profile 13",
+        "name":"Uus",
+        "text":"Haha. Me too",
+        "time":"11/8"
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "name":"HTML Essential Training",
+        "score":"100"
+    },
+    {
+        "name":"CSS Essential Training",
+        "score":"42"
+    },
+    {
+        "name":"Javascript Essential Training",
+        "score":"21"
+    },
+    {
+        "name":"Responsive Layout",
+        "score":"98"
+    },
+    {
+        "name":"Mid-term Exam",
+        "score":"86"
+    },
+    {
+        "name":"Bootstrap4 Essential Training",
+        "score":"null"
+    },
+    {
+        "name":"Sass Essential Training",
+        "score":"null"
+    },
+    {
+        "name":"Learning React.js",
+        "score":"null"
+    }
+]

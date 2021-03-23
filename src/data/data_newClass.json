@@ -1,0 +1,72 @@
+[
+    {
+        "className":"Know more Javascript",
+        "category":"Software",
+        "description":"Javascript from the basic for...",
+        "level":"Beginner",
+        "pricing":"Free"
+    },
+    {
+        "className":"HTML and CSS to code",
+        "category":"Software",
+        "description":"Start combining HTML and CSS to...",
+        "level":"Intermediate",
+        "pricing":"$10"
+    },
+    {
+        "className":"Indonesian war history",
+        "category":"History",
+        "description":"From the first colonialization until...",
+        "level":"Advance",
+        "pricing":"$50"
+    },
+    {
+        "className":"Buddhism and Modern Psychology",
+        "category":"Psychology",
+        "description":"Buddhism and science are deeply...",
+        "level":"Beginner",
+        "pricing":"Free"
+    },
+    {
+        "className":"Financial markets",
+        "category":"Finance",
+        "description":"An overview of the ideas, methods...",
+        "level":"Intermediate",
+        "pricing":"$10"
+    },
+    {
+        "className":"Corporate finance",
+        "category":"Finance",
+        "description":"Introduction to the fundamentals...",
+        "level":"Advance",
+        "pricing":"$50"
+    },
+    {
+        "className":"Algorithm specialization",
+        "category":"Math",
+        "description":"Learn to think like a computer...",
+        "level":"Advance",
+        "pricing":"$50"
+    },
+    {
+        "className":"Business and Financial Modeling",
+        "category":"Software",
+        "description":"Designed to help you make...",
+        "level":"Beginner",
+        "pricing":"Free"
+    },
+    {
+        "className":"Marketing in a Digital World",
+        "category":"Software",
+        "description":"This class examines how digital...",
+        "level":"Intermediate",
+        "pricing":"$10"
+    },
+    {
+        "className":"Social Psychology",
+        "category":"Psychology",
+        "description":"This class offers some answers...",
+        "level":"Advance",
+        "pricing":"$50"
+    }
+]

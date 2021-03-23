@@ -104,7 +104,9 @@ body{
 .Login>.container-fluid>main .main-form button.btn{
     background-color:var(--color_main);
     color: white;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .Login>.container-fluid>main .main-form button:hover{
     color: white;

@@ -227,10 +227,10 @@ const ContentList = (props) => {
       <Activity content2={props.content2} buttonList={props.data.buttonList} />
     );
   } else if (props.content === "Dashboard") {
-    if (props.content2 === "f1") {
-      result = <DashboardFacilitator buttonShow={props.data} />;
-    } else {
+    if (props.data.role === "user") {
       result = <Dashboard buttonShow={props.data} />;
+    } else {
+      result = <DashboardFacilitator buttonShow={props.data} />;
     }
   }
   return result;

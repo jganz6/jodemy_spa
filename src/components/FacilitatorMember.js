@@ -145,8 +145,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo2.png"
-                    alt="photo2"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Eden Hazard</td>
@@ -155,8 +155,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo15.png"
-                    alt="photo15"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Isyana Sarasvati</td>
@@ -165,8 +165,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo1.png"
-                    alt="photo1"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Nissa Sabyan</td>
@@ -175,8 +175,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo3.png"
-                    alt="photo3"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Peppy</td>
@@ -185,8 +185,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo16.png"
-                    alt="photo16"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Prilly Latuconsina</td>
@@ -195,8 +195,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo10.png"
-                    alt="photo10"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Prof. Winarto</td>
@@ -205,8 +205,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo8.png"
-                    alt="photo8"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Rio Dewanto</td>
@@ -215,8 +215,8 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo9.png"
-                    alt="photo9"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                    alt="photo14"
                   />
                 </td>
                 <td>Tompi</td>

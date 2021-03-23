@@ -145,81 +145,81 @@ function FacilitatorMember() {
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo2.png"
+                    alt="photo2"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Eden Hazard</td>
                 <td>&#x22EE;</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo15.png"
+                    alt="photo15"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Isyana Sarasvati</td>
                 <td>&#x22EE;</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo1.png"
+                    alt="photo1"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Nissa Sabyan</td>
                 <td>&#x22EE;</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo3.png"
+                    alt="photo3"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Peppy</td>
                 <td>&#x22EE;</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo16.png"
+                    alt="photo16"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Prilly Latuconsina</td>
                 <td>&#x22EE;</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo10.png"
+                    alt="photo10"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Prof. Winarto</td>
                 <td>&#x22EE;</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo8.png"
+                    alt="photo8"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Rio Dewanto</td>
                 <td>&#x22EE;</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                    alt="photo14"
+                    src="https://jodemy.netlify.app/assets/photo_profile/photo9.png"
+                    alt="photo9"
                   />
                 </td>
-                <td>Deddy Cobuzier</td>
+                <td>Tompi</td>
                 <td>&#x22EE;</td>
               </tr>
             </tbody>

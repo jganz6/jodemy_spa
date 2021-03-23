@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./../css/Login.css";
 import { Link } from "react-router-dom";
-import eye_icon from "./../assets/eye-icon.png";
 import google_icon from "./../assets/google-icon.png";
 
 export class Register extends Component {

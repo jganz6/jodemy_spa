@@ -39,6 +39,9 @@
     border: none;
     background-color: transparent;
 }
+.input-text-area>label{
+    font-weight: bolder;
+}
 .input-text-area{
     display: flex;
     flex-direction: column;

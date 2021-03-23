@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# JODEMY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Contents
 
-In the project directory, you can run:
+---
 
-### `npm start`
+- [Description](https://github.com/jganz6/jodemy#Description)
+- [Features](https://github.com/jganz6/jodemy#Features)
+- [Requirments for Development](https://github.com/jganz6/jodemy#Requirments-for-Development)
+- [Link Deployment](https://github.com/jganz6/jodemy#Link-Deployment)
+- [Screenshot](https://github.com/jganz6/jodemy#Screenshot)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+jodemy is a web-based online course application that can later be used to assist teaching and learning activities online
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- see profile account detail
+- see chat, headline, schedule in Dashboard
+- see class progress and class description in activity
+- and many more...
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Requirments for Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+- HTML 5 & CSS 3
+- [BOOTSTRAP](https://getbootstrap.com/)
+- Responsive
+- Layout Flexbox and Grid System Bootstrap
+- Deploy to [Netlify](https://www.netlify.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Link Deployment
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[jodemy.netlify.app](https://jodemy.netlify.app)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Screenshot
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Here'e some picture about the project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Dashboard
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![jodemy-dashboard](https://user-images.githubusercontent.com/67989743/111241530-ed6f2080-862f-11eb-9550-494bb46cbabc.png)
 
-### Analyzing the Bundle Size
+## Activity
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+![jodemy-activity](https://user-images.githubusercontent.com/67989743/111241586-0aa3ef00-8630-11eb-8c7a-518b25db138c.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Profile
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![jodemy-profile](https://user-images.githubusercontent.com/67989743/111241631-1d1e2880-8630-11eb-9e73-811c437e87b3.png)

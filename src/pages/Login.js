@@ -27,12 +27,6 @@ class Login extends React.Component {
     console.log("unmount");
   }
   handleSubmit(event) {
-    alert(
-      "A name was submitted: " +
-        this.state.value +
-        "\n Password: " +
-        this.state.password
-    );
     console.log(this.props);
     console.log(this.state);
     const action = () => this.props.history.push(`/Main/Dashboard`, this.state);

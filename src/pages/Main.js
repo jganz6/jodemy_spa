@@ -53,9 +53,7 @@ export class Main extends Component {
     const { history, location } = this.props;
     const action = () => history.push(`/`);
     const cekData = data.find(({ email }) => email === location.state.value);
-    console.log(cekData);
     if (cekData) {
-      console.log(cekData);
       this.setState({ userName: cekData.username });
       this.setState({ role: cekData.access });
     } else {

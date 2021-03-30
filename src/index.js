@@ -5,13 +5,14 @@ import Main from "./pages/Main";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ForgotPassword from "./pages/ForgotPassword";
+import GetOTP from "./components/getOTP";
 import Register from "./pages/Register";
 const AppWithRouter = () => {
   return (
     <Router>
       <Route path="/" exact component={Login} />
       <Route path="/Main/:content?/:content2?" component={Main} />
-      <Route path="/ForgotPassword" component={ForgotPassword} />
+      <Route path="/ForgotPassword" component={GetOTP} />
       <Route path="/Register" component={Register} />
     </Router>
   );

@@ -1,12 +1,13 @@
 import React from "react";
 import "./../css/forgot_password.css";
+import { Link } from "react-router-dom";
 
 function getOTP(props) {
   return (
     <div className="forgot_password">
       <div className="container-fluid">
         <div className="row">
-          <button className="back_btn">
+          <button className="back_btn" style={{ display: "none" }}>
             <img
               src="https://jodemy.netlify.app/assets/back-icon.png"
               alt="back-icon"
@@ -22,23 +23,24 @@ function getOTP(props) {
             <div className="header-reset-password">
               <h1>Reset Password</h1>
               <div className="black-text">
-                Enter your email address linked to this account.
+                Enter verification code we just sent to your email address
               </div>
-              <div className="grey-text">
+              {/* <div className="grey-text">
                 We will send you the verification code to reset your password
-              </div>
+              </div> */}
             </div>
             <div className="form-reset">
               <form>
-                <div className="input-email">
-                  <input
-                    type="email"
-                    name="input-email"
-                    placeholder="Example@gmail.com"
-                  />
-                  <label htmlFor="input-email">Email</label>
+                <div className="input_OTP">
+                  <input type="text" name="input-otp" />
+                  <input type="text" name="input-otp" />
+                  <input type="text" name="input-otp" />
+                  <input type="text" name="input-otp" />
                 </div>
-                <div className="btn">Send</div>
+                <div className="text-grey">
+                  Didn’t receive a code?<Link to="/">Resend</Link>
+                </div>
+                <div className="btn">Verify</div>
               </form>
             </div>
           </section>

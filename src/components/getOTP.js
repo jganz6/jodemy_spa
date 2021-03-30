@@ -14,7 +14,7 @@ function getOTP(props) {
           </button>
           <section className="col d-flex flex-column justify-content-center align-items-center section-1">
             <img
-              src="https://jodemy.netlify.app/assets/user-icon-2.png"
+              src="https://jodemy.netlify.app/assets/user-icon-3.png"
               alt="user-icon.png"
             />
           </section>

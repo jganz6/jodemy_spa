@@ -22,7 +22,7 @@ function ResetNewPassword() {
       <div className="popsPassword">
         <h2>Password Changed !</h2>
         <img
-          src="https://jodemy.netlify.app/assets/ceklis-icon"
+          src="https://jodemy.netlify.app/assets/ceklis-icon.png"
           alt="ceklis-icon"
         />
         <Link to="/">Login to your account</Link>
@@ -40,7 +40,7 @@ function ResetNewPassword() {
             <div className="validPass">
               Password match!{" "}
               <img
-                src="https://jodemy.netlify.app/assets/greenCeklis"
+                src="https://jodemy.netlify.app/assets/greenCeklis.png"
                 alt="greenCeklis"
               />
             </div>

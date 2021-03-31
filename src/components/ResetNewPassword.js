@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function ResetNewPassword() {
-  const [validPass, setValidPass] = useState(false);
-  function checkPass(e) {
-    if (e.target.value < 8) {
-      console.log("character must be 8");
-      setValidPass(false);
-    } else if (e.target.value >= 8) {
-      setValidPass(true);
-    }
-  }
+  //   const [validPass, setValidPass] = useState(false);
+  //   function checkPass(e) {
+  //     if (e.target.value < 8) {
+  //       console.log("character must be 8");
+  //       setValidPass(false);
+  //     } else if (e.target.value >= 8) {
+  //       setValidPass(true);
+  //     }
+  //   }
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
       <div className="header-reset-password">
@@ -30,12 +30,7 @@ function ResetNewPassword() {
       <div className="form-reset">
         <form className="newPassword">
           <div className="inputPassword">
-            <input
-              type="password"
-              name="inputPassword"
-              onChange={(e) => checkPass(e)}
-              minLength="8"
-            />
+            <input type="password" name="inputPassword" minLength="8" />
             <label htmlFor="inputPassword">Password</label>
             <div className="validPass">Must be at least 8 character</div>
           </div>

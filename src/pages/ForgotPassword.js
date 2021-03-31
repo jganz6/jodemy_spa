@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./../css/forgot_password.css";
+import ResetConfirmEmail from "../components/resetConfirmEmail";
+import ResetGetOTP from "../components/resetGetOTP";
+import ResetNewPassword from "../components/ResetNewPassword";
 
 export class ForgotPassword extends Component {
   state = {
@@ -22,34 +25,21 @@ export class ForgotPassword extends Component {
                 alt="user-icon.png"
               />
             </section>
-            <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
-              <div className="header-reset-password">
-                <h1>Reset Password</h1>
-                <div className="black-text">
-                  Enter your email address linked to this account.
-                </div>
-                <div className="grey-text">
-                  We will send you the verification code to reset your password
-                </div>
-              </div>
-              <div className="form-reset">
-                <form>
-                  <div className="input-email">
-                    <input
-                      type="email"
-                      name="input-email"
-                      placeholder="Example@gmail.com"
-                    />
-                    <label htmlFor="input-email">Email</label>
-                  </div>
-                  <div className="btn">Send</div>
-                </form>
-              </div>
-            </section>
+            <ResetSection />
           </div>
         </div>
       </div>
     );
+  }
+}
+function ResetSection(props) {
+  const content = 3;
+  if (content === 1) {
+    return <ResetConfirmEmail />;
+  } else if (content === 2) {
+    return <ResetGetOTP />;
+  } else if (content === 3) {
+    return <ResetNewPassword />;
   }
 }
 

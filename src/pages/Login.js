@@ -3,7 +3,26 @@ import eye_icon from "./../assets/eye-icon.png";
 import google_icon from "./../assets/google-icon.png";
 import "./../css/Login.css";
 import { Link } from "react-router-dom";
+const axios = require("axios");
+// const FormData = require("form-data");
 
+async function makeGetRequest(email, password) {
+  let res = await axios
+    .post(
+      "http://localhost:8000/auth/login",
+      { email: "nathasia19@gmail.com", password: "nathasia69" },
+      {
+        headers: "Access-Control-Allow-Origin",
+      }
+    )
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => err);
+
+  // let data = res.data;
+  console.log(res.result);
+}
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -27,10 +46,11 @@ class Login extends React.Component {
     console.log("unmount");
   }
   handleSubmit(event) {
-    console.log(this.props);
-    console.log(this.state);
-    const action = () => this.props.history.push(`/Main/Dashboard`, this.state);
-    action();
+    // console.log(this.props);
+    // console.log(this.state);
+    // const action = () => this.props.history.push(`/Main/Dashboard`, this.state);
+    // action();
+    makeGetRequest(this.state.value, this.state.password);
     event.preventDefault();
   }
   render() {

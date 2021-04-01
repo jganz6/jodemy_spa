@@ -92,7 +92,7 @@ export class Main extends Component {
             style={
               this.state.statusNav === true
                 ? {
-                    display: "hidden",
+                    visibility: "hidden",
                     marginLeft: "230px",
                     backgroundColor: "red",
                     borderRadius: "50%",

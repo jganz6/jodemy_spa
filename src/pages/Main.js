@@ -73,19 +73,7 @@ export class Main extends Component {
     const { match } = this.props;
     return (
       <div className="App_Main">
-        <div
-          className="nav-bar"
-          // style={
-          //   this.state.statusNav === true
-          //     ? {
-          //         width: "100vw",
-          //         height: "100vh",
-          //         backgroundColor: "rgba(0, 0, 0, 0.3)",
-          //         overflow: "hidden",
-          //       }
-          //     : null
-          // }
-        >
+        <div className="nav-bar">
           <button
             id="btn-nav"
             type="button"

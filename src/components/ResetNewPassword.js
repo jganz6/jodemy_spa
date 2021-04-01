@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function ResetNewPassword() {
-  const [validPass, setValidPass] = useState(false);
-  //   function checkPass(e) {
-  //     if (e.target.value < 8) {
-  //       console.log("character must be 8");
-  //       setValidPass(false);
-  //     } else if (e.target.value >= 8) {
-  //       setValidPass(true);
-  //     }
-  //   }
-  function confirmPass(e) {
-    setValidPass(true);
+  const [confirmPass, setConfirmPass] = useState(false);
+  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  // function handlePassword(e) {
+  //   setData({ password: e.target.value });
+  //   console.log(data.password);
+  // }
+  console.log(password);
+  function actionConfirmPass(e) {
+    setConfirmPass(true);
   }
-  function closeConfirm(e) {
-    setValidPass(false);
+  function actionCloseConfirm(e) {
+    setConfirmPass(false);
   }
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
@@ -27,7 +26,7 @@ function ResetNewPassword() {
       </div>
       <div
         className="popsPassword"
-        style={validPass ? { display: "flex" } : { display: "none" }}
+        style={confirmPass ? { display: "flex" } : { display: "none" }}
       >
         <h2>Password Changed !</h2>
         <img
@@ -37,7 +36,7 @@ function ResetNewPassword() {
         <Link
           to="/"
           onClick={(e) => {
-            closeConfirm(e);
+            actionCloseConfirm(e);
           }}
         >
           Login to your account
@@ -46,14 +45,50 @@ function ResetNewPassword() {
       <div className="form-reset">
         <form className="newPassword">
           <div className="inputPassword">
-            <input type="password" name="inputPassword" minLength="8" />
-            <label htmlFor="inputPassword">Password</label>
+            <input
+              type="password"
+              name="inputPassword"
+              minLength="8"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <label
+              htmlFor="inputPassword"
+              style={
+                password.length > 0
+                  ? { top: "0", fontWeight: "400", fontSize: "12px" }
+                  : null
+              }
+            >
+              Password
+            </label>
             <div className="validPass">Must be at least 8 character</div>
           </div>
           <div className="inputPassword">
-            <input type="password" name="inputPassword" />
-            <label htmlFor="inputPassword">Confirm Password</label>
-            <div className="validPass">
+            <input
+              type="password"
+              name="inputPassword"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <label
+              htmlFor="inputPassword"
+              style={
+                newPassword.length > 0
+                  ? { top: "0", fontWeight: "400", fontSize: "12px" }
+                  : null
+              }
+            >
+              Confirm Password
+            </label>
+            <div
+              className="checkPass"
+              style={
+                password !== newPassword
+                  ? { visibility: "hidden" }
+                  : { display: "block" }
+              }
+            >
               Password match!{" "}
               <img
                 src="https://jodemy.netlify.app/assets/greenCeklis.png"
@@ -65,7 +100,7 @@ function ResetNewPassword() {
             className="btn"
             type="button"
             onClick={(e) => {
-              confirmPass(e);
+              actionConfirmPass(e);
             }}
           >
             Create

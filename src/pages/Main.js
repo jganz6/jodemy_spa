@@ -239,7 +239,6 @@ export class Main extends Component {
   }
 }
 const ContentList = (props) => {
-  console.log(props.data);
   let result = null;
   if (props.content === "Profile") {
     result = <Profile userName={props.data.userName} />;

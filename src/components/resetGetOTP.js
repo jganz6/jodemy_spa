@@ -14,10 +14,10 @@ function getOTP(props) {
       <div className="form-reset">
         <form>
           <div className="input_OTP">
-            <input type="text" name="input-otp" />
-            <input type="text" name="input-otp" />
-            <input type="text" name="input-otp" />
-            <input type="text" name="input-otp" />
+            <input type="text" name="input-otp" maxLength="1" />
+            <input type="text" name="input-otp" maxLength="1" />
+            <input type="text" name="input-otp" maxLength="1" />
+            <input type="text" name="input-otp" maxLength="1" />
           </div>
           <div className="textGrey">
             Didn’t receive a code?<Link to="/">Resend</Link>

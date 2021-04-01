@@ -15,11 +15,7 @@ function resetConfirmEmail() {
       <div className="form-reset">
         <form>
           <div className="input-email">
-            <input
-              type="email"
-              name="input-email"
-              placeholder="Example@gmail.com"
-            />
+            <input type="email" name="input-email" />
             <label htmlFor="input-email">Email</label>
           </div>
           <div className="btn">Send</div>

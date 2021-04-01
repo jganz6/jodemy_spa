@@ -36,7 +36,7 @@ function ResetNewPassword() {
           </div>
           <div className="inputPassword">
             <input type="password" name="inputPassword" />
-            <label htmlFor="inputPassword">Password</label>
+            <label htmlFor="inputPassword">Confirm Password</label>
             <div className="validPass">
               Password match!{" "}
               <img

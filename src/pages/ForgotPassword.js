@@ -6,9 +6,15 @@ import ResetNewPassword from "../components/ResetNewPassword";
 
 export class ForgotPassword extends Component {
   state = {
+    buttonList: [
+      {
+        buttonAction: () => this.props.history.push("/ResetPassword/1"),
+      },
+    ],
     back_action: () => this.props.history.push("/"),
   };
   render() {
+    const { match } = this.props;
     return (
       <div className="forgot_password">
         <div className="container-fluid">
@@ -25,7 +31,7 @@ export class ForgotPassword extends Component {
                 alt="user-icon.png"
               />
             </section>
-            <ResetSection />
+            <ResetSection step={match.params.step} />
           </div>
         </div>
       </div>
@@ -33,14 +39,15 @@ export class ForgotPassword extends Component {
   }
 }
 function ResetSection(props) {
-  const content = 3;
-  if (content === 1) {
-    return <ResetConfirmEmail />;
-  } else if (content === 2) {
-    return <ResetGetOTP />;
-  } else if (content === 3) {
-    return <ResetNewPassword />;
+  let result = null;
+  if (!props.step) {
+    result = <ResetConfirmEmail />;
+  } else if (props.step === "1") {
+    result = <ResetGetOTP />;
+  } else if (props.step === "2") {
+    result = <ResetNewPassword />;
   }
+  return result;
 }
 
 export default ForgotPassword;

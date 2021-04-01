@@ -442,7 +442,7 @@ aside::-webkit-scrollbar {
     }
 
     main.Dashboard {
-        width: calc(100% - 270px);
+        width: calc(100% - 290px);
         margin-right: 40px;
     }
 

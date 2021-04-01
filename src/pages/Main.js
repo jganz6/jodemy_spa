@@ -38,15 +38,17 @@ export class Main extends Component {
       right: "-20px",
       zIndex: "5",
       top: "-20px",
+      height: "100vh",
+      borderRadius: "0 0 0 20px",
       width: "calc(100vw - 60px)",
     },
     styleNav: {
       display: "flex",
-      marginTop: "-10px",
+      marginTop: "0px",
       zIndex: "4",
       left: "-20px",
       height: "100vh",
-      marginBottom: "-20px",
+      borderRadius: "0 0 20px 0",
     },
   };
   componentDidMount() {
@@ -90,6 +92,7 @@ export class Main extends Component {
             style={
               this.state.statusNav === true
                 ? {
+                    display: "none",
                     marginLeft: "230px",
                     backgroundColor: "red",
                     borderRadius: "50%",
@@ -115,6 +118,7 @@ export class Main extends Component {
           style={
             this.state.chat === true
               ? {
+                  display: "none",
                   left: "0",
                   zIndex: "5",
                   backgroundColor: "red",
@@ -139,6 +143,21 @@ export class Main extends Component {
           )}
         </button>
         <div className="container-fluid">
+          <div
+            className="popsNav"
+            style={
+              this.state.statusNav === true || this.state.chat === true
+                ? { display: "block" }
+                : null
+            }
+            onClick={() => {
+              if (this.state.statusNav === true) {
+                this.setState({ statusNav: false });
+              } else if (this.state.chat === true) {
+                this.setState({ chat: false });
+              }
+            }}
+          ></div>
           <nav
             id="nav-side"
             className="menu-main"
@@ -151,6 +170,11 @@ export class Main extends Component {
                   : "menu-profile"
               }
               onClick={this.state.buttonList[0].buttonAction}
+              style={
+                this.state.statusNav === true
+                  ? { borderRadius: "0 0 0 0" }
+                  : null
+              }
             >
               <div className="menu_notif">
                 <img

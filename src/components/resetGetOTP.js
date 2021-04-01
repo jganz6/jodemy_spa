@@ -1,8 +1,10 @@
 import React from "react";
 import "./../css/forgot_password.css";
 import { Link } from "react-router-dom";
+import { useHistory as UseHistory } from "react-router";
 
 function getOTP(props) {
+  const history = UseHistory();
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
       <div className="header-reset-password">
@@ -22,7 +24,15 @@ function getOTP(props) {
           <div className="textGrey">
             Didn’t receive a code?<Link to="/">Resend</Link>
           </div>
-          <div className="btn">Verify</div>
+          <button
+            className="btn"
+            type="button"
+            onClick={() => {
+              history.push("/ForgotPassword/3");
+            }}
+          >
+            Verify
+          </button>
         </form>
       </div>
     </section>

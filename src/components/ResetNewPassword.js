@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function ResetNewPassword() {
-  //   const [validPass, setValidPass] = useState(false);
+  const [validPass, setValidPass] = useState(false);
   //   function checkPass(e) {
   //     if (e.target.value < 8) {
   //       console.log("character must be 8");
@@ -11,6 +11,12 @@ function ResetNewPassword() {
   //       setValidPass(true);
   //     }
   //   }
+  function confirmPass(e) {
+    setValidPass(true);
+  }
+  function closeConfirm(e) {
+    setValidPass(false);
+  }
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
       <div className="header-reset-password">
@@ -19,13 +25,23 @@ function ResetNewPassword() {
           Your new password must be different from previous used password!
         </div>
       </div>
-      <div className="popsPassword">
+      <div
+        className="popsPassword"
+        style={validPass ? { display: "flex" } : { display: "none" }}
+      >
         <h2>Password Changed !</h2>
         <img
           src="https://jodemy.netlify.app/assets/ceklis-icon.png"
           alt="ceklis-icon"
         />
-        <Link to="/">Login to your account</Link>
+        <Link
+          to="/"
+          onClick={(e) => {
+            closeConfirm(e);
+          }}
+        >
+          Login to your account
+        </Link>
       </div>
       <div className="form-reset">
         <form className="newPassword">
@@ -45,7 +61,15 @@ function ResetNewPassword() {
               />
             </div>
           </div>
-          <div className="btn">Create</div>
+          <button
+            className="btn"
+            type="button"
+            onClick={(e) => {
+              confirmPass(e);
+            }}
+          >
+            Create
+          </button>
         </form>
       </div>
     </section>

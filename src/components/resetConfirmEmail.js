@@ -1,6 +1,6 @@
 import React from "react";
 
-function resetConfirmEmail() {
+function resetConfirmEmail(props) {
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
       <div className="header-reset-password">
@@ -18,7 +18,13 @@ function resetConfirmEmail() {
             <input type="email" name="input-email" />
             <label htmlFor="input-email">Email</label>
           </div>
-          <div className="btn">Send</div>
+          <button
+            className="btn"
+            type="button"
+            onClick={props.buttonList[0].buttonAction}
+          >
+            Send
+          </button>
         </form>
       </div>
     </section>

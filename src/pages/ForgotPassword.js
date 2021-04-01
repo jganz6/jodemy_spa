@@ -8,7 +8,7 @@ export class ForgotPassword extends Component {
   state = {
     buttonList: [
       {
-        buttonAction: () => this.props.history.push("/ResetPassword/1"),
+        buttonAction: () => this.props.history.push("/ForgotPassword/2"),
       },
     ],
     back_action: () => this.props.history.push("/"),
@@ -31,7 +31,10 @@ export class ForgotPassword extends Component {
                 alt="user-icon.png"
               />
             </section>
-            <ResetSection step={match.params.step} />
+            <ResetSection
+              buttonList={this.state.buttonList}
+              step={match.params.step}
+            />
           </div>
         </div>
       </div>
@@ -40,11 +43,12 @@ export class ForgotPassword extends Component {
 }
 function ResetSection(props) {
   let result = null;
-  if (!props.step) {
-    result = <ResetConfirmEmail />;
-  } else if (props.step === "1") {
-    result = <ResetGetOTP />;
+  console.log(props);
+  if (props.step === "1") {
+    result = <ResetConfirmEmail buttonList={props.buttonList} />;
   } else if (props.step === "2") {
+    result = <ResetGetOTP />;
+  } else if (props.step === "3") {
     result = <ResetNewPassword />;
   }
   return result;

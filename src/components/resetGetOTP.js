@@ -3,7 +3,7 @@ import "./../css/forgot_password.css";
 import { Link } from "react-router-dom";
 import { useHistory as UseHistory } from "react-router";
 
-function getOTP(props) {
+function GetOTP(props) {
   const history = UseHistory();
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
@@ -39,4 +39,4 @@ function getOTP(props) {
   );
 }
 
-export default getOTP;
+export default GetOTP;

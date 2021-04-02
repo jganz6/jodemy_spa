@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./../css/forgot_password.css";
-import ResetConfirmEmail from "../components/resetConfirmEmail";
-import ResetGetOTP from "../components/resetGetOTP";
+import ResetConfirmEmail from "../components/ResetConfirmEmail";
+import ResetGetOTP from "../components/ResetGetOTP";
 import ResetNewPassword from "../components/ResetNewPassword";
 
 export class ForgotPassword extends Component {

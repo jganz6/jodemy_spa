@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-function resetConfirmEmail(props) {
+function ResetConfirmEmail(props) {
+  const [confirmEmail, setConfirmEmail] = useState("");
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
       <div className="header-reset-password">
@@ -15,7 +16,13 @@ function resetConfirmEmail(props) {
       <div className="form-reset">
         <form>
           <div className="input-email">
-            <input type="email" name="input-email" />
+            <input
+              type="email"
+              name="input-email"
+              value={confirmEmail}
+              onChange={(e) => setConfirmEmail(e.target.value)}
+              required
+            />
             <label htmlFor="input-email">Email</label>
           </div>
           <button
@@ -31,4 +38,4 @@ function resetConfirmEmail(props) {
   );
 }
 
-export default resetConfirmEmail;
+export default ResetConfirmEmail;

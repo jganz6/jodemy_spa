@@ -154,7 +154,10 @@ export class Main extends Component {
               <div className="notifPerDay">
                 <h3 className="subHeadPopsNotif">Yesterday</h3>
                 <div className="spoilerNotif">
-                  <img src={null} alt="/" />
+                  <img
+                    src="https://jodemy.netlify.app/assets/notif-image/notifHot-icon"
+                    alt="notifHot-icon"
+                  />
                   <div className="spoilerMessage">
                     There are 10 news update for today. Don’t miss it!
                   </div>

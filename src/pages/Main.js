@@ -155,7 +155,7 @@ export class Main extends Component {
                 <h3 className="subHeadPopsNotif">Yesterday</h3>
                 <div className="spoilerNotif">
                   <img
-                    src="https://jodemy.netlify.app/assets/notif-image/notifHot-icon"
+                    src="https://jodemy.netlify.app/assets/notif-image/notifHot-icon.png"
                     alt="notifHot-icon"
                   />
                   <div className="spoilerMessage">

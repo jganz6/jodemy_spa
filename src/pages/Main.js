@@ -50,6 +50,7 @@ export class Main extends Component {
       height: "100vh",
       borderRadius: "0 0 20px 0",
     },
+    popsNotif: false,
   };
   componentDidMount() {
     const { history, location } = this.props;
@@ -146,6 +147,22 @@ export class Main extends Component {
               }
             }}
           ></div>
+          <div className="overlayNotif">
+            <div className="popsNotif">
+              <button className="closePopsNotif">x</button>
+              <h2 className="headerPopsNotif">Notification</h2>
+              <div className="notifPerDay">
+                <h3 className="subHeadPopsNotif">Yesterday</h3>
+                <div className="spoilerNotif">
+                  <img src={null} alt="/" />
+                  <div className="spoilerMessage">
+                    There are 10 news update for today. Don’t miss it!
+                  </div>
+                  <div className="timeNotif">2 min</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <nav
             id="nav-side"
             className="menu-main"
@@ -164,7 +181,14 @@ export class Main extends Component {
                   : null
               }
             >
-              <div className="menu_notif">
+              <div
+                className="menu_notif"
+                onClick={
+                  this.state.popsNotif === true
+                    ? this.setState({ popsNotif: false })
+                    : this.setState({ popsNotif: true })
+                }
+              >
                 <img
                   className="notif"
                   src={

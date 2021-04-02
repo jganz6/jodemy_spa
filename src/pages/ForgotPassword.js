@@ -19,7 +19,11 @@ export class ForgotPassword extends Component {
       <div className="forgot_password">
         <div className="container-fluid">
           <div className="row">
-            <button className="back_btn" onClick={this.state.back_action}>
+            <button
+              className="back_btn"
+              onClick={this.state.back_action}
+              style={match.params.step !== "1" ? { display: "none" } : null}
+            >
               <img
                 src="https://jodemy.netlify.app/assets/back-icon.png"
                 alt="back-icon"
@@ -27,7 +31,11 @@ export class ForgotPassword extends Component {
             </button>
             <section className="col d-flex flex-column justify-content-center align-items-center section-1">
               <img
-                src="https://jodemy.netlify.app/assets/user-icon.png"
+                src={
+                  match.params.step === "1"
+                    ? "https://jodemy.netlify.app/assets/user-icon.png"
+                    : "https://jodemy.netlify.app/assets/user-icon-1.png"
+                }
                 alt="user-icon.png"
               />
             </section>

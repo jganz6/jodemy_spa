@@ -7,6 +7,10 @@ import DashboardFacilitator from "./../components/DashboardFacilitator";
 import data from "./../data/data_akun.json";
 
 export class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.handleNotifPops = this.handleNotifPops.bind(this);
+  }
   state = {
     userName: "",
     role: "",
@@ -52,6 +56,12 @@ export class Main extends Component {
     },
     popsNotif: false,
   };
+  handleNotifPops() {
+    this.state.popsNotif === true
+      ? this.setState({ popsNotif: false })
+      : this.setState({ popsNotif: true });
+    console.log(this.state.popsNotif);
+  }
   componentDidMount() {
     const { history, location } = this.props;
     const action = () => history.push(`/`);
@@ -147,9 +157,18 @@ export class Main extends Component {
               }
             }}
           ></div>
-          <div className="overlayNotif">
+          <div
+            className="overlayNotif"
+            style={
+              this.state.popsNotif === false
+                ? { display: "none" }
+                : { display: "flex" }
+            }
+          >
             <div className="popsNotif">
-              <button className="closePopsNotif">x</button>
+              <button className="closePopsNotif" onClick={this.handleNotifPops}>
+                x
+              </button>
               <h2 className="headerPopsNotif">Notification</h2>
               <div className="notifPerDay">
                 <h3 className="subHeadPopsNotif">Yesterday</h3>
@@ -184,24 +203,6 @@ export class Main extends Component {
                   : null
               }
             >
-              <div
-                className="menu_notif"
-                onClick={
-                  this.state.popsNotif === true
-                    ? this.setState({ popsNotif: false })
-                    : this.setState({ popsNotif: true })
-                }
-              >
-                <img
-                  className="notif"
-                  src={
-                    match.params.content === "Profile"
-                      ? "https://jodemy.netlify.app/assets/Notif-Icon.png"
-                      : "https://jodemy.netlify.app/assets/white-notif-icon.png"
-                  }
-                  alt="notif-Icon"
-                />
-              </div>
               <div className="menu_picture">
                 <img
                   src="https://jodemy.netlify.app/assets/Profile Picture.png"
@@ -210,6 +211,20 @@ export class Main extends Component {
               </div>
               <div className="menu_name">{`${this.state.userName}`}</div>
               <div className="menu_status">online</div>
+            </div>
+            <div className="menu_notif" onClick={this.handleNotifPops}>
+              <img
+                className="notif"
+                style={
+                  this.state.popsNotif === true ? { display: "none" } : null
+                }
+                src={
+                  match.params.content === "Profile"
+                    ? "https://jodemy.netlify.app/assets/Notif-Icon.png"
+                    : "https://jodemy.netlify.app/assets/white-notif-icon.png"
+                }
+                alt="notif-Icon"
+              />
             </div>
             <div className="menu-list">
               <div

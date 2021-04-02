@@ -1,10 +1,11 @@
 .overlayNotif{
-    width: calc(100vw - 250px);
+    width: calc(100vw - 30% - 65px);
     height: calc(100vh - 40px);
     position: fixed;
     top: 20px;
     left: 20px;
     bottom: 20px;
+    z-index: 5;
     background-color: rgba(0, 0, 0, 0.685);
     border-radius: 20px;
     display: flex;
@@ -14,16 +15,18 @@
     background-color: #5784BA;
     color: #fff;
     font-family: 'Roboto';
-    border-radius: 0 20px 0 20px;
-    width: calc(100% - 250px);
-    height: 100%;
-    position: inherit;
+    border-radius: 0 20px 20px 0;
+    width: calc(100% - 230px);
+    box-sizing: border-box;
+    height: inherit;
     display: flex;
+    flex-direction: column;
     align-items: center;
     overflow-y: auto;
     padding: 20px;
 }
 .overlayNotif>.popsNotif .closePopsNotif{
+    border: none;
     background-color: #fff;
     width: 40px;
     height: 40px;
@@ -41,37 +44,40 @@
     height: fit-content;
     width: 100%;
 }
-.overlayNotif>.popsNotif>.notifPerDay ~ h3.subHeadPopsNotif{
+.overlayNotif>.popsNotif>.notifPerDay h3.subHeadPopsNotif{
     font-family: 'Roboto';
+    font-size: 16px;
 }
-.overlayNotif>.popsNotif>.notifPerDay ~ .spoilerNotif{
-    height: 60px;
+.overlayNotif>.popsNotif>.notifPerDay .spoilerNotif{
+    height: 55px;
     width: 100%;
     display: flex;
+    flex-direction: row;
     box-sizing: border-box;
 }
-.overlayNotif>.popsNotif>.notifPerDay ~ .spoilerNotif img{
+.overlayNotif>.popsNotif>.notifPerDay .spoilerNotif img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     box-sizing: border-box;
 }
-.overlayNotif>.popsNotif>.notifPerDay ~ .spoilerNotif .spoilerMessage{
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 16px;
+.overlayNotif>.popsNotif>.notifPerDay .spoilerNotif .spoilerMessage{
+    padding:15px;
+    font-size: 14px;
     font-weight: 500;
     width: calc(100% - 150px);
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
-    overflow-x: hidden;
+    box-sizing: border-box;
 }
-.overlayNotif>.popsNotif>.notifPerDay ~ .spoilerNotif .timeNotif{
-    padding-top: 10px;
-    font-size: 16px;
+.overlayNotif>.popsNotif>.notifPerDay .spoilerNotif .timeNotif{
+    font-size: 14px;
     padding-left: 20px;
     width: 100px;
     font-weight: 500;
+    display: flex;
+    align-items: center;
 }
 .nav-button{
     position: absolute;
@@ -181,10 +187,15 @@
 .menu-profile .menu_status{
     font-size: 10pt;
 }
-.menu-profile .menu_notif{
+.menu_notif{
     position: absolute;
     top: 20px;
+    width: fit-content;
     right: 10px;
+    cursor: pointer;
+}
+.menu-profile:hover ~ .menu_notif>img{
+    filter: invert(0.6);
 }
 .menu-profile:hover .notif{
     filter: invert(0.6);
@@ -241,7 +252,28 @@
     color: red;
     border-radius:inherit;
 }
+@media only screen and (max-width: 992px){
+    .overlayNotif{
+        width: calc(100vw - 50px);
+    }
+}
 @media only screen and (max-width: 767px) {
+    .overlayNotif{
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+    .overlayNotif .popsNotif{
+        border-radius: 0;
+        width: 100%;
+    }
+    .overlayNotif>.popsNotif>.notifPerDay .spoilerNotif .spoilerMessage{
+        padding: 5px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: calc(100% - 40px);
+    }
     .nav-bar{
         display: block;
     }

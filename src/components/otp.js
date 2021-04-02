@@ -2,7 +2,7 @@ import React from "react";
 import "./../css/forgot_password.css";
 import { Link } from "react-router-dom";
 import { useHistory as UseHistory } from "react-router";
-
+//update
 function GetOTP(props) {
   const history = UseHistory();
   return (

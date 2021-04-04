@@ -26,7 +26,7 @@ const Axios = require("axios");
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", password: "", user: [] };
+    this.state = { value: "", password: "", data: {} };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -53,9 +53,9 @@ class Login extends React.Component {
     Axios.post("http://localhost:8000/auth/login", postData)
       .then((res) => {
         if (res.data.success) {
-          this.setState({ user: res.data });
-          console.log(this.state.user.data.token);
-          // this.props.history.push(`/Main/Dashboard`, this.state.token);
+          this.setState({ data: res.data });
+          console.log(this.state.data.data.token);
+          this.props.history.push(`/Main/Dashboard`, this.state.data.data);
         } else {
           return console.log(res.data);
         }

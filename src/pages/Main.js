@@ -4,14 +4,15 @@ import Profile from "./../components/Profile";
 import Activity from "./../components/Activity";
 import Dashboard from "./../components/Dashboard";
 import DashboardFacilitator from "./../components/DashboardFacilitator";
-import data from "./../data/data_akun.json";
-
+// import data from "./../data/data_akun.json";
+const Axios = require("axios");
 export class Main extends Component {
   constructor(props) {
     super(props);
     this.handleNotifPops = this.handleNotifPops.bind(this);
   }
   state = {
+    dataUser: {},
     userName: "",
     role: "",
     value: "",
@@ -63,16 +64,31 @@ export class Main extends Component {
     console.log(this.state.popsNotif);
   }
   componentDidMount() {
-    const { history, location } = this.props;
-    const action = () => history.push(`/`);
-    const cekData = data.find(({ email }) => email === location.state.value);
-    if (cekData) {
-      this.setState({ userName: cekData.username });
-      this.setState({ role: cekData.access });
-    } else {
-      console.log("tidak ada data");
-      action();
-    }
+    // const { history, location } = this.props;
+    // const action = () => history.push(`/`);
+    // console.log(location.state.token);
+    const getUser = async () => {
+      try {
+        const token = this.props.location.state.token;
+        const result = await Axios.get("http://localhost:8000/users/", {
+          headers: {
+            "auth-token": token,
+          },
+        });
+        this.setState({ dataUser: result.data.data });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+
+    // if (cekData) {
+    //   this.setState({ userName: cekData.username });
+    //   this.setState({ role: cekData.access });
+    // } else {
+    //   console.log("tidak ada data");
+    //   action();
+    // }
   }
   componentDidUpdate() {
     console.log("update");
@@ -209,7 +225,7 @@ export class Main extends Component {
                   alt=" Profile Pictur"
                 />
               </div>
-              <div className="menu_name">{`${this.state.userName}`}</div>
+              <div className="menu_name">{`${this.state.dataUser.username}`}</div>
               <div className="menu_status">online</div>
             </div>
             <div className="menu_notif" onClick={this.handleNotifPops}>
@@ -234,7 +250,7 @@ export class Main extends Component {
                     : "menu_dashboard"
                 }
                 onClick={
-                  this.state.role === "user"
+                  this.state.dataUser.role === 0
                     ? this.state.buttonList[1].buttonAction
                     : this.state.buttonList[1].buttonAction1
                 }
@@ -252,7 +268,7 @@ export class Main extends Component {
                     : "menu_activity"
                 }
                 onClick={
-                  this.state.role === "user"
+                  this.state.dataUser.role === 0
                     ? this.state.buttonList[2].buttonAction
                     : this.state.buttonList[2].buttonAction4
                 }
@@ -295,13 +311,13 @@ export class Main extends Component {
 const ContentList = (props) => {
   let result = null;
   if (props.content === "Profile") {
-    result = <Profile userName={props.data.userName} />;
+    result = <Profile userName={props.data.dataUser.username} />;
   } else if (props.content === "Activity") {
     result = (
       <Activity content2={props.content2} buttonList={props.data.buttonList} />
     );
   } else if (props.content === "Dashboard") {
-    if (props.data.role === "user") {
+    if (props.data.dataUser.role === 0) {
       result = <Dashboard buttonShow={props.data} />;
     } else {
       result = <DashboardFacilitator buttonShow={props.data} />;

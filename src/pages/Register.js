@@ -12,20 +12,20 @@ export class Register extends Component {
             <h2>Register</h2>
             <form className="main-form">
               <div className="box-input">
+                <input type="text" name="username" />
+                <label htmlFor="input-email">Username</label>
+              </div>
+              <div className="box-input">
                 <input type="email" name="input-email" />
                 <label htmlFor="input-email">Email</label>
               </div>
               <div className="box-input">
-                <input type="email" name="input-email" />
-                <label htmlFor="input-email">Confirm Email</label>
-              </div>
-              <div className="box-input">
                 <input type="password" name="input-password" />
                 <label htmlFor="input-password">Password</label>
               </div>
               <div className="box-input">
                 <input type="password" name="input-password" />
-                <label htmlFor="input-password">Password</label>
+                <label htmlFor="input-password">Confirm Password</label>
               </div>
               <button className="btn" type="submit">
                 Register

@@ -61,7 +61,7 @@ function MainActivity(props) {
                       fontWeight: "900",
                     }}
                   >
-                    {data.SCORE}
+                    {data.SCORE === null ? "0" : data.SCORE}
                   </td>
                   <td>&#x22EE;</td>
                 </tr>

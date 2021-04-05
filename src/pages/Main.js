@@ -12,6 +12,7 @@ export class Main extends Component {
     this.handleNotifPops = this.handleNotifPops.bind(this);
   }
   state = {
+    myClass: [],
     dataUser: {},
     userName: "",
     role: "",
@@ -80,7 +81,23 @@ export class Main extends Component {
         console.log(err);
       }
     };
+    const getClass = async () => {
+      try {
+        const result = await Axios.get(
+          "http://localhost:8000/class/myClass?search=&sort=category-AZ",
+          {
+            headers: {
+              "auth-token": this.props.location.state.token,
+            },
+          }
+        );
+        this.setState({ myClass: result.data.data[0] });
+      } catch (err) {
+        console.log(err);
+      }
+    };
     getUser();
+    getClass();
 
     // if (cekData) {
     //   this.setState({ userName: cekData.username });
@@ -314,7 +331,11 @@ const ContentList = (props) => {
     result = <Profile userName={props.data.dataUser.username} />;
   } else if (props.content === "Activity") {
     result = (
-      <Activity content2={props.content2} buttonList={props.data.buttonList} />
+      <Activity
+        content2={props.content2}
+        buttonList={props.data.buttonList}
+        data={props.data}
+      />
     );
   } else if (props.content === "Dashboard") {
     if (props.data.dataUser.role === 0) {

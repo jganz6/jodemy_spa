@@ -1,6 +1,6 @@
 import React from "react";
 import "./../css/activity.css";
-import MainActivity from "./mainActivity";
+import MainActivity from "./MainActivity";
 import MyClass from "./myClass";
 import ClassDetail from "./classDetail";
 import ClassProgress from "./classProgress";
@@ -11,14 +11,18 @@ import FacilitatorMember from "./FacilitatorMember";
 function Activity(props) {
   return (
     <main className="Activity">
-      <Content2List content2={props.content2} buttonList={props.buttonList} />
+      <Content2List
+        content2={props.content2}
+        buttonList={props.buttonList}
+        data={props.data}
+      />
     </main>
   );
 }
 function Content2List(props) {
   let result = null;
   if (props.content2 === "v1") {
-    result = <MainActivity buttonList={props.buttonList} />;
+    result = <MainActivity buttonList={props.buttonList} data={props.data} />;
   } else if (props.content2 === "v2") {
     result = <MyClass />;
   } else if (props.content2 === "v3") {

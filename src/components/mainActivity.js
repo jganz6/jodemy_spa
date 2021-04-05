@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function mainActivity(props) {
+function MainActivity(props) {
+  console.log(props.data.myClass);
   return (
     <>
       <header>
@@ -37,7 +38,10 @@ function mainActivity(props) {
                   <div className="overlay"></div>
                   <div
                     className="left"
-                    style={{ transform: [{ rotate: "-72deg" }], zIndex: "1" }}
+                    style={{
+                      transform: [{ rotate: "-72deg" }],
+                      zIndex: "1",
+                    }}
                   ></div>
                   <div
                     className="right"
@@ -56,7 +60,7 @@ function mainActivity(props) {
                   fontWeight: "900",
                 }}
               >
-                86{" "}
+                74{" "}
               </td>
               <td>&#x22EE;</td>
             </tr>
@@ -325,5 +329,4 @@ function mainActivity(props) {
     </>
   );
 }
-
-export default mainActivity;
+export default MainActivity;

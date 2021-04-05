@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function MainActivity(props) {
-  console.log(props.data.myClass);
   return (
     <>
       <header>
@@ -25,46 +24,51 @@ function MainActivity(props) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <input type="checkbox" name="" id="" />
-              </td>
-              <td>Front-end fundamentals</td>
-              <td>Software</td>
-              <td>Learn the fundamentals</td>
-              <td>
-                <div className="progress">
-                  <span className="title">80</span>
-                  <div className="overlay"></div>
-                  <div
-                    className="left"
+            {props.data.myClass.slice(0, 2).map((data, id) => {
+              return (
+                <tr key={id}>
+                  <td>
+                    <input type="checkbox" name="" id="" />
+                  </td>
+                  <td>{data.class_name}</td>
+                  <td>{data.category}</td>
+                  <td>{data.description}</td>
+                  <td>
+                    <div className="progress">
+                      <span className="title">80</span>
+                      <div className="overlay"></div>
+                      <div
+                        className="left"
+                        style={{
+                          transform: "rotate(-72deg)",
+                          zIndex: "1",
+                        }}
+                      ></div>
+                      <div
+                        className="right"
+                        style={{ transform: "rotate(180deg)" }}
+                      ></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="status-my-class">Ongoing</div>
+                  </td>
+                  <td
                     style={{
-                      transform: [{ rotate: "-72deg" }],
-                      zIndex: "1",
+                      textAlign: "center",
+                      fontSize: "22px",
+                      color: "#51E72B",
+                      fontWeight: "900",
                     }}
-                  ></div>
-                  <div
-                    className="right"
-                    style={{ transform: [{ rotate: "180deg" }] }}
-                  ></div>
-                </div>
-              </td>
-              <td>
-                <div className="status-my-class">Ongoing</div>
-              </td>
-              <td
-                style={{
-                  textAlign: "center",
-                  fontSize: "22px",
-                  color: "#51E72B",
-                  fontWeight: "900",
-                }}
-              >
-                74{" "}
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
+                  >
+                    {data.SCORE}
+                  </td>
+                  <td>&#x22EE;</td>
+                </tr>
+              );
+            })}
+
+            {/* <tr>
               <td>
                 <input type="checkbox" name="" id="" />
               </td>
@@ -138,7 +142,7 @@ function MainActivity(props) {
                 62
               </td>
               <td>&#x22EE;</td>
-            </tr>
+            </tr> */}
           </tbody>
           <tfoot>
             <tr>

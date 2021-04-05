@@ -2,7 +2,7 @@ import React from "react";
 import "./../css/my-class.css";
 import { Link } from "react-router-dom";
 
-function myClass() {
+function MyClass(props) {
   return (
     <>
       <header>
@@ -51,117 +51,49 @@ function myClass() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <input type="checkbox" name="" id="" />
-              </td>
-              <td>Front-end fundamentals</td>
-              <td>Software</td>
-              <td>Learn the fundamentals</td>
-              <td>
-                <div className="progress">
-                  <span className="title">80</span>
-                  <div className="overlay"></div>
-                  <div
-                    className="left"
-                    style={{ transform: [{ rotate: "-72deg" }], zIndex: "1" }}
-                  ></div>
-                  <div
-                    className="right"
-                    style={{ transform: [{ rotate: "180deg" }] }}
-                  ></div>
-                </div>
-              </td>
-              <td>
-                <div className="status-my-class">Ongoing</div>
-              </td>
-              <td
-                style={{
-                  textAlign: "center",
-                  fontSize: "22px",
-                  color: "#51E72B",
-                  fontWeight: "900",
-                }}
-              >
-                86{" "}
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" name="" id="" />
-              </td>
-              <td>HTML for beginners</td>
-              <td>Software</td>
-              <td>HTML from scratch</td>
-              <td>
-                <div className="progress">
-                  <span className="title">25</span>
-                  <div className="overlay"></div>
-                  <div
-                    className="left"
-                    style={{ transform: [{ rotate: "90deg" }] }}
-                  ></div>
-                  <div
-                    className="right"
-                    style={{ transform: [{ rotate: "90deg" }] }}
-                  ></div>
-                </div>
-              </td>
-              <td>
-                <div className="status-my-class">Ongoing</div>
-              </td>
-              <td
-                style={{
-                  textAlign: "center",
-                  fontSize: "22px",
-                  color: "#51E72B",
-                  fontWeight: "900",
-                }}
-              >
-                71{" "}
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" name="" id="" />
-              </td>
-              <td>History of Europe</td>
-              <td>History</td>
-              <td>The history of Europe concerns itself...</td>
-              <td>
-                <div className="progress">
-                  <span className="title">69</span>
-                  <div className="overlay"></div>
-                  <div
-                    className="left"
+            {props.data.myClass.map((data, id) => {
+              return (
+                <tr key={id}>
+                  <td>
+                    <input type="checkbox" name="" id="" />
+                  </td>
+                  <td>{data.class_name}</td>
+                  <td>{data.category}</td>
+                  <td>{data.description}</td>
+                  <td>
+                    <div className="progress">
+                      <span className="title">80</span>
+                      <div className="overlay"></div>
+                      <div
+                        className="left"
+                        style={{
+                          transform: "rotate(-72deg)",
+                          zIndex: "1",
+                        }}
+                      ></div>
+                      <div
+                        className="right"
+                        style={{ transform: "rotate(180deg)" }}
+                      ></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="status-my-class">Ongoing</div>
+                  </td>
+                  <td
                     style={{
-                      transform: [{ rotate: "-111.6deg" }],
-                      zIndex: "1",
+                      textAlign: "center",
+                      fontSize: "22px",
+                      color: "#51E72B",
+                      fontWeight: "900",
                     }}
-                  ></div>
-                  <div
-                    className="right"
-                    style={{ transform: [{ rotate: "180deg" }] }}
-                  ></div>
-                </div>
-              </td>
-              <td>
-                <div className="status-my-class">Ongoing</div>
-              </td>
-              <td
-                style={{
-                  textAlign: "center",
-                  fontSize: "22px",
-                  color: "#CCE72B",
-                  fontWeight: "900",
-                }}
-              >
-                62
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
+                  >
+                    {data.SCORE}
+                  </td>
+                  <td>&#x22EE;</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <div className="footer-table-newclass">
@@ -179,4 +111,4 @@ function myClass() {
   );
 }
 
-export default myClass;
+export default MyClass;

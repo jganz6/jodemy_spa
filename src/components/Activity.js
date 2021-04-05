@@ -1,7 +1,7 @@
 import React from "react";
 import "./../css/activity.css";
 import MainActivity from "./MainActivity";
-import MyClass from "./myClass";
+import MyClass from "./MyClass";
 import ClassDetail from "./classDetail";
 import ClassProgress from "./classProgress";
 import FacilitatorActivity from "./FacilitatorActivity";
@@ -24,7 +24,7 @@ function Content2List(props) {
   if (props.content2 === "v1") {
     result = <MainActivity buttonList={props.buttonList} data={props.data} />;
   } else if (props.content2 === "v2") {
-    result = <MyClass />;
+    result = <MyClass data={props.data} />;
   } else if (props.content2 === "v3") {
     result = <ClassDetail />;
   } else if (props.content2 === "v4") {

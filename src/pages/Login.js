@@ -3,6 +3,8 @@ import eye_icon from "./../assets/eye-icon.png";
 import google_icon from "./../assets/google-icon.png";
 import "./../css/Login.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { getMyClass } from "../redux/action/myClass";
 const Axios = require("axios");
 // const FormData = require("form-data");
 
@@ -54,7 +56,7 @@ class Login extends React.Component {
       .then((res) => {
         if (res.data.success) {
           this.setState({ data: res.data });
-          console.log(this.state.data.data.token);
+          this.props.getMyClass(res.data);
           this.props.history.push(`/Main/Dashboard`, this.state.data.data);
         } else {
           return console.log(res.data);
@@ -65,6 +67,7 @@ class Login extends React.Component {
     event.preventDefault();
   }
   render() {
+    console.log(this.props);
     return (
       <div className="Login">
         <div className="container-fluid d-flex justify-content-center align-items-center">
@@ -113,5 +116,10 @@ class Login extends React.Component {
     );
   }
 }
-
-export default Login;
+const mapStateToProps = (state, ownProps) => ({
+  state,
+});
+const mapDispatchToProps = (dispatch) => ({
+  getMyClass: (data) => dispatch(getMyClass(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

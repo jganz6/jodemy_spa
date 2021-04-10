@@ -6,6 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
+import store from "./redux/store/store";
+import { Provider } from "react-redux";
+
 const AppWithRouter = () => {
   return (
     <Router>
@@ -18,8 +21,10 @@ const AppWithRouter = () => {
 };
 ReactDOM.render(
   <React.StrictMode>
-    <AppWithRouter />
-    {/* <App /> */}
+    <Provider store={store}>
+      <AppWithRouter />
+      {/* <App /> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

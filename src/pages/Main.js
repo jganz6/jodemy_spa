@@ -4,6 +4,9 @@ import Profile from "./../components/Profile";
 import Activity from "./../components/Activity";
 import Dashboard from "./../components/Dashboard";
 import DashboardFacilitator from "./../components/DashboardFacilitator";
+import { connect } from "react-redux";
+import { getMyClass } from "../redux/actions/myClass";
+import { getUser } from "../redux/actions/user";
 // import data from "./../data/data_akun.json";
 const Axios = require("axios");
 export class Main extends Component {
@@ -65,22 +68,8 @@ export class Main extends Component {
     console.log(this.state.popsNotif);
   }
   componentDidMount() {
-    // const { history, location } = this.props;
-    // const action = () => history.push(`/`);
-    // console.log(location.state.token);
-    const getUser = async () => {
-      try {
-        const token = this.props.location.state.token;
-        const result = await Axios.get("http://localhost:8000/users/", {
-          headers: {
-            "auth-token": token,
-          },
-        });
-        this.setState({ dataUser: result.data.data });
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    const token = this.props.token;
+    this.props.getUser("http://localhost:8000/users", token);
     const getClass = async () => {
       try {
         const result = await Axios.get(
@@ -96,16 +85,7 @@ export class Main extends Component {
         console.log(err);
       }
     };
-    getUser();
     getClass();
-
-    // if (cekData) {
-    //   this.setState({ userName: cekData.username });
-    //   this.setState({ role: cekData.access });
-    // } else {
-    //   console.log("tidak ada data");
-    //   action();
-    // }
   }
   componentDidUpdate() {
     console.log("update");
@@ -242,7 +222,7 @@ export class Main extends Component {
                   alt=" Profile Pictur"
                 />
               </div>
-              <div className="menu_name">{`${this.state.dataUser.username}`}</div>
+              <div className="menu_name">{`${this.props.dataUser.username}`}</div>
               <div className="menu_status">online</div>
             </div>
             <div className="menu_notif" onClick={this.handleNotifPops}>
@@ -267,7 +247,7 @@ export class Main extends Component {
                     : "menu_dashboard"
                 }
                 onClick={
-                  this.state.dataUser.role === 0
+                  this.props.dataUser.role === 0
                     ? this.state.buttonList[1].buttonAction
                     : this.state.buttonList[1].buttonAction1
                 }
@@ -285,7 +265,7 @@ export class Main extends Component {
                     : "menu_activity"
                 }
                 onClick={
-                  this.state.dataUser.role === 0
+                  this.props.dataUser.role === 0
                     ? this.state.buttonList[2].buttonAction
                     : this.state.buttonList[2].buttonAction4
                 }
@@ -317,6 +297,7 @@ export class Main extends Component {
           </nav>
           <ContentList
             data={this.state}
+            dataUser={this.props.dataUser}
             content={match.params.content}
             content2={match.params.content2}
           />
@@ -328,7 +309,7 @@ export class Main extends Component {
 const ContentList = (props) => {
   let result = null;
   if (props.content === "Profile") {
-    result = <Profile userName={props.data.dataUser.username} />;
+    result = <Profile userName={props.dataUser.username} />;
   } else if (props.content === "Activity") {
     result = (
       <Activity
@@ -338,7 +319,7 @@ const ContentList = (props) => {
       />
     );
   } else if (props.content === "Dashboard") {
-    if (props.data.dataUser.role === 0) {
+    if (props.dataUser.role === 0) {
       result = <Dashboard buttonShow={props.data} />;
     } else {
       result = <DashboardFacilitator buttonShow={props.data} />;
@@ -346,4 +327,14 @@ const ContentList = (props) => {
   }
   return result;
 };
-export default Main;
+const mapStateToProps = (state, ownProps) => ({
+  token: state.auth.results.token,
+  dataUser: state.user.results,
+});
+const mapDispatchToProps = (dispatch) => ({
+  getUser: (url, token) => {
+    dispatch(getUser(url, token));
+  },
+  getMyClass: (data) => dispatch(getMyClass(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

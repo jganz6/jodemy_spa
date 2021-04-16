@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
 import store from "./redux/store";
@@ -15,19 +15,13 @@ import NotFound from "./pages/NotFound";
 const AppWithRouter = () => {
   return (
     <Router>
-      <PrivateRouteAuth path="/" exact Component={Login} isLogin={false} />
-      <PrivateRoute
-        path="/Main/:content?/:content2?"
-        component={Main}
-        isLogin={false}
-      />
-      <PrivateRouteAuth
-        path="/ForgotPassword/:step?"
-        Component={ForgotPassword}
-        isLogin={false}
-      />
-      <PrivateRouteAuth path="/Register" Component={Register} isLogin={false} />
-      <Route path="/" component={NotFound} />
+      <Switch>
+        <PrivateRouteAuth path="/" exact comp={Login} />
+        <PrivateRoute path="/Main/:content?/:content2?" comp={Main} />
+        <PrivateRouteAuth path="/ForgotPassword/:step?" comp={ForgotPassword} />
+        <PrivateRouteAuth path="/Register" comp={Register} />
+        <Route path="/" component={NotFound} />
+      </Switch>
     </Router>
   );
 };
@@ -40,8 +34,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();

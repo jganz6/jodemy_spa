@@ -4,23 +4,21 @@ const intialState = {
   isPending: false,
   isFulfilled: false,
   isRejected: false,
-  isLogin: false,
   err: {},
 };
-const login = (state = intialState, { type, payload }) => {
+const user = (state = intialState, { type, payload }) => {
   switch (type) {
-    case "POST_LOGIN_PENDING":
+    case "GET_USER_PENDING":
       return {
         ...state,
         isPending: true,
         isFulfilled: false,
         isRejected: false,
       };
-    case "POST_LOGIN_FULFILLED":
+    case "GET_USER_FULFILLED":
       return {
         ...state,
         isFulfilled: true,
-        isLogin: true,
         isPending: false,
         results: payload.data.data,
         info: {
@@ -29,7 +27,7 @@ const login = (state = intialState, { type, payload }) => {
           ...payload.data.message,
         },
       };
-    case "POST_LOGIN_REJECTED":
+    case "GET_USER_REJECTED":
       return {
         ...state,
         isRejected: true,
@@ -40,4 +38,4 @@ const login = (state = intialState, { type, payload }) => {
       return state;
   }
 };
-export default login;
+export default user;

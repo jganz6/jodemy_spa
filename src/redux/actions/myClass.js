@@ -1,6 +1,11 @@
-export const getMyClass = (data) => {
+import axios from "axios";
+export const getMyClass = (url, token) => {
   return {
-    type: "get",
-    payload: data,
+    type: "GET_CLASS",
+    payload: axios.get(url, {
+      headers: {
+        "auth-token": token,
+      },
+    }),
   };
 };

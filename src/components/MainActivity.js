@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
+import ListNewClass from "./ListNewClass";
+import ListMyClass from "./ListMyClass";
+import { registerClass } from "./../redux/actions/newClass";
 function MainActivity(props) {
   return (
     <>
@@ -24,125 +27,9 @@ function MainActivity(props) {
             </tr>
           </thead>
           <tbody>
-            {props.data.myClass.slice(0, 2).map((data, id) => {
-              return (
-                <tr key={id}>
-                  <td>
-                    <input type="checkbox" name="" id="" />
-                  </td>
-                  <td>{data.class_name}</td>
-                  <td>{data.category}</td>
-                  <td>{data.description}</td>
-                  <td>
-                    <div className="progress">
-                      <span className="title">80</span>
-                      <div className="overlay"></div>
-                      <div
-                        className="left"
-                        style={{
-                          transform: "rotate(-72deg)",
-                          zIndex: "1",
-                        }}
-                      ></div>
-                      <div
-                        className="right"
-                        style={{ transform: "rotate(180deg)" }}
-                      ></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="status-my-class">Ongoing</div>
-                  </td>
-                  <td
-                    style={{
-                      textAlign: "center",
-                      fontSize: "22px",
-                      color: "#51E72B",
-                      fontWeight: "900",
-                    }}
-                  >
-                    {data.SCORE === null ? "0" : data.SCORE}
-                  </td>
-                  <td>&#x22EE;</td>
-                </tr>
-              );
+            {props.myClass.map((data) => {
+              return <ListMyClass key={data.id_class} data={data} />;
             })}
-
-            {/* <tr>
-              <td>
-                <input type="checkbox" name="" id="" />
-              </td>
-              <td>HTML for beginners</td>
-              <td>Software</td>
-              <td>HTML from scratch</td>
-              <td>
-                <div className="progress">
-                  <span className="title">25</span>
-                  <div className="overlay"></div>
-                  <div
-                    className="left"
-                    style={{ transform: [{ rotate: "90deg" }] }}
-                  ></div>
-                  <div
-                    className="right"
-                    style={{ transform: [{ rotate: "90deg" }] }}
-                  ></div>
-                </div>
-              </td>
-              <td>
-                <div className="status-my-class">Ongoing</div>
-              </td>
-              <td
-                style={{
-                  textAlign: "center",
-                  fontSize: "22px",
-                  color: "#51E72B",
-                  fontWeight: "900",
-                }}
-              >
-                71{" "}
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" name="" id="" />
-              </td>
-              <td>History of Europe</td>
-              <td>History</td>
-              <td>The history of Europe concerns itself...</td>
-              <td>
-                <div className="progress">
-                  <span className="title">69</span>
-                  <div className="overlay"></div>
-                  <div
-                    className="left"
-                    style={{
-                      transform: [{ rotate: "-111.6deg" }],
-                      zIndex: "1",
-                    }}
-                  ></div>
-                  <div
-                    className="right"
-                    style={{ transform: [{ rotate: "180deg" }] }}
-                  ></div>
-                </div>
-              </td>
-              <td>
-                <div className="status-my-class">Ongoing</div>
-              </td>
-              <td
-                style={{
-                  textAlign: "center",
-                  fontSize: "22px",
-                  color: "#CCE72B",
-                  fontWeight: "900",
-                }}
-              >
-                62
-              </td>
-              <td>&#x22EE;</td>
-            </tr> */}
           </tbody>
           <tfoot>
             <tr>
@@ -204,116 +91,17 @@ function MainActivity(props) {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={props.buttonList[2].buttonAction2}>
-              <td>Know more Javascript</td>
-              <td>Software</td>
-              <td>Javascript from the basic for...</td>
-              <td>Beginner</td>
-              <td>Free</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>HTML and CSS to code</td>
-              <td>Software</td>
-              <td>Start combining HTML and CSS to...</td>
-              <td>Intermediate</td>
-              <td>$10</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Indonesian war history</td>
-              <td>History</td>
-              <td>From the first colonization until...</td>
-              <td>Advance</td>
-              <td>$50</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Budhism and Modern Psychology</td>
-              <td>Psychology</td>
-              <td>Budhism and science are deeply...</td>
-              <td>Beginner</td>
-              <td>Free</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Financial markets</td>
-              <td>Finance</td>
-              <td>An overview of the ideas, methods...</td>
-              <td>Intermediate</td>
-              <td>$10</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Corporate finance</td>
-              <td>Finance</td>
-              <td>Introduction to the fundamentals</td>
-              <td>Advance</td>
-              <td>$50</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Algoritm specialization</td>
-              <td>Math</td>
-              <td>Learn to think like computer...</td>
-              <td>Advance</td>
-              <td>$50</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Business and Financial Modeling</td>
-              <td>Software</td>
-              <td>Designed to help you make...</td>
-              <td>Beginner</td>
-              <td>Free</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Marketing in a Digital World</td>
-              <td>Software</td>
-              <td>This class examines how digital...</td>
-              <td>Intermediate</td>
-              <td>$10</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
-            <tr>
-              <td>Social Psychology</td>
-              <td>Psychology</td>
-              <td>This class offers some answers...</td>
-              <td>Advance</td>
-              <td>$50</td>
-              <td>
-                <div className="new-class-register">Register</div>
-              </td>
-              <td>&#x22EE;</td>
-            </tr>
+            {/*onClick={props.buttonList[2].buttonAction2}*/}
+            {props.newClass[0].map((data) => {
+              return (
+                <ListNewClass
+                  key={data.id_class}
+                  data={data}
+                  register={props.registerClass}
+                  newClass={props.newClass}
+                />
+              );
+            })}
           </tbody>
         </table>
         <div className="footer-table-newclass">
@@ -333,4 +121,12 @@ function MainActivity(props) {
     </>
   );
 }
-export default MainActivity;
+const mapStateToProps = (state) => ({
+  myClass: state.myClassReducer.results[0],
+  newClass: state.newClass.results,
+});
+const mapDispatchToProps = (dispatch) => ({
+  registerClass: (id_class, newClass) =>
+    dispatch(registerClass(id_class, newClass)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(MainActivity);

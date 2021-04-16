@@ -6,9 +6,8 @@ import Dashboard from "./../components/Dashboard";
 import DashboardFacilitator from "./../components/DashboardFacilitator";
 import { connect } from "react-redux";
 import { getMyClass } from "../redux/actions/myClass";
+import { getNewClass } from "../redux/actions/newClass";
 import { getUser } from "../redux/actions/user";
-// import data from "./../data/data_akun.json";
-const Axios = require("axios");
 export class Main extends Component {
   constructor(props) {
     super(props);
@@ -70,22 +69,11 @@ export class Main extends Component {
   componentDidMount() {
     const token = this.props.token;
     this.props.getUser("http://localhost:8000/users", token);
-    const getClass = async () => {
-      try {
-        const result = await Axios.get(
-          "http://localhost:8000/class/myClass?search=&sort=category-AZ",
-          {
-            headers: {
-              "auth-token": this.props.location.state.token,
-            },
-          }
-        );
-        this.setState({ myClass: result.data.data[0] });
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getClass();
+    this.props.getMyClass("http://localhost:8000/class/myClass", token);
+    this.props.getNewClass(
+      "http://localhost:8000/class/newClass?limit=10",
+      token
+    );
   }
   componentDidUpdate() {
     console.log("update");
@@ -335,6 +323,7 @@ const mapDispatchToProps = (dispatch) => ({
   getUser: (url, token) => {
     dispatch(getUser(url, token));
   },
-  getMyClass: (data) => dispatch(getMyClass(data)),
+  getMyClass: (url, token) => dispatch(getMyClass(url, token)),
+  getNewClass: (url, token) => dispatch(getNewClass(url, token)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

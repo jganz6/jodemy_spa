@@ -4,27 +4,9 @@ import google_icon from "./../assets/google-icon.png";
 import "./../css/Login.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getMyClass } from "../redux/action/myClass";
-const Axios = require("axios");
-// const FormData = require("form-data");
-
-// async function makeGetRequest(email, password) {
-//   let res = await axios
-//     .post(
-//       "http://localhost:8000/auth/login",
-//       { email, password },
-//       {
-//         headers: {
-//           "Access-Control-Allow-Origin": "http://localhost:3000",
-//         },
-//       }
-//     )
-//     .then((response) => {
-//       console.log(response);
-//     })
-//     .catch((err) => err);
-//   console.log(res.result);
-// }
+import { getMyClass } from "../redux/actions/myClass";
+import { postLogin } from "../redux/actions/auth";
+// const Axios = require("axios");
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -38,36 +20,16 @@ class Login extends React.Component {
   }
   componentDidMount() {
     console.log("did mount");
-    console.log(this.props.location.state);
-  }
-  componentDidUpdate() {
-    console.log("update!!");
   }
   componentWillUnmount() {
     console.log("unmount");
   }
   handleSubmit(event) {
-    // console.log(this.props);
-    // console.log(this.state);
-    // const action = () => this.props.history.push(`/Main/Dashboard`, this.state);
-    // action();
     const postData = { email: this.state.value, password: this.state.password };
-    Axios.post("http://localhost:8000/auth/login", postData)
-      .then((res) => {
-        if (res.data.success) {
-          this.setState({ data: res.data });
-          this.props.getMyClass(res.data);
-          this.props.history.push(`/Main/Dashboard`, this.state.data.data);
-        } else {
-          return console.log(res.data);
-        }
-      })
-      .catch((err) => console.log(err));
-    // console.log(this.state.users);
+    this.props.postLogin("http://localhost:8000/auth/login", postData);
     event.preventDefault();
   }
   render() {
-    console.log(this.props);
     return (
       <div className="Login">
         <div className="container-fluid d-flex justify-content-center align-items-center">
@@ -120,6 +82,9 @@ const mapStateToProps = (state, ownProps) => ({
   state,
 });
 const mapDispatchToProps = (dispatch) => ({
+  postLogin: (url, data) => {
+    dispatch(postLogin(url, data));
+  },
   getMyClass: (data) => dispatch(getMyClass(data)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

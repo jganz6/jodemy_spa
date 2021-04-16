@@ -6,16 +6,28 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
-import store from "./redux/store/store";
+import store from "./redux/store";
 import { Provider } from "react-redux";
+import PrivateRoute from "./components/PrivateRoute";
+import PrivateRouteAuth from "./components/PrivateRouteAuth";
+import NotFound from "./pages/NotFound";
 
 const AppWithRouter = () => {
   return (
     <Router>
-      <Route path="/" exact component={Login} />
-      <Route path="/Main/:content?/:content2?" component={Main} />
-      <Route path="/ForgotPassword/:step?" component={ForgotPassword} />
-      <Route path="/Register" component={Register} />
+      <PrivateRouteAuth path="/" exact Component={Login} isLogin={false} />
+      <PrivateRoute
+        path="/Main/:content?/:content2?"
+        component={Main}
+        isLogin={false}
+      />
+      <PrivateRouteAuth
+        path="/ForgotPassword/:step?"
+        Component={ForgotPassword}
+        isLogin={false}
+      />
+      <PrivateRouteAuth path="/Register" Component={Register} isLogin={false} />
+      <Route path="/" component={NotFound} />
     </Router>
   );
 };

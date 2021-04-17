@@ -34,14 +34,14 @@ const newClass = (state = intialState, { type, payload }) => {
         isPending: false,
         err: payload,
       };
-    case "POST_registerClass":
+    case "POST_registerCLASS_FULFILLED":
       return {
         ...state,
         isFulfilled: true,
         results: {
-          ...payload.newClass,
-          0: payload.newClass[0].filter((items) => {
-            return items.id_class !== payload.id_class;
+          ...state.results,
+          0: state.results[0].filter((items) => {
+            return items.id_class !== payload.data.data[0].data[0].id_class;
           }),
         },
       };

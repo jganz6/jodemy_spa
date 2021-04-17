@@ -23,6 +23,9 @@ main.Activity header img{
     font-family: Montserrat;
     /* border: 2px solid black; */
 }
+main.Activity header>span>img{
+    cursor: pointer;
+}
 main.Activity{
     background-color: #E6EDF6 !important;
     font-family: Montserrat;
@@ -79,6 +82,10 @@ tbody>tr>td{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.my-class tfoot>tr>td>span{
+    cursor: pointer;
+    font-size: 14px;
 }
 .new-class tbody>tr>td:nth-child(3){
     width: 20%;
@@ -271,6 +278,9 @@ tfoot>tr>td>a{
     .my-class tfoot>tr>td{
         column-span: 5;
     }
+    .my-class tfoot>tr>td>span{
+        font-size: 10px;
+    }
     .new-class tr>th:nth-child(2),.new-class tr>th:nth-child(3){
         display: none;
     }
@@ -291,7 +301,7 @@ tfoot>tr>td>a{
         padding: 5px;
     }
     tfoot>tr{
-        font-size: 10x;
+        font-size: 10px;
         font-weight: 300;
         text-align: center;
     }

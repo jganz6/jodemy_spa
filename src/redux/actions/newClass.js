@@ -9,18 +9,3 @@ export const getNewClass = (url, token) => {
     }),
   };
 };
-export const registerClass = (id_class, newClass) => {
-  return {
-    type: "POST_registerClass",
-    payload: { id_class, newClass },
-    // payload: axios.post(
-    //   url,
-    //   { id_class },
-    //   {
-    //     headers: {
-    //       "auth-token": token,
-    //     },
-    //   }
-    // ),
-  };
-};

@@ -14,7 +14,7 @@ function ListMyClass({ data }) {
       </td>
       <td>
         <div className="status-my-class">
-          {data.progress.toFixed(0) < 100 ? "Ongoing" : "Finish"}
+          {data.progress.toFixed(0) < 100 ? "Ongoing" : "Completed"}
         </div>
       </td>
       <td
@@ -25,7 +25,7 @@ function ListMyClass({ data }) {
           fontWeight: "900",
         }}
       >
-        {data.SCORE === null ? "0" : data.score}
+        {data.score === null ? "0" : data.score}
       </td>
       <td>&#x22EE;</td>
     </tr>
@@ -33,7 +33,6 @@ function ListMyClass({ data }) {
 }
 const CircularBar = ({ progress }) => {
   const p = (progress / 100) * 360;
-  console.log(p);
   return (
     <div className="progress">
       <span className="title">{progress}</span>

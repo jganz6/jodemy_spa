@@ -34,6 +34,15 @@ const myClass = (state = intialState, { type, payload }) => {
         isPending: false,
         err: payload,
       };
+    // case "POST_registerCLASS_FULFILLED":
+    //   return {
+    //     ...state,
+    //     isFulfilled: true,
+    //     results: {
+    //       ...payload.myClass,
+    //       0: [...payload.myClass[0], payload.data.data.data],
+    //     },
+    //   };
     default:
       return state;
   }

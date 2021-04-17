@@ -1,14 +1,19 @@
-import { React, useEffect } from "react";
+import { React, useState } from "react";
 import "./../css/class-detail.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { registerCLASS } from "./../redux/actions/registerClass";
 import { getSubClass } from "./../redux/actions/subClass";
 import { connect } from "react-redux";
+import ClassProgress from "./classProgress";
 
 function ClassDetail(props) {
-  useEffect(() =>
-    props.getSubClass("http://localhost:8000/class/subjectClass/1")
-  );
+  const [subContent, setSubContent] = useState(0);
+  const qs = new URLSearchParams(useLocation().search).get("id");
+  const myClass = props.myClass[0].find((data) => data.id_class === Number(qs));
+  console.log(myClass);
+  const contentHandler = (number) => {
+    setSubContent(number);
+  };
   return (
     <>
       <header>
@@ -18,7 +23,7 @@ function ClassDetail(props) {
             alt="back-icon.png"
           />
         </Link>
-        <h3>Know More Javascript</h3>
+        <h3>{myClass.class_name}</h3>
       </header>
       <div className="class-detail">
         <div className="class-detail-head">
@@ -30,11 +35,26 @@ function ClassDetail(props) {
                   alt="Software Icon.png"
                 />
               </div>
-              <div className="title-class">Know More Javascript</div>
-              <div className="head-text-detail">Level : Beginner</div>
-              <div className="head-text-detail">Category : Software</div>
-              <div className="head-text-detail">Price : Free</div>
-              <div className="new-class-register">Register</div>
+              <div className="title-class">{myClass.class_name}</div>
+              <div className="head-text-detail">Level : {myClass.level}</div>
+              <div className="head-text-detail">
+                Category : {myClass.category}
+              </div>
+              <div className="head-text-detail">
+                Price : {myClass.pricing === 0 ? "Free" : myClass.pricing}
+              </div>
+              <div
+                className="score-display"
+                style={{
+                  color: `hsl(${(
+                    (myClass.score === null ? 0 : myClass.score / 100) * 180
+                  ).toFixed(0)},100%,50%)`,
+                }}
+              >
+                <div className="label-score">Your Score</div>
+                {myClass.score === null ? "0" : myClass.score}
+              </div>
+              {/* <div className="new-class-register">Register</div> */}
             </div>
           </div>
         </div>
@@ -43,71 +63,84 @@ function ClassDetail(props) {
             <div className="detail-void"></div>
           </div>
           <div className="section-class-detail">
-            <a href="/" className="section-option option-selected">
+            <span
+              onClick={() => contentHandler(0)}
+              className={
+                subContent === 0
+                  ? "section-option option-selected"
+                  : "section-option"
+              }
+            >
               Information
-            </a>
-            <Link to="/Main/Activity/v4" className="section-option">
+            </span>
+            <span
+              onClick={() => contentHandler(1)}
+              className={
+                subContent === 1
+                  ? "section-option option-selected"
+                  : "section-option"
+              }
+            >
               Class Progress
-            </Link>
+            </span>
             <a href="/" className="section-option">
               Class Discussion
             </a>
           </div>
-          <h6>Description</h6>
-          <div className="class-descption-text">
-            Javascript from the basic for beginner. JavaScript is a programming
-            language that adds interactivity to your website. This happens in
-            games, in the behavior of responses when buttons are pressed or with
-            data entry on forms; with dynamic styling; with animation, etc. This
-            class helps you get started with JavaScript and furthers your
-            understanding of what is possible.
-          </div>
-          <h6>What will I learn?</h6>
-          <div className="class-descption-text">
-            <ul>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                molestiae ut! Excepturi itaque doloribus repellendus sint dicta
-                modi sequi perferendis reprehenderit ea earum maxime odio,
-                asperiores eligendi eaque corporis ab!
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                molestiae ut! Excepturi itaque doloribus repellendus sint dicta
-                modi sequi perferendis reprehenderit ea earum maxime odio,
-                asperiores eligendi eaque corporis ab!
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                molestiae ut! Excepturi itaque doloribus repellendus sint dicta
-                modi sequi perferendis reprehenderit ea earum maxime odio,
-                asperiores eligendi eaque corporis ab!
-              </li>
-            </ul>
-          </div>
-          <h6>Content 2</h6>
-          <div className="class-descption-text">
-            <ul>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                molestiae ut! Excepturi itaque doloribus repellendus sint dicta
-                modi sequi perferendis reprehenderit ea earum maxime odio,
-                asperiores eligendi eaque corporis ab!
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                molestiae ut! Excepturi itaque doloribus repellendus sint dicta
-                modi sequi perferendis reprehenderit ea earum maxime odio,
-                asperiores eligendi eaque corporis ab!
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                molestiae ut! Excepturi itaque doloribus repellendus sint dicta
-                modi sequi perferendis reprehenderit ea earum maxime odio,
-                asperiores eligendi eaque corporis ab!
-              </li>
-            </ul>
-          </div>
+          {subContent === 0 ? (
+            <>
+              <h6>Description</h6>
+              <div className="class-descption-text">{myClass.description}</div>
+              <h6>What will I learn?</h6>
+              <div className="class-descption-text">
+                <ul>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime, molestiae ut! Excepturi itaque doloribus repellendus
+                    sint dicta modi sequi perferendis reprehenderit ea earum
+                    maxime odio, asperiores eligendi eaque corporis ab!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime, molestiae ut! Excepturi itaque doloribus repellendus
+                    sint dicta modi sequi perferendis reprehenderit ea earum
+                    maxime odio, asperiores eligendi eaque corporis ab!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime, molestiae ut! Excepturi itaque doloribus repellendus
+                    sint dicta modi sequi perferendis reprehenderit ea earum
+                    maxime odio, asperiores eligendi eaque corporis ab!
+                  </li>
+                </ul>
+              </div>
+              <h6>Content 2</h6>
+              <div className="class-descption-text">
+                <ul>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime, molestiae ut! Excepturi itaque doloribus repellendus
+                    sint dicta modi sequi perferendis reprehenderit ea earum
+                    maxime odio, asperiores eligendi eaque corporis ab!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime, molestiae ut! Excepturi itaque doloribus repellendus
+                    sint dicta modi sequi perferendis reprehenderit ea earum
+                    maxime odio, asperiores eligendi eaque corporis ab!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime, molestiae ut! Excepturi itaque doloribus repellendus
+                    sint dicta modi sequi perferendis reprehenderit ea earum
+                    maxime odio, asperiores eligendi eaque corporis ab!
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <ClassProgress subClass={props.subClass} />
+          )}
         </div>
       </div>
     </>
@@ -118,6 +151,7 @@ const mapStateToProps = (state) => ({
   newClass: state.newClass.results,
   token: state.auth.results.token,
   registerCLASS: state.registerCLASS,
+  subClass: state.subClass.results,
 });
 const mapDispatchToProps = (dispatch) => ({
   registerClass: (url, token) => dispatch(registerCLASS(url, token)),

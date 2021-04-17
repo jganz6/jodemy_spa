@@ -1,11 +1,10 @@
 import React from "react";
 import "./../css/class-progress.css";
-import { Link } from "react-router-dom";
 
-function classProgress() {
+function classProgress(props) {
   return (
     <>
-      <header>
+      {/* <header>
         <Link to="/Main/Activity/v1">
           <img
             src="https://jodemy.netlify.app/assets/back-icon.png"
@@ -49,111 +48,132 @@ function classProgress() {
             <a href="/" className="section-option">
               Class Discussion
             </a>
-          </div>
-          <table>
-            <tbody>
-              <tr>
+          </div> */}
+      <table>
+        <tbody>
+          {props.subClass[0].map((data) => {
+            return (
+              <tr key={data.id_subject}>
                 <td>
                   <input type="checkbox" name="" id="" />
                 </td>
-                <td>HTML Essential Training</td>
+                <td>{data.subject_name}</td>
                 <td>You have completed this topic</td>
-                <td className="scoreColor" style={{ color: "#2BE7D0" }}>
-                  100
+                <td
+                  className="scoreColor"
+                  style={{
+                    color: `hsl(${(
+                      (data.score === null ? 0 : data.score / 100) * 180
+                    ).toFixed(0)},100%,50%)`,
+                  }}
+                >
+                  {(data.score === null ? 0 : data.score).toFixed(0)}
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>CSS Essential Training</td>
-                <td>You have completed this topic</td>
-                <td className="scoreColor" style={{ color: "#E7852B" }}>
-                  42
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>Javascript Essential Training</td>
-                <td>You have completed this topic</td>
-                <td className="scoreColor" style={{ color: "#E6422B" }}>
-                  21
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>Responsive Layout</td>
-                <td>You have completed this topic</td>
-                <td className="scoreColor" style={{ color: "#2BE7D0" }}>
-                  98
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>Mid-term Exam</td>
-                <td>You have completed this topic</td>
-                <td className="scoreColor" style={{ color: "#51E72B" }}>
-                  86
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>Bootstrap4 Essential Training</td>
-                <td>You have completed this topic</td>
-                <td className="scoreColor" style={{ color: "#7EE72B" }}>
-                  72
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>Sass Essential Training</td>
-                <td>Friday, 6 November 2020 08.00 - 09.40</td>
-                <td className="scoreColor" style={{ color: "#FFF" }}></td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>Learning React.js</td>
-                <td>Friday, 13 November 2020 08.00 - 09.40</td>
-                <td>
-                  <div className="unfinished">Unfinished</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>UX for Web Design</td>
-                <td>Friday, 20 November 2020 08.00 - 09.40</td>
-                <td>
-                  <div className="unfinished">Unfinished</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td>Final-term Exam</td>
-                <td>Friday, 27 November 2020 08.00 - 09.40</td>
-                <td>
-                  <div className="unfinished">Unfinished</div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+            );
+          })}
+          {/* <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>HTML Essential Training</td>
+            <td>You have completed this topic</td>
+            <td className="scoreColor" style={{ color: "#2BE7D0" }}>
+              100
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>CSS Essential Training</td>
+            <td>You have completed this topic</td>
+            <td className="scoreColor" style={{ color: "#E7852B" }}>
+              42
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>Javascript Essential Training</td>
+            <td>You have completed this topic</td>
+            <td className="scoreColor" style={{ color: "#E6422B" }}>
+              21
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>Responsive Layout</td>
+            <td>You have completed this topic</td>
+            <td className="scoreColor" style={{ color: "#2BE7D0" }}>
+              98
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>Mid-term Exam</td>
+            <td>You have completed this topic</td>
+            <td className="scoreColor" style={{ color: "#51E72B" }}>
+              86
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>Bootstrap4 Essential Training</td>
+            <td>You have completed this topic</td>
+            <td className="scoreColor" style={{ color: "#7EE72B" }}>
+              72
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>Sass Essential Training</td>
+            <td>Friday, 6 November 2020 08.00 - 09.40</td>
+            <td className="scoreColor" style={{ color: "#FFF" }}></td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>Learning React.js</td>
+            <td>Friday, 13 November 2020 08.00 - 09.40</td>
+            <td>
+              <div className="unfinished">Unfinished</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>UX for Web Design</td>
+            <td>Friday, 20 November 2020 08.00 - 09.40</td>
+            <td>
+              <div className="unfinished">Unfinished</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="" />
+            </td>
+            <td>Final-term Exam</td>
+            <td>Friday, 27 November 2020 08.00 - 09.40</td>
+            <td>
+              <div className="unfinished">Unfinished</div>
+            </td>
+          </tr> */}
+        </tbody>
+      </table>
+      {/* </div>
+      </div> */}
     </>
   );
 }

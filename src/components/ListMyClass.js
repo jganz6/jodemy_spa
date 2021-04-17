@@ -1,9 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-function ListMyClass({ data }) {
+function ListMyClass({ data, token, subClass }) {
   const history = useHistory();
+  const classHandler = (id_class, token) => {
+    subClass(
+      `http://localhost:8000/class/subjectClass/${id_class}?limit=10`,
+      token
+    );
+    history.push(`ClassDetail?id=${id_class}`);
+  };
   return (
-    <tr onClick={() => history.push(`ClassDetail?id=${data.id_class}`)}>
+    <tr onClick={() => classHandler(data.id_class, token)}>
       <td>
         <input type="checkbox" name="" id="" />
       </td>

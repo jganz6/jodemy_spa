@@ -6,7 +6,9 @@ import { getSubClass } from "./../redux/actions/subClass";
 import { connect } from "react-redux";
 
 function ClassDetail(props) {
-  useEffect(props.getSubClass("http://localhost:8000/class/subjectClass/1"));
+  useEffect(() =>
+    props.getSubClass("http://localhost:8000/class/subjectClass/1")
+  );
   return (
     <>
       <header>

@@ -1,8 +1,9 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 function ListMyClass({ data }) {
+  const history = useHistory();
   return (
-    <tr>
+    <tr onClick={() => history.push(`ClassDetail?id=${data.id_class}`)}>
       <td>
         <input type="checkbox" name="" id="" />
       </td>
@@ -21,7 +22,7 @@ function ListMyClass({ data }) {
         style={{
           textAlign: "center",
           fontSize: "22px",
-          color: "#51E72B",
+          color: `hsl(${((data.score / 100) * 180).toFixed(0)},100%,50%)`,
           fontWeight: "900",
         }}
       >
@@ -35,7 +36,12 @@ const CircularBar = ({ progress }) => {
   const p = (progress / 100) * 360;
   return (
     <div className="progress">
-      <span className="title">{progress}</span>
+      <span
+        className="title"
+        style={progress < 10 ? { paddingLeft: "13px" } : null}
+      >
+        {progress}
+      </span>
       <div className="overlay"></div>
       <div
         className="left"

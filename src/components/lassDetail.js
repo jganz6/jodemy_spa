@@ -1,12 +1,16 @@
-import React from "react";
+import { React, useEffect } from "react";
 import "./../css/class-detail.css";
 import { Link } from "react-router-dom";
+import { registerCLASS } from "./../redux/actions/registerClass";
+import { getSubClass } from "./../redux/actions/subClass";
+import { connect } from "react-redux";
 
-function classDetail() {
+function ClassDetail(props) {
+  useEffect(props.getSubClass("http://localhost:8000/class/subjectClass/1"));
   return (
     <>
       <header>
-        <Link to="/Main/Activity/v1">
+        <Link to="/Main/Activity/Class">
           <img
             src="https://jodemy.netlify.app/assets/back-icon.png"
             alt="back-icon.png"
@@ -107,5 +111,14 @@ function classDetail() {
     </>
   );
 }
-
-export default classDetail;
+const mapStateToProps = (state) => ({
+  myClass: state.myClassReducer.results,
+  newClass: state.newClass.results,
+  token: state.auth.results.token,
+  registerCLASS: state.registerCLASS,
+});
+const mapDispatchToProps = (dispatch) => ({
+  registerClass: (url, token) => dispatch(registerCLASS(url, token)),
+  getSubClass: (url, token) => dispatch(getSubClass(url, token)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ClassDetail);

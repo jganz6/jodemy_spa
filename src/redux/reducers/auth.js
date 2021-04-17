@@ -24,9 +24,9 @@ const login = (state = intialState, { type, payload }) => {
         isPending: false,
         results: payload.data.data,
         info: {
-          ...payload.data.code,
-          ...payload.data.success,
-          ...payload.data.message,
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
         },
       };
     case "POST_LOGIN_REJECTED":

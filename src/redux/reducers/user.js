@@ -22,9 +22,9 @@ const user = (state = intialState, { type, payload }) => {
         isPending: false,
         results: payload.data.data,
         info: {
-          ...payload.data.code,
-          ...payload.data.success,
-          ...payload.data.message,
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
         },
       };
     case "GET_USER_REJECTED":

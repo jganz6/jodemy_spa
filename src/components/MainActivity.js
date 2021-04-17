@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ListNewClass from "./ListNewClass";
 import ListMyClass from "./ListMyClass";
 import { registerCLASS } from "./../redux/actions/registerClass";
+import { getSubClass } from "./../redux/actions/subClass";
 import "./../css/my-class.css";
 function MainActivity(props) {
   const [viewMyClass, setViewMyClass] = useState(false);
@@ -65,7 +66,14 @@ function MainActivity(props) {
           </thead>
           <tbody>
             {props.myClass[0].map((data) => {
-              return <ListMyClass key={data.id_class} data={data} />;
+              return (
+                <ListMyClass
+                  key={data.id_class}
+                  data={data}
+                  token={props.token}
+                  subClass={props.getSubClass}
+                />
+              );
             })}
           </tbody>
           {!viewMyClass ? (
@@ -187,7 +195,7 @@ const mapStateToProps = (state) => ({
   registerCLASS: state.registerCLASS,
 });
 const mapDispatchToProps = (dispatch) => ({
-  registerClass: (url, token, newClass) =>
-    dispatch(registerCLASS(url, token, newClass)),
+  registerClass: (url, token) => dispatch(registerCLASS(url, token)),
+  getSubClass: (url, token) => dispatch(getSubClass(url, token)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(MainActivity);

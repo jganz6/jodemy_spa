@@ -20,9 +20,9 @@ function Activity(props) {
 }
 function Content2List(props) {
   let result = null;
-  if (props.content2 === "v1") {
+  if (props.content2 === "Class") {
     result = <MainActivity buttonList={props.buttonList} data={props.data} />;
-  } else if (props.content2 === "v3") {
+  } else if (props.content2 === "ClassDetail") {
     result = <ClassDetail />;
   } else if (props.content2 === "v4") {
     result = <ClassProgress />;

@@ -6,16 +6,16 @@ const intialState = {
   isRejected: false,
   err: {},
 };
-const myClass = (state = intialState, { type, payload }) => {
+const subClass = (state = intialState, { type, payload }) => {
   switch (type) {
-    case "GET_CLASS_PENDING":
+    case "GET_subCLASS_PENDING":
       return {
         ...state,
         isPending: true,
         isFulfilled: false,
         isRejected: false,
       };
-    case "GET_CLASS_FULFILLED":
+    case "GET_subCLASS_FULFILLED":
       return {
         ...state,
         isFulfilled: true,
@@ -27,24 +27,15 @@ const myClass = (state = intialState, { type, payload }) => {
           message: payload.data.message,
         },
       };
-    case "GET_CLASS_REJECTED":
+    case "GET_subCLASS_REJECTED":
       return {
         ...state,
         isRejected: true,
         isPending: false,
         err: payload,
       };
-    case "POST_registerCLASS_FULFILLED":
-      return {
-        ...state,
-        isFulfilled: true,
-        results: {
-          ...state.results,
-          0: [...state.results[0], payload.data.data[0].data[0]],
-        },
-      };
     default:
       return state;
   }
 };
-export default myClass;
+export default subClass;

@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { registerCLASS } from "./../redux/actions/registerClass";
 import { getSubClass } from "./../redux/actions/subClass";
 import { connect } from "react-redux";
-import ClassProgress from "./classProgress";
+import ClassProgress from "./ClassProgress";
 
 function ClassDetail(props) {
   const [subContent, setSubContent] = useState(0);

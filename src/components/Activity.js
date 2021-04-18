@@ -2,7 +2,7 @@ import React from "react";
 import "./../css/activity.css";
 import MainActivity from "./MainActivity";
 import ClassDetail from "./ClassDetail";
-import ClassProgress from "./classProgress";
+import ClassProgress from "./ClassProgress";
 import FacilitatorActivity from "./FacilitatorActivity";
 import FacilitatorClassDetail from "./Facilitator_ClassDetail";
 import FacilitatorMember from "./FacilitatorMember";

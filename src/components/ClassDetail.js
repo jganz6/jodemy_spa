@@ -7,12 +7,22 @@ import { registerCLASS } from "./../redux/actions/registerClass";
 import { getSubClass } from "./../redux/actions/subClass";
 import { connect } from "react-redux";
 import ClassProgress from "./ClassProgress";
+import { getMembers, getMemberSubjects } from "../redux/actions/myClass";
 
 function ClassDetail(props) {
   const [subContent, setSubContent] = useState(0);
   const [modal, setModal] = useState(false);
-  function openPops() {
+  const [userSelected, setUserSelected] = useState("");
+  function openPops(id_member) {
     setModal(true);
+    const member = props.members.results[0].find(
+      (member) => member.id_account === id_member
+    );
+    setUserSelected(member.username);
+    props.getMemberSubjects(
+      `http://localhost:8000/class/members/subject/${id_member}.${qs}?limit=10`,
+      props.token
+    );
   }
   function closePops() {
     setModal(false);
@@ -20,6 +30,12 @@ function ClassDetail(props) {
   const qs = new URLSearchParams(useLocation().search).get("id");
   const myClass = props.myClass[0].find((data) => data.id_class === Number(qs));
   const contentHandler = (number) => {
+    if (number === 4) {
+      props.getMembers(
+        `http://localhost:8000/class/members/${qs}?limit=10`,
+        props.token
+      );
+    }
     setSubContent(number);
   };
   return (
@@ -194,20 +210,47 @@ function ClassDetail(props) {
                       src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
                       alt="photo14"
                     />
-                    Deddy Corbuzier
+                    {userSelected}
                     <button className="closePops" onClick={closePops}>
                       X
                     </button>
                   </div>
                   <table>
                     <tbody>
-                      <tr>
-                        <td>HTML Essential Training</td>
-                        <td className="scoreColor" style={{ color: "#2BE7D0" }}>
-                          100
-                        </td>
-                      </tr>
-                      <tr>
+                      {props.memberSubjects.isFulfilled
+                        ? props.memberSubjects.results[0].map((subject) => {
+                            return (
+                              <tr key={subject.id_subject}>
+                                <td>{subject.subject_name}</td>
+                                {subject.score === null ? (
+                                  <td
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "center",
+                                    }}
+                                  >
+                                    <div className="unfinished">Unfinished</div>
+                                  </td>
+                                ) : (
+                                  <td
+                                    className="scoreColor"
+                                    style={{
+                                      color: `hsl(${(
+                                        (subject.score === null
+                                          ? 0
+                                          : subject.score / 100) * 180
+                                      ).toFixed(0)},100%,50%)`,
+                                    }}
+                                  >
+                                    {subject.score.toFixed(0)}
+                                  </td>
+                                )}
+                              </tr>
+                            );
+                          })
+                        : null}
+
+                      {/* <tr>
                         <td>CSS Essential Training</td>
                         <td className="scoreColor" style={{ color: "#E7852B" }}>
                           42
@@ -254,103 +297,32 @@ function ClassDetail(props) {
                         >
                           <div className="unfinished">Unfinished</div>
                         </td>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </div>
               </div>
               <table>
                 <tbody>
-                  <tr onClick={openPops}>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Deddy Cobuzier</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Eden Hazard</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Isyana Sarasvati</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Nissa Sabyan</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Peppy</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Prilly Latuconsina</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Prof. Winarto</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Rio Dewanto</td>
-                    <td>&#x22EE;</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
-                        alt="photo14"
-                      />
-                    </td>
-                    <td>Tompi</td>
-                    <td>&#x22EE;</td>
-                  </tr>
+                  {props.members.isFulfilled
+                    ? props.members.results[0].map((member) => {
+                        return (
+                          <tr
+                            key={member.id_account}
+                            onClick={() => openPops(member.id_account)}
+                          >
+                            <td>
+                              <img
+                                src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                                alt="photo14"
+                              />
+                            </td>
+                            <td>{member.username}</td>
+                            <td>&#x22EE;</td>
+                          </tr>
+                        );
+                      })
+                    : null}
                 </tbody>
               </table>
             </>
@@ -367,9 +339,13 @@ const mapStateToProps = (state) => ({
   registerCLASS: state.registerCLASS,
   subClass: state.subClass.results,
   role: state.user.results.role,
+  members: state.members,
+  memberSubjects: state.memberSubjects,
 });
 const mapDispatchToProps = (dispatch) => ({
   registerClass: (url, token) => dispatch(registerCLASS(url, token)),
   getSubClass: (url, token) => dispatch(getSubClass(url, token)),
+  getMembers: (url, token) => dispatch(getMembers(url, token)),
+  getMemberSubjects: (url, token) => dispatch(getMemberSubjects(url, token)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ClassDetail);

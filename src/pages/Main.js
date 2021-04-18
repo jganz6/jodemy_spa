@@ -31,8 +31,6 @@ export class Main extends Component {
         buttonAction: () => this.props.history.push(`/Main/Activity/Class`),
         buttonAction2: () =>
           this.props.history.push(`/Main/Activity/ClassDetail`),
-        buttonAction3: () => this.props.history.push(`/Main/Activity/v4`),
-        buttonAction4: () => this.props.history.push(`/Main/Activity/f1`),
         buttonAction5: () => this.props.history.push(`/Main/Activity/f2`),
       },
       {
@@ -64,16 +62,29 @@ export class Main extends Component {
     this.state.popsNotif === true
       ? this.setState({ popsNotif: false })
       : this.setState({ popsNotif: true });
-    console.log(this.state.popsNotif);
   }
-  componentDidMount() {
+  async componentDidMount() {
     const token = this.props.token;
-    this.props.getUser("http://localhost:8000/users", token);
-    this.props.getMyClass("http://localhost:8000/class/myClass", token);
-    this.props.getNewClass(
-      "http://localhost:8000/class/newClass?limit=10",
-      token
-    );
+    await this.props.getUser("http://localhost:8000/users", token);
+    setTimeout(() => {
+      const token = this.props.token;
+      const role = this.props.dataUser.role;
+      if (role === 1) {
+        console.log(true);
+        this.props.getMyClass(
+          "http://localhost:8000/class/list?limit=10",
+          token
+        );
+      } else if (role === 0) {
+        this.props.getMyClass("http://localhost:8000/class/myClass", token);
+      }
+      if (role === 0) {
+        this.props.getNewClass(
+          "http://localhost:8000/class/newClass?limit=10",
+          token
+        );
+      }
+    }, 1000);
   }
   componentDidUpdate() {
     console.log("update");
@@ -252,11 +263,7 @@ export class Main extends Component {
                     ? "menu_activity menu-list-clicked"
                     : "menu_activity"
                 }
-                onClick={
-                  this.props.dataUser.role === 0
-                    ? this.state.buttonList[2].buttonAction
-                    : this.state.buttonList[2].buttonAction4
-                }
+                onClick={this.state.buttonList[2].buttonAction}
               >
                 <img
                   src="https://jodemy.netlify.app/assets/Activity Icon.png"
@@ -318,6 +325,7 @@ const ContentList = (props) => {
 const mapStateToProps = (state, ownProps) => ({
   token: state.auth.results.token,
   dataUser: state.user.results,
+  checkUser: state.user,
 });
 const mapDispatchToProps = (dispatch) => ({
   getUser: (url, token) => {

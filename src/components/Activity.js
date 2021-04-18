@@ -2,8 +2,6 @@ import React from "react";
 import "./../css/activity.css";
 import MainActivity from "./MainActivity";
 import ClassDetail from "./ClassDetail";
-import ClassProgress from "./ClassProgress";
-import FacilitatorActivity from "./FacilitatorActivity";
 import FacilitatorClassDetail from "./Facilitator_ClassDetail";
 import FacilitatorMember from "./FacilitatorMember";
 
@@ -24,10 +22,6 @@ function Content2List(props) {
     result = <MainActivity buttonList={props.buttonList} data={props.data} />;
   } else if (props.content2 === "ClassDetail") {
     result = <ClassDetail />;
-  } else if (props.content2 === "v4") {
-    result = <ClassProgress />;
-  } else if (props.content2 === "f1") {
-    result = <FacilitatorActivity buttonList={props.buttonList} />;
   } else if (props.content2 === "f2") {
     result = <FacilitatorClassDetail />;
   } else if (props.content2 === "f3") {

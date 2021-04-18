@@ -1,5 +1,4 @@
 import React from "react";
-import "./../css/class-progress.css";
 
 function ClassProgress(props) {
   return (

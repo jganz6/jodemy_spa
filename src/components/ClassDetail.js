@@ -1,5 +1,7 @@
 import { React, useState } from "react";
 import "./../css/class-detail.css";
+import "./../css/class-progress.css";
+import "./../css/FacilitatorPops.css";
 import { Link, useLocation } from "react-router-dom";
 import { registerCLASS } from "./../redux/actions/registerClass";
 import { getSubClass } from "./../redux/actions/subClass";
@@ -8,9 +10,15 @@ import ClassProgress from "./ClassProgress";
 
 function ClassDetail(props) {
   const [subContent, setSubContent] = useState(0);
+  const [modal, setModal] = useState(false);
+  function openPops() {
+    setModal(true);
+  }
+  function closePops() {
+    setModal(false);
+  }
   const qs = new URLSearchParams(useLocation().search).get("id");
   const myClass = props.myClass[0].find((data) => data.id_class === Number(qs));
-  console.log(myClass);
   const contentHandler = (number) => {
     setSubContent(number);
   };
@@ -43,25 +51,44 @@ function ClassDetail(props) {
               <div className="head-text-detail">
                 Price : {myClass.pricing === 0 ? "Free" : myClass.pricing}
               </div>
-              <div
-                className="score-display"
-                style={{
-                  color: `hsl(${(
-                    (myClass.score === null ? 0 : myClass.score / 100) * 180
-                  ).toFixed(0)},100%,50%)`,
-                }}
-              >
-                <div className="label-score">Your Score</div>
-                {myClass.score === null ? "0" : myClass.score}
-              </div>
+              {props.role === 0 ? (
+                <div
+                  className="score-display"
+                  style={{
+                    color: `hsl(${(
+                      (myClass.score === null ? 0 : myClass.score / 100) * 180
+                    ).toFixed(0)},100%,50%)`,
+                  }}
+                >
+                  <div className="label-score">Your Score</div>
+                  {myClass.score === null ? "0" : myClass.score}
+                </div>
+              ) : null}
               {/* <div className="new-class-register">Register</div> */}
             </div>
           </div>
         </div>
         <div className="class-detail-body">
-          <div className="detail-body-head">
-            <div className="detail-void"></div>
-          </div>
+          {props.role === 1 || subContent === 1 ? (
+            <div className="detail-body-head">
+              <div className="detail-void2"></div>
+              <div className="line-percent">
+                {myClass.progress || 100}% to complete
+                <div
+                  className="line-percent-before"
+                  style={{ width: `${myClass.progress || 100}%` }}
+                ></div>
+                <div
+                  className="line-percent-after"
+                  style={{ width: `${100 - (myClass.progress || 100)}%` }}
+                ></div>
+              </div>
+            </div>
+          ) : (
+            <div className="detail-body-head">
+              <div className="detail-void"></div>
+            </div>
+          )}
           <div className="section-class-detail">
             <span
               onClick={() => contentHandler(0)}
@@ -86,6 +113,18 @@ function ClassDetail(props) {
             <a href="/" className="section-option">
               Class Discussion
             </a>
+            {props.role === 1 ? (
+              <span
+                onClick={() => contentHandler(4)}
+                className={
+                  subContent === 4
+                    ? "section-option option-selected"
+                    : "section-option"
+                }
+              >
+                Member
+              </span>
+            ) : null}
           </div>
           {subContent === 0 ? (
             <>
@@ -138,9 +177,184 @@ function ClassDetail(props) {
                 </ul>
               </div>
             </>
-          ) : (
+          ) : subContent === 1 ? (
             <ClassProgress subClass={props.subClass} />
-          )}
+          ) : subContent === 4 ? (
+            <>
+              <div
+                className={
+                  modal === true
+                    ? "pops-background"
+                    : "props-background modalHide"
+                }
+              >
+                <div className="popsScoringMember">
+                  <div className="header-popsScoringMember">
+                    <img
+                      src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                      alt="photo14"
+                    />
+                    Deddy Corbuzier
+                    <button className="closePops" onClick={closePops}>
+                      X
+                    </button>
+                  </div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>HTML Essential Training</td>
+                        <td className="scoreColor" style={{ color: "#2BE7D0" }}>
+                          100
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CSS Essential Training</td>
+                        <td className="scoreColor" style={{ color: "#E7852B" }}>
+                          42
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Javascript Essential Training</td>
+                        <td className="scoreColor" style={{ color: "#E6422B" }}>
+                          21
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Responsive Layout</td>
+                        <td className="scoreColor" style={{ color: "#2BE7D0" }}>
+                          98
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Mid-term Exam</td>
+                        <td className="scoreColor" style={{ color: "#51E72B" }}>
+                          86
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Learning React.js</td>
+                        <td
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <div className="unfinished">Unfinished</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>UX for Web Design</td>
+                        <td
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <div className="unfinished">Unfinished</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Final-term Exam</td>
+                        <td
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <div className="unfinished">Unfinished</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <table>
+                <tbody>
+                  <tr onClick={openPops}>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Deddy Cobuzier</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Eden Hazard</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Isyana Sarasvati</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Nissa Sabyan</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Peppy</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Prilly Latuconsina</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Prof. Winarto</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Rio Dewanto</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        src="https://jodemy.netlify.app/assets/photo_profile/photo14.png"
+                        alt="photo14"
+                      />
+                    </td>
+                    <td>Tompi</td>
+                    <td>&#x22EE;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </>
+          ) : null}
         </div>
       </div>
     </>
@@ -152,6 +366,7 @@ const mapStateToProps = (state) => ({
   token: state.auth.results.token,
   registerCLASS: state.registerCLASS,
   subClass: state.subClass.results,
+  role: state.user.results.role,
 });
 const mapDispatchToProps = (dispatch) => ({
   registerClass: (url, token) => dispatch(registerCLASS(url, token)),

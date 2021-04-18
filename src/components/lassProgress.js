@@ -1,7 +1,7 @@
 import React from "react";
 import "./../css/class-progress.css";
 
-function classProgress(props) {
+function ClassProgress(props) {
   return (
     <>
       {/* <header>
@@ -178,4 +178,4 @@ function classProgress(props) {
   );
 }
 
-export default classProgress;
+export default ClassProgress;

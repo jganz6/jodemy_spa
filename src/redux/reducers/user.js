@@ -34,6 +34,60 @@ const user = (state = intialState, { type, payload }) => {
         isPending: false,
         err: payload,
       };
+    //PATCH_updateUSER
+    case "PATCH_updateUSER_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "PATCH_updateUSER_FULFILLED":
+      return {
+        ...state,
+        isFulfilled: true,
+        isPending: false,
+        results: payload.data.data,
+        info: {
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
+        },
+      };
+    case "PATCH_updateUSER_REJECTED":
+      return {
+        ...state,
+        isRejected: true,
+        isPending: false,
+        err: payload,
+      };
+    //DELETE_deleteUSER
+    case "DELETE_deleteUSER_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "DELETE_deleteUSER_FULFILLED":
+      return {
+        ...state,
+        isFulfilled: true,
+        isPending: false,
+        results: payload.data.data,
+        info: {
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
+        },
+      };
+    case "DELETE_deleteUSER_REJECTED":
+      return {
+        ...state,
+        isRejected: true,
+        isPending: false,
+        err: payload,
+      };
     default:
       return state;
   }

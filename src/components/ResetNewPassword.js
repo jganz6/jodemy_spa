@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { postResetPassword } from "../redux/actions/auth";
 
-function ResetNewPassword() {
+function ResetNewPassword(props) {
   const [confirmPass, setConfirmPass] = useState(false);
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  // function handlePassword(e) {
-  //   setData({ password: e.target.value });
-  //   console.log(data.password);
-  // }
-  console.log(password);
   function actionConfirmPass(e) {
     setConfirmPass(true);
   }
   function actionCloseConfirm(e) {
     setConfirmPass(false);
   }
+  const handleSubmit = (e) => {
+    props.postResetPassword(
+      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/resetPassword`,
+      { newPassword },
+      props.token
+    );
+    actionConfirmPass();
+    e.preventDefault();
+  };
   return (
     <section className="col d-flex flex-column justify-content-center align-items-center bg-white">
       <div className="header-reset-password">
@@ -43,7 +49,7 @@ function ResetNewPassword() {
         </Link>
       </div>
       <div className="form-reset">
-        <form className="newPassword">
+        <form className="newPassword" onSubmit={handleSubmit}>
           <div className="inputPassword">
             <input
               type="password"
@@ -96,13 +102,7 @@ function ResetNewPassword() {
               />
             </div>
           </div>
-          <button
-            className="btn"
-            type="button"
-            onClick={(e) => {
-              actionConfirmPass(e);
-            }}
-          >
+          <button className="btn" type="submit">
             Create
           </button>
         </form>
@@ -110,5 +110,12 @@ function ResetNewPassword() {
     </section>
   );
 }
-
-export default ResetNewPassword;
+const mapStateToProps = (state) => ({
+  token: state.auth.results.token,
+});
+const mapDispatchToProps = (dispatch) => ({
+  postResetPassword: (url, data, token) => {
+    dispatch(postResetPassword(url, data, token));
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ResetNewPassword);

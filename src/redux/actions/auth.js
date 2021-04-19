@@ -5,3 +5,31 @@ export const postLogin = (url, data) => {
     payload: axios.post(url, data),
   };
 };
+export const postRegister = (url, data) => {
+  return {
+    type: "POST_REGISTER",
+    payload: axios.post(url, data),
+  };
+};
+export const postSendOTP = (url, data) => {
+  return {
+    type: "POST_sendOTP",
+    payload: axios.post(url, data),
+  };
+};
+export const postVerifyOTP = (url, data) => {
+  return {
+    type: "POST_verifyOTP",
+    payload: axios.post(url, data),
+  };
+};
+export const postResetPassword = (url, data, token) => {
+  return {
+    type: "POST_RESET_PASSWORD",
+    payload: axios.post(url, data, {
+      headers: {
+        "auth-token": token,
+      },
+    }),
+  };
+};

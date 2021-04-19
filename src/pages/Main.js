@@ -65,22 +65,28 @@ export class Main extends Component {
   }
   async componentDidMount() {
     const token = this.props.token;
-    await this.props.getUser("http://localhost:8000/users", token);
+    await this.props.getUser(
+      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/users`,
+      token
+    );
     setTimeout(() => {
       const token = this.props.token;
       const role = this.props.dataUser.role;
       if (role === 1) {
         console.log(true);
         this.props.getMyClass(
-          "http://localhost:8000/class/list?limit=10",
+          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?limit=10`,
           token
         );
       } else if (role === 0) {
-        this.props.getMyClass("http://localhost:8000/class/myClass", token);
+        this.props.getMyClass(
+          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass`,
+          token
+        );
       }
       if (role === 0) {
         this.props.getNewClass(
-          "http://localhost:8000/class/newClass?limit=10",
+          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/newClass?limit=10`,
           token
         );
       }

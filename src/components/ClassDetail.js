@@ -20,7 +20,7 @@ function ClassDetail(props) {
     );
     setUserSelected(member.username);
     props.getMemberSubjects(
-      `http://localhost:8000/class/members/subject/${id_member}.${qs}?limit=10`,
+      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/members/subject/${id_member}.${qs}?limit=10`,
       props.token
     );
   }
@@ -32,7 +32,7 @@ function ClassDetail(props) {
   const contentHandler = (number) => {
     if (number === 4) {
       props.getMembers(
-        `http://localhost:8000/class/members/${qs}?limit=10`,
+        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/members/${qs}?limit=10`,
         props.token
       );
     }

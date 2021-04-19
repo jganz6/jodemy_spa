@@ -5,7 +5,7 @@ function ListMyClass({ data, token, subClass, role }) {
   const classHandler = (id_class, token) => {
     if (role === 0) {
       subClass(
-        `http://localhost:8000/class/subjectClass/${id_class}?limit=10`,
+        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/subjectClass/${id_class}?limit=10`,
         token
       );
     }

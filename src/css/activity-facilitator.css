@@ -51,11 +51,28 @@
 }
 input[type="time"]{
     border: none;
+    margin-left: 5px;
+    width: fit-content;
     background-color: transparent;
     border-bottom: 1px solid #e5e5e5;
 }
 input[type="time"]::-webkit-calendar-picker-indicator{
     display: none;
+}
+.input-create-class input[type="file"]{
+    width: 60%;
+    margin-left: 20px;
+    font-size: 14px;
+}
+.input-create-class input#choice1:checked ~ .price-radio,.input-create-class input#choice1:checked ~ label[for="choicePrice"] {
+    display:none;
+}
+/* .input-create-class .price-radio,.input-create-class label[for="choicePrice"]{
+    display: none;
+} */
+.input-create-class .price-radio{
+    border-bottom: 1px solid black;
+    width: 20%;
 }
 .radio-btn>label{
     margin-right: 10px;

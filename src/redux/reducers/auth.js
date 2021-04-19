@@ -7,7 +7,7 @@ const intialState = {
   isLogin: false,
   err: {},
 };
-const login = (state = intialState, { type, payload }) => {
+const auth = (state = intialState, { type, payload }) => {
   switch (type) {
     case "POST_LOGIN_PENDING":
       return {
@@ -36,8 +36,112 @@ const login = (state = intialState, { type, payload }) => {
         isPending: false,
         err: payload,
       };
+    case "POST_sendOTP_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "POST_sendOTP_FULFILLED":
+      return {
+        ...state,
+        isFulfilled: true,
+        isPending: false,
+        results: payload.data.data,
+        info: {
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
+        },
+      };
+    case "POST_sendOTP_REJECTED":
+      return {
+        ...state,
+        isRejected: true,
+        isPending: false,
+        err: payload,
+      };
+    case "POST_verifyOTP_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "POST_verifyOTP_FULFILLED":
+      return {
+        ...state,
+        isFulfilled: true,
+        isPending: false,
+        results: payload.data.data,
+        info: {
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
+        },
+      };
+    case "POST_verifyOTP_REJECTED":
+      return {
+        ...state,
+        isRejected: true,
+        isPending: false,
+        err: payload,
+      };
+    case "POST_RESET_PASSWORD_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "POST_RESET_PASSWORD_FULFILLED":
+      return {
+        ...state,
+        isFulfilled: true,
+        isPending: false,
+        results: payload.data.data,
+        info: {
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
+        },
+      };
+    case "POST_RESET_PASSWORD_REJECTED":
+      return {
+        ...state,
+        isRejected: true,
+        isPending: false,
+        err: payload,
+      };
+    case "POST_REGISTER_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "POST_REGISTER_FULFILLED":
+      return {
+        ...state,
+        isFulfilled: true,
+        isPending: false,
+        results: payload.data.data,
+        info: {
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
+        },
+      };
+    case "POST_REGISTER_REJECTED":
+      return {
+        ...state,
+        isRejected: true,
+        isPending: false,
+        err: payload,
+      };
     default:
       return state;
   }
 };
-export default login;
+export default auth;

@@ -195,10 +195,28 @@ function MainActivity(props) {
                 <div className="input-create-class">
                   <div className="col-div1">Pricing</div>:
                   <div className="radio-btn">
-                    <input type="radio" name="free" value="free" />
-                    <label htmlFor="free">Free</label>
-                    <input type="radio" name="paid" value="paid" />
-                    <label htmlFor="paid">Paid</label>
+                    <input
+                      type="radio"
+                      name="price"
+                      value="free"
+                      id="choice1"
+                      checked
+                    />
+                    <label htmlFor="choice1">Free</label>
+                    <input
+                      type="radio"
+                      name="price"
+                      value="paid"
+                      id="choice2"
+                    />
+                    <label htmlFor="choice2">Paid</label>
+                    <label htmlFor="choicePrice">:</label>
+                    <input
+                      type="text"
+                      name="price"
+                      id="choicePrice"
+                      className="price-radio"
+                    />
                   </div>
                 </div>
                 <div className="input-create-class">
@@ -213,6 +231,10 @@ function MainActivity(props) {
                     </select>
                     <input type="time" /> - <input type="time" />
                   </div>
+                </div>
+                <div className="input-create-class">
+                  <div className="col-div1">Logo Class</div>:
+                  <input type="file" id="myFile" />
                 </div>
               </div>
             </div>

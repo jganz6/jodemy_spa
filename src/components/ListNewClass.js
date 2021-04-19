@@ -11,7 +11,7 @@ function ListNewClass({ data, register, token }) {
       <td
         onClick={() =>
           register(
-            `http://localhost:8000/class/register?id_class=${data.id_class}`,
+            `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/register?id_class=${data.id_class}`,
             token
           )
         }

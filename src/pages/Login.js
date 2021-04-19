@@ -4,7 +4,6 @@ import google_icon from "./../assets/google-icon.png";
 import "./../css/Login.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getMyClass } from "../redux/actions/myClass";
 import { postLogin } from "../redux/actions/auth";
 // const Axios = require("axios");
 class Login extends React.Component {
@@ -26,7 +25,10 @@ class Login extends React.Component {
   }
   handleSubmit(event) {
     const postData = { email: this.state.value, password: this.state.password };
-    this.props.postLogin("http://localhost:8000/auth/login", postData);
+    this.props.postLogin(
+      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/login`,
+      postData
+    );
     event.preventDefault();
   }
   render() {
@@ -85,6 +87,5 @@ const mapDispatchToProps = (dispatch) => ({
   postLogin: (url, data) => {
     dispatch(postLogin(url, data));
   },
-  getMyClass: (data) => dispatch(getMyClass(data)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

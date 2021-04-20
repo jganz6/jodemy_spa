@@ -4,7 +4,9 @@ import ListNewClass from "./ListNewClass";
 import ListMyClass from "./ListMyClass";
 import { registerCLASS } from "./../redux/actions/registerClass";
 import { getSubClass } from "./../redux/actions/subClass";
+import { getNewClass } from "../redux/actions/newClass";
 import {
+  getMyClass,
   createClass,
   deleteClass,
   updateClass,
@@ -13,6 +15,8 @@ import "./../css/my-class.css";
 import "./../css/activity-facilitator.css";
 function MainActivity(props) {
   const [viewMyClass, setViewMyClass] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [filterValue, setFilterValue] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [pageSelect, setPageSelect] = useState(1);
   const [createClass, setCreateClass] = useState({
@@ -73,8 +77,9 @@ function MainActivity(props) {
             <input
               type="search"
               name="input-search"
-              id=""
+              value={searchValue}
               placeholder="Quick Search"
+              onChange={(e) => setSearchValue(e.target.value)}
             />
             <label htmlFor="input-search">
               <img
@@ -82,11 +87,49 @@ function MainActivity(props) {
                 alt="Search Icon.png"
               />
             </label>
-            <button className="btn btn-search">Search</button>
+            <button
+              className="btn btn-search"
+              onClick={() => {
+                if (props.role === 1) {
+                  props.getMyClass(
+                    `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?search=${searchValue}&limit=10`,
+                    props.token
+                  );
+                } else if (props.role === 0) {
+                  props.getMyClass(
+                    `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?search=${searchValue}&limit=10`,
+                    props.token
+                  );
+                }
+              }}
+            >
+              Search
+            </button>
             <div className="my-class-sort">
               <label htmlFor="my-class-sort">Sort by: </label>
-              <select name="my-class-sort" id="">
-                <option value="all-category">All Categories</option>
+              <select
+                name="my-class-sort"
+                id=""
+                value={filterValue}
+                onChange={(e) => {
+                  setFilterValue(e.target.value);
+                  if (props.role === 1) {
+                    props.getMyClass(
+                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?filter=${filterValue}&limit=10`,
+                      props.token
+                    );
+                  } else if (props.role === 0) {
+                    props.getMyClass(
+                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?filter=${filterValue}&limit=10`,
+                      props.token
+                    );
+                  }
+                }}
+              >
+                <option value="">All Categories</option>
+                <option value="math">Math</option>
+                <option value="science">Science</option>
+                <option value="software">Software</option>
               </select>
             </div>
           </div>
@@ -173,9 +216,20 @@ function MainActivity(props) {
             <div className="list-page-newclass">
               <div
                 className="rectangle-shadow"
-                onClick={() =>
-                  setPageSelect(pageSelect > 1 ? pageSelect - 1 : pageSelect)
-                }
+                onClick={() => {
+                  setPageSelect(pageSelect > 1 ? pageSelect - 1 : pageSelect);
+                  if (props.role === 1) {
+                    props.getMyClass(
+                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?page=${pageSelect}&limit=10`,
+                      props.token
+                    );
+                  } else if (props.role === 0) {
+                    props.getMyClass(
+                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?page=${pageSelect}&limit=10`,
+                      props.token
+                    );
+                  }
+                }}
               >
                 &#x3c;
               </div>
@@ -187,18 +241,42 @@ function MainActivity(props) {
                       ? "rectangle-shadow rectangle_on"
                       : "rectangle-shadow"
                   }
-                  onClick={() => setPageSelect(page)}
+                  onClick={() => {
+                    setPageSelect(page);
+                    if (props.role === 1) {
+                      props.getMyClass(
+                        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?page=${pageSelect}&limit=10`,
+                        props.token
+                      );
+                    } else if (props.role === 0) {
+                      props.getMyClass(
+                        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?page=${pageSelect}&limit=10`,
+                        props.token
+                      );
+                    }
+                  }}
                 >
                   {page}
                 </div>
               ))}
               <div
                 className="rectangle-shadow"
-                onClick={() =>
+                onClick={() => {
                   setPageSelect(
                     pageSelect < pages.length ? pageSelect + 1 : pageSelect
-                  )
-                }
+                  );
+                  if (props.role === 1) {
+                    props.getMyClass(
+                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?page=${pageSelect}&limit=10`,
+                      props.token
+                    );
+                  } else if (props.role === 0) {
+                    props.getMyClass(
+                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?page=${pageSelect}&limit=10`,
+                      props.token
+                    );
+                  }
+                }}
               >
                 &#x3e;
               </div>
@@ -481,6 +559,8 @@ const mapStateToProps = (state) => ({
   registerCLASS: state.registerCLASS,
 });
 const mapDispatchToProps = (dispatch) => ({
+  getMyClass: (url, token) => dispatch(getMyClass(url, token)),
+  getNewClass: (url, token) => dispatch(getNewClass(url, token)),
   registerClass: (url, token) => dispatch(registerCLASS(url, token)),
   getSubClass: (url, token) => dispatch(getSubClass(url, token)),
   deleteClass: (url, token) => dispatch(deleteClass(url, token)),

@@ -74,7 +74,6 @@ export class Main extends Component {
       const token = this.props.token;
       const role = this.props.dataUser.role;
       if (role === 1) {
-        console.log(true);
         this.props.getMyClass(
           `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?limit=10`,
           token

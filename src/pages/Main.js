@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { getMyClass } from "../redux/actions/myClass";
 import { getNewClass } from "../redux/actions/newClass";
 import { getUser } from "../redux/actions/user";
+import { postLogout } from "../redux/actions/auth";
 export class Main extends Component {
   constructor(props) {
     super(props);
@@ -286,7 +287,12 @@ export class Main extends Component {
               </div>
               <div
                 className="menu_logout"
-                onClick={this.state.buttonList[3].buttonAction}
+                onClick={() =>
+                  this.props.postLogout(
+                    `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/logout`,
+                    this.props.token
+                  )
+                }
               >
                 <img
                   src="https://jodemy.netlify.app/assets/Logout Icon.png"
@@ -339,5 +345,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getMyClass: (url, token) => dispatch(getMyClass(url, token)),
   getNewClass: (url, token) => dispatch(getNewClass(url, token)),
+  postLogout: (url, token) => dispatch(postLogout(url, token)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -8,6 +8,7 @@ import { getSubClass } from "./../redux/actions/subClass";
 import { connect } from "react-redux";
 import ClassProgress from "./ClassProgress";
 import { getMembers, getMemberSubjects } from "../redux/actions/myClass";
+import { deleteSubjectClass } from "../redux/actions/actionSubjectClass";
 
 function ClassDetail(props) {
   const [subContent, setSubContent] = useState(0);
@@ -198,6 +199,7 @@ function ClassDetail(props) {
               subClass={props.subClass}
               role={props.role}
               myClass={myClass}
+              deleteSubClass={props.deleteSubjectClass}
             />
           ) : subContent === 4 ? (
             <>
@@ -351,5 +353,6 @@ const mapDispatchToProps = (dispatch) => ({
   getSubClass: (url, token) => dispatch(getSubClass(url, token)),
   getMembers: (url, token) => dispatch(getMembers(url, token)),
   getMemberSubjects: (url, token) => dispatch(getMemberSubjects(url, token)),
+  deleteSubjectClass: (url, token) => dispatch(deleteSubjectClass(url, token)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ClassDetail);

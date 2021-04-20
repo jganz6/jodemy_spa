@@ -33,3 +33,17 @@ export const postResetPassword = (url, data, token) => {
     }),
   };
 };
+export const postLogout = (url, token) => {
+  return {
+    type: "POST_LOGOUT",
+    payload: axios.post(
+      url,
+      {},
+      {
+        headers: {
+          "auth-token": token,
+        },
+      }
+    ),
+  };
+};

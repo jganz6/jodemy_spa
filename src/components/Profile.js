@@ -1,6 +1,7 @@
-import React from "react";
+import { React } from "react";
+import { connect } from "react-redux";
 import "./../css/profile.css";
-
+import { updateUser } from "../redux/actions/user";
 function profile(props) {
   return (
     <main className="profile">
@@ -73,5 +74,14 @@ function profile(props) {
     </main>
   );
 }
-
-export default profile;
+const mapStateToProps = (state, ownProps) => ({
+  token: state.auth.results.token,
+  dataUser: state.user.results,
+  checkUser: state.user,
+});
+const mapDispatchToProps = (dispatch) => ({
+  updateUser: (url, token, FormData) => {
+    dispatch(updateUser(url, token, FormData));
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(profile);

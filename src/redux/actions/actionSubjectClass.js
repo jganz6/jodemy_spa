@@ -1,5 +1,5 @@
 import axios from "axios";
-export const postSubjectCLASS = (url, token, data) => {
+export const postSubjectClass = (url, token, data) => {
   return {
     type: "POST_subjectCLASS",
     payload: axios.post(url, data, {
@@ -9,7 +9,7 @@ export const postSubjectCLASS = (url, token, data) => {
     }),
   };
 };
-export const patchSubjectCLASS = (url, token, data) => {
+export const patchSubjectClass = (url, token, data) => {
   return {
     type: "PATCH_subjectCLASS",
     payload: axios.patch(url, data, {
@@ -19,7 +19,7 @@ export const patchSubjectCLASS = (url, token, data) => {
     }),
   };
 };
-export const deleteSubjectCLASS = (url, token, data) => {
+export const deleteSubjectClass = (url, token, data) => {
   return {
     type: "DELETE_subjectCLASS",
     payload: axios.delete(url, data, {

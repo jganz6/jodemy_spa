@@ -111,7 +111,7 @@ function ClassProgress(props) {
                           >
                             update
                           </div>
-                          <div>delete</div>
+                          <div onClick={() => props.deleteSubClass}>delete</div>
                         </div>
                       ) : null}
                       &#x22EE;

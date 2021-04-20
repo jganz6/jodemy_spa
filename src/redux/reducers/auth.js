@@ -36,6 +36,33 @@ const auth = (state = intialState, { type, payload }) => {
         isPending: false,
         err: payload,
       };
+    case "POST_LOGOUT_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "POST_LOGOUT_FULFILLED":
+      return {
+        ...state,
+        isFulfilled: true,
+        isLogin: true,
+        isPending: false,
+        results: payload.data.data,
+        info: {
+          code: payload.data.code,
+          success: payload.data.success,
+          message: payload.data.message,
+        },
+      };
+    case "POST_LOGOUT_REJECTED":
+      return {
+        ...state,
+        isRejected: true,
+        isPending: false,
+        err: payload,
+      };
     case "POST_sendOTP_PENDING":
       return {
         ...state,

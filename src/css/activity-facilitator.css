@@ -1,6 +1,37 @@
 /* main.Activity .create-new-class{
     font-family: 'Montsserat';
 } */
+.popsAction{
+    position: absolute;
+    right: 30px;
+    bottom: 0px;
+    background-color: #fff;
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1)  inset;
+    color: #000;
+    width: 80px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+.popsAction>div{
+    padding: 2px;
+}
+.popsAction>div:nth-child(1){
+    border-radius: 10px 10px 0 0;
+}
+.popsAction>div:nth-child(1):hover{
+    padding: 2px;
+    background-color: rgb(176, 182, 190);
+}
+.popsAction>div:nth-child(2):hover{
+    padding: 2px;
+    background-color: rgb(70, 139, 230);
+}
+.popsAction>div:nth-child(3):hover{
+    padding: 2px;
+    border-radius: 0 0 10px 10px;
+    background-color: rgb(216, 3, 3);
+}
 .create-new-class>form{
     border-radius: 20px;
     background-color: #fff;

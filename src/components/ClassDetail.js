@@ -194,7 +194,11 @@ function ClassDetail(props) {
               </div>
             </>
           ) : subContent === 1 ? (
-            <ClassProgress subClass={props.subClass} />
+            <ClassProgress
+              subClass={props.subClass}
+              role={props.role}
+              myClass={myClass}
+            />
           ) : subContent === 4 ? (
             <>
               <div

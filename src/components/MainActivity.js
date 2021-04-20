@@ -4,11 +4,28 @@ import ListNewClass from "./ListNewClass";
 import ListMyClass from "./ListMyClass";
 import { registerCLASS } from "./../redux/actions/registerClass";
 import { getSubClass } from "./../redux/actions/subClass";
+import {
+  createClass,
+  deleteClass,
+  updateClass,
+} from "./../redux/actions/myClass";
 import "./../css/my-class.css";
 import "./../css/activity-facilitator.css";
 function MainActivity(props) {
   const [viewMyClass, setViewMyClass] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [pageSelect, setPageSelect] = useState(1);
+  const [createClass, setCreateClass] = useState({
+    image: null,
+    class_name: "",
+    category: "Software",
+    level: "Beginner",
+    description: "",
+    pricing: "",
+    schedule: "",
+    start_time: "",
+    end_time: "",
+  });
   function viewMyClassHandler(handle) {
     setViewMyClass(handle);
   }
@@ -16,6 +33,24 @@ function MainActivity(props) {
   for (let i = 1; i <= props.myClass.totalPage; i++) {
     pages.push(i);
   }
+  const handleSubmit = (e) => {
+    const formData = new FormData();
+    formData.append("image", createClass.image, createClass.image.name);
+    formData.append("class_name", createClass.class_name);
+    formData.append("category", createClass.category);
+    formData.append("level", createClass.level);
+    formData.append("description", createClass.description);
+    formData.append("pricing", createClass.pricing);
+    formData.append("schedule", createClass.schedule);
+    formData.append("start_time", createClass.start_time);
+    formData.append("end_time", createClass.end_time);
+    props.createClass(
+      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class`,
+      props.token,
+      formData
+    );
+    e.preventDefault();
+  };
   return (
     <>
       <header>
@@ -95,6 +130,10 @@ function MainActivity(props) {
                       token={props.token}
                       subClass={props.getSubClass}
                       role={props.role}
+                      actionDeleteClass={props.deleteClass}
+                      actionUpdateClass={props.updateClass}
+                      showForm={showForm}
+                      setShowForm={setShowForm}
                     />
                   );
                 })
@@ -106,6 +145,10 @@ function MainActivity(props) {
                       token={props.token}
                       subClass={props.getSubClass}
                       role={props.role}
+                      actionDeleteClass={props.deleteClass}
+                      actionUpdateClass={props.updateClass}
+                      showForm={showForm}
+                      setShowForm={setShowForm}
                     />
                   );
                 })}
@@ -167,27 +210,63 @@ function MainActivity(props) {
         <div
           className="create-new-class"
           style={
-            viewMyClass
+            viewMyClass || showForm
               ? { overflowX: "auto", display: "none" }
               : { overflowX: "auto" }
           }
         >
           <h6>Create New Class</h6>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="flex-box-input">
               <div className="box-create-class">
                 <div className="input-create-class">
                   <label htmlFor="cn">Class Name</label>:
-                  <input name="cn" type="text" />
+                  <input
+                    name="cn"
+                    type="text"
+                    value={createClass.class_name}
+                    onChange={(e) =>
+                      setCreateClass({
+                        ...createClass,
+                        class_name: e.target.value,
+                      })
+                    }
+                  />
                 </div>
                 <div className="input-create-class">
                   <label htmlFor="categories">Categories</label>:
-                  <select name="categories">
-                    <option value="software">Software</option>
-                    <option value="history">History</option>
-                    <option value="finance">Finance</option>
-                    <option value="science">Science</option>
-                    <option value="math">Math</option>
+                  <select
+                    name="categories"
+                    value={createClass.category}
+                    onChange={(e) =>
+                      setCreateClass({
+                        ...createClass,
+                        category: e.target.value,
+                      })
+                    }
+                  >
+                    <option value="Software">Software</option>
+                    <option value="History">History</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Science">Science</option>
+                    <option value="Math">Math</option>
+                  </select>
+                </div>
+                <div className="input-create-class">
+                  <label htmlFor="categories">Categories</label>:
+                  <select
+                    name="categories"
+                    value={createClass.level}
+                    onChange={(e) =>
+                      setCreateClass({
+                        ...createClass,
+                        level: e.target.value,
+                      })
+                    }
+                  >
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advance">Advance</option>
                   </select>
                 </div>
               </div>
@@ -198,16 +277,21 @@ function MainActivity(props) {
                     <input
                       type="radio"
                       name="price"
-                      value="free"
                       id="choice1"
-                      checked
+                      value="0"
+                      onChange={(e) =>
+                        setCreateClass({
+                          ...createClass,
+                          pricing: e.target.value,
+                        })
+                      }
                     />
                     <label htmlFor="choice1">Free</label>
                     <input
                       type="radio"
                       name="price"
-                      value="paid"
                       id="choice2"
+                      value="paid"
                     />
                     <label htmlFor="choice2">Paid</label>
                     <label htmlFor="choicePrice">:</label>
@@ -216,31 +300,86 @@ function MainActivity(props) {
                       name="price"
                       id="choicePrice"
                       className="price-radio"
+                      value={createClass.pricing}
+                      onChange={(e) =>
+                        setCreateClass({
+                          ...createClass,
+                          pricing: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
                 <div className="input-create-class">
                   <div className="col-div1">Schedule</div>:
                   <div>
-                    <select name="schedule-select">
+                    <select
+                      name="schedule-select"
+                      value={createClass.schedule}
+                      onChange={(e) =>
+                        setCreateClass({
+                          ...createClass,
+                          schedule: e.target.value,
+                        })
+                      }
+                    >
                       <option>Friday</option>
                       <option>Thursday</option>
                       <option>Wednesday</option>
                       <option>Tuesday</option>
                       <option>Monday</option>
                     </select>
-                    <input type="time" /> - <input type="time" />
+                    <input
+                      type="time"
+                      value={createClass.start_time}
+                      onChange={(e) =>
+                        setCreateClass({
+                          ...createClass,
+                          start_time: e.target.value + ":00",
+                        })
+                      }
+                    />{" "}
+                    -{" "}
+                    <input
+                      type="time"
+                      value={createClass.end_time}
+                      onChange={(e) =>
+                        setCreateClass({
+                          ...createClass,
+                          end_time: e.target.value + ":00",
+                        })
+                      }
+                    />
                   </div>
                 </div>
                 <div className="input-create-class">
                   <div className="col-div1">Logo Class</div>:
-                  <input type="file" id="myFile" />
+                  <input
+                    type="file"
+                    id="myFile"
+                    onChange={(e) =>
+                      setCreateClass({
+                        ...createClass,
+                        image: e.target.files[0],
+                      })
+                    }
+                  />
                 </div>
               </div>
             </div>
             <div className="input-text-area">
               <label>Description</label>
-              <textarea rows="10" cols="100"></textarea>
+              <textarea
+                rows="10"
+                cols="100"
+                value={createClass.description}
+                onChange={(e) =>
+                  setCreateClass({
+                    ...createClass,
+                    description: e.target.value,
+                  })
+                }
+              ></textarea>
             </div>
             <button type="submit">Create</button>
           </form>
@@ -344,5 +483,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   registerClass: (url, token) => dispatch(registerCLASS(url, token)),
   getSubClass: (url, token) => dispatch(getSubClass(url, token)),
+  deleteClass: (url, token) => dispatch(deleteClass(url, token)),
+  createClass: (url, token, formData) =>
+    dispatch(createClass(url, token, formData)),
+  updateClass: (url, token, formData) =>
+    dispatch(updateClass(url, token, formData)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(MainActivity);

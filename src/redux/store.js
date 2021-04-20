@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import allReducer from "./reducers";
+import { persistStore } from "redux-persist";
+import rootReducer from "./reducers";
 import rpm from "redux-promise-middleware";
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -12,5 +13,6 @@ const enhancers = composeEnhancers(
   applyMiddleware(rpm)
   // other store enhancers if any
 );
-const store = createStore(allReducer, enhancers);
-export default store;
+
+export const store = createStore(rootReducer, enhancers);
+export const persistor = persistStore(store);

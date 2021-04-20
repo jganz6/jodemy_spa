@@ -164,7 +164,9 @@ function MainActivity(props) {
             )}
           </thead>
           <tbody>
-            {viewMyClass
+            {props.myClass[0].length === 0 || !props.myClass[0]
+              ? null
+              : viewMyClass
               ? props.myClass[0].map((data) => {
                   return (
                     <ListMyClass

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import google_icon from "./../assets/google-icon.png";
 import { connect } from "react-redux";
 import { postRegister } from "./../redux/actions/auth";
+import { persistor } from "../redux/store";
 
 export class Register extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export class Register extends Component {
       `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/register`,
       postData
     );
+    persistor.purge();
     event.preventDefault();
   }
   render() {
@@ -36,7 +38,7 @@ export class Register extends Component {
         <div className="container-fluid d-flex justify-content-center align-items-center">
           <main className="d-flex flex-column align-items-center justify-content-center">
             <h2>Register</h2>
-            <form className="main-form">
+            <form className="main-form" onSubmit={this.handleSubmit}>
               <div className="box-input">
                 <input
                   type="text"

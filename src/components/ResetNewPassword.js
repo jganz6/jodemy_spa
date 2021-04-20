@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { postResetPassword } from "../redux/actions/auth";
+import { persistor } from "../redux/store";
 
 function ResetNewPassword(props) {
   const [confirmPass, setConfirmPass] = useState(false);
@@ -20,6 +21,7 @@ function ResetNewPassword(props) {
       props.token
     );
     actionConfirmPass();
+    persistor.purge();
     e.preventDefault();
   };
   return (

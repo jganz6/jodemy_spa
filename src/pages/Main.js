@@ -9,6 +9,7 @@ import { getMyClass } from "../redux/actions/myClass";
 import { getNewClass } from "../redux/actions/newClass";
 import { getUser } from "../redux/actions/user";
 import { postLogout } from "../redux/actions/auth";
+import { persistor } from "../redux/store";
 export class Main extends Component {
   constructor(props) {
     super(props);
@@ -222,8 +223,14 @@ export class Main extends Component {
               }
             >
               <div className="menu_picture">
+                {/* "https://jodemy.netlify.app/assets/Profile Picture.png" */}
                 <img
-                  src="https://jodemy.netlify.app/assets/Profile Picture.png"
+                  src={
+                    this.props.dataUser.photo_profile !== null
+                      ? `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}${this.props.dataUser.photo_profile}`
+                      : "https://jodemy.netlify.app/assets/Profile Picture.png"
+                  }
+                  style={{ borderRadius: "50%" }}
                   alt=" Profile Pictur"
                 />
               </div>
@@ -286,12 +293,13 @@ export class Main extends Component {
               </div>
               <div
                 className="menu_logout"
-                onClick={() =>
+                onClick={() => {
                   this.props.postLogout(
                     `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/logout`,
                     this.props.token
-                  )
-                }
+                  );
+                  persistor.purge();
+                }}
               >
                 <img
                   src="https://jodemy.netlify.app/assets/Logout Icon.png"
@@ -315,7 +323,7 @@ export class Main extends Component {
 const ContentList = (props) => {
   let result = null;
   if (props.content === "Profile") {
-    result = <Profile userName={props.dataUser.username} />;
+    result = <Profile />;
   } else if (props.content === "Activity") {
     result = (
       <Activity

@@ -2,13 +2,19 @@ import { React } from "react";
 import { connect } from "react-redux";
 import "./../css/profile.css";
 import { updateUser } from "../redux/actions/user";
-function profile(props) {
+function Profile(props) {
   return (
     <main className="profile">
       <header className=" d-flex flex-column justify-content-center align-items-center">
         <div className="profile-picture">
           <img
-            src="https://jodemy.netlify.app/assets/Profile-Picture-banner.png"
+            style={{ borderRadius: "50%" }}
+            src={
+              props.dataUser.photo_profile !== null ||
+              !props.dataUser.photo_profile
+                ? `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}${props.dataUser.photo_profile}`
+                : "https://jodemy.netlify.app/assets/Profile-Picture-banner.png"
+            }
             alt="profile-pictur"
           />
           <img
@@ -16,7 +22,7 @@ function profile(props) {
             alt="Edit Icon.png"
           />
         </div>
-        <div className="profile-name">{`${props.userName}`}</div>
+        <div className="profile-name">{`${props.dataUser.username}`}</div>
       </header>
       <div>
         <h2 className="profile-title">Profile Settings</h2>
@@ -74,7 +80,7 @@ function profile(props) {
     </main>
   );
 }
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   token: state.auth.results.token,
   dataUser: state.user.results,
   checkUser: state.user,
@@ -84,4 +90,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updateUser(url, token, FormData));
   },
 });
-export default connect(mapStateToProps, mapDispatchToProps)(profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

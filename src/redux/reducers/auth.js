@@ -28,6 +28,7 @@ const auth = (state = intialState, { type, payload }) => {
           success: payload.data.success,
           message: payload.data.message,
         },
+        err: {},
       };
     case "POST_LOGIN_REJECTED":
       return {
@@ -46,15 +47,12 @@ const auth = (state = intialState, { type, payload }) => {
     case "POST_LOGOUT_FULFILLED":
       return {
         ...state,
-        isFulfilled: true,
-        isLogin: true,
+        isFulfilled: false,
+        isLogin: false,
         isPending: false,
         results: payload.data.data,
-        info: {
-          code: payload.data.code,
-          success: payload.data.success,
-          message: payload.data.message,
-        },
+        info: {},
+        err: {},
       };
     case "POST_LOGOUT_REJECTED":
       return {

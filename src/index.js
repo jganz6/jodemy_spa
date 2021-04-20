@@ -6,8 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
-import store from "./redux/store";
+import { store, persistor } from "./redux/store";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import PrivateRoute from "./components/PrivateRoute";
 import PrivateRouteAuth from "./components/PrivateRouteAuth";
 import NotFound from "./pages/NotFound";
@@ -28,8 +29,10 @@ const AppWithRouter = () => {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AppWithRouter />
-      {/* <App /> */}
+      <PersistGate loading={null} persistor={persistor}>
+        <AppWithRouter />
+        {/* <App /> */}
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

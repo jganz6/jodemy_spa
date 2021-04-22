@@ -5,6 +5,7 @@ const intialState = {
   isFulfilled: false,
   isRejected: false,
   isLogin: false,
+  expiry: null,
   err: {},
 };
 const auth = (state = intialState, { type, payload }) => {
@@ -17,6 +18,7 @@ const auth = (state = intialState, { type, payload }) => {
         isRejected: false,
       };
     case "POST_LOGIN_FULFILLED":
+      const now = new Date();
       return {
         ...state,
         isFulfilled: true,
@@ -28,6 +30,7 @@ const auth = (state = intialState, { type, payload }) => {
           success: payload.data.success,
           message: payload.data.message,
         },
+        expiry: now.getTime() + 60000,
         err: {},
       };
     case "POST_LOGIN_REJECTED":

@@ -10,6 +10,7 @@ import { getNewClass } from "../redux/actions/newClass";
 import { getUser } from "../redux/actions/user";
 import { postLogout } from "../redux/actions/auth";
 import { persistor } from "../redux/store";
+import { updateUser } from "../redux/actions/user";
 export class Main extends Component {
   constructor(props) {
     super(props);
@@ -81,7 +82,7 @@ export class Main extends Component {
         );
       } else if (role === 0) {
         this.props.getMyClass(
-          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass`,
+          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?limit=10`,
           token
         );
       }
@@ -94,7 +95,10 @@ export class Main extends Component {
     }, 1000);
   }
   componentDidUpdate() {
-    console.log("update");
+    const now = new Date();
+    if (now.getTime() > this.props.expiry) {
+      persistor.purge();
+    }
   }
   componentWillUnmount() {
     console.log("unmount Main");
@@ -103,219 +107,233 @@ export class Main extends Component {
     const { match } = this.props;
     return (
       <div className="App_Main">
-        <div className="nav-bar">
-          <button
-            id="btn-nav"
-            type="button"
-            style={
-              this.state.statusNav === true
-                ? {
-                    visibility: "hidden",
-                    marginLeft: "230px",
-                    backgroundColor: "red",
-                    borderRadius: "50%",
-                    width: "50px",
-                    color: "#fff",
-                  }
-                : null
-            }
-            onClick={() => {
-              this.state.statusNav === false
-                ? this.setState({ statusNav: true })
-                : this.setState({ statusNav: false });
-            }}
-          >
-            {this.state.statusNav === true ? " X " : "\u2630"}
-          </button>
-        </div>
-        <button
-          id="btn-chat"
-          className={
-            match.params.content === "Dashboard" ? "btn-chat" : "btn-none"
-          }
-          style={
-            this.state.chat === true
-              ? {
-                  display: "none",
-                  left: "0",
-                  zIndex: "5",
-                  backgroundColor: "red",
-                  top: "0",
-                }
-              : null
-          }
-          type="button"
-          onClick={() => {
-            this.state.chat === false
-              ? this.setState({ chat: true })
-              : this.setState({ chat: false });
-          }}
-        >
-          {this.state.chat === true ? (
-            " X "
-          ) : (
-            <img
-              src="https://jodemy.netlify.app/assets/dashboard/white-chat.png"
-              alt="btn_chat.png"
-            />
-          )}
-        </button>
-        <div className="container-fluid">
-          <div
-            className="popsNav"
-            style={
-              this.state.statusNav === true || this.state.chat === true
-                ? { display: "block" }
-                : null
-            }
-            onClick={() => {
-              if (this.state.statusNav === true) {
-                this.setState({ statusNav: false });
-              } else if (this.state.chat === true) {
-                this.setState({ chat: false });
-              }
-            }}
-          ></div>
-          <div
-            className="overlayNotif"
-            style={
-              this.state.popsNotif === false
-                ? { display: "none" }
-                : { display: "flex" }
-            }
-          >
-            <div className="popsNotif">
-              <button className="closePopsNotif" onClick={this.handleNotifPops}>
-                x
-              </button>
-              <h2 className="headerPopsNotif">Notification</h2>
-              <div className="notifPerDay">
-                <h3 className="subHeadPopsNotif">Yesterday</h3>
-                <div className="spoilerNotif">
-                  <img
-                    src="https://jodemy.netlify.app/assets/notif-image/notifHot-icon.png"
-                    alt="notifHot-icon"
-                  />
-                  <div className="spoilerMessage">
-                    There are 10 news update for today. Don’t miss it!
-                  </div>
-                  <div className="timeNotif">2 min</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <nav
-            id="nav-side"
-            className="menu-main"
-            style={this.state.statusNav === true ? this.state.styleNav : null}
-          >
-            <div
-              className={
-                match.params.content === "Profile"
-                  ? "menu-profile profile-clicked"
-                  : "menu-profile"
-              }
-              onClick={this.state.buttonList[0].buttonAction}
-              style={
-                this.state.statusNav === true
-                  ? { borderRadius: "0 0 0 0" }
-                  : null
-              }
-            >
-              <div className="menu_picture">
-                {/* "https://jodemy.netlify.app/assets/Profile Picture.png" */}
-                <img
-                  src={
-                    this.props.dataUser.photo_profile !== null
-                      ? `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}${this.props.dataUser.photo_profile}`
-                      : "https://jodemy.netlify.app/assets/Profile Picture.png"
-                  }
-                  style={{ borderRadius: "50%" }}
-                  alt=" Profile Pictur"
-                />
-              </div>
-              <div className="menu_name">{`${this.props.dataUser.username}`}</div>
-              <div className="menu_status">online</div>
-            </div>
-            <div className="menu_notif" onClick={this.handleNotifPops}>
-              <img
-                className="notif"
+        {this.props.dataUser && this.props.dataUser.length !== 0 ? (
+          <>
+            <div className="nav-bar">
+              <button
+                id="btn-nav"
+                type="button"
                 style={
-                  this.state.popsNotif === true ? { display: "none" } : null
+                  this.state.statusNav === true
+                    ? {
+                        visibility: "hidden",
+                        marginLeft: "230px",
+                        backgroundColor: "red",
+                        borderRadius: "50%",
+                        width: "50px",
+                        color: "#fff",
+                      }
+                    : null
                 }
-                src={
-                  match.params.content === "Profile"
-                    ? "https://jodemy.netlify.app/assets/Notif-Icon.png"
-                    : "https://jodemy.netlify.app/assets/white-notif-icon.png"
-                }
-                alt="notif-Icon"
-              />
-            </div>
-            <div className="menu-list">
-              <div
-                className={
-                  match.params.content === "Dashboard"
-                    ? "menu_dashboard menu-list-clicked"
-                    : "menu_dashboard"
-                }
-                onClick={
-                  this.props.dataUser.role === 0
-                    ? this.state.buttonList[1].buttonAction
-                    : this.state.buttonList[1].buttonAction1
-                }
-              >
-                <img
-                  src="https://jodemy.netlify.app/assets/Dashboard Icon.png"
-                  alt="Dashboard Icon.png"
-                />
-                <span>Dashboard</span>
-              </div>
-              <div
-                className={
-                  match.params.content === "Activity"
-                    ? "menu_activity menu-list-clicked"
-                    : "menu_activity"
-                }
-                onClick={this.state.buttonList[2].buttonAction}
-              >
-                <img
-                  src="https://jodemy.netlify.app/assets/Activity Icon.png"
-                  alt="Activity Icon.png"
-                />
-                <span>Activity</span>
-              </div>
-              <div className="menu_help">
-                <img
-                  src="https://jodemy.netlify.app/assets/Help Icon.png"
-                  alt="Help Icon.png"
-                />
-                <span>Help</span>
-              </div>
-              <div
-                className="menu_logout"
                 onClick={() => {
-                  this.props.postLogout(
-                    `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/logout`,
-                    this.props.token
-                  );
-                  persistor.purge();
+                  this.state.statusNav === false
+                    ? this.setState({ statusNav: true })
+                    : this.setState({ statusNav: false });
                 }}
               >
-                <img
-                  src="https://jodemy.netlify.app/assets/Logout Icon.png"
-                  alt="Logout Icon.png"
-                />
-                <span>Logout</span>
-              </div>
+                {this.state.statusNav === true ? " X " : "\u2630"}
+              </button>
             </div>
-          </nav>
-          <ContentList
-            data={this.state}
-            dataUser={this.props.dataUser}
-            content={match.params.content}
-            content2={match.params.content2}
-          />
-        </div>
+            <button
+              id="btn-chat"
+              className={
+                match.params.content === "Dashboard" ? "btn-chat" : "btn-none"
+              }
+              style={
+                this.state.chat === true
+                  ? {
+                      display: "none",
+                      left: "0",
+                      zIndex: "5",
+                      backgroundColor: "red",
+                      top: "0",
+                    }
+                  : null
+              }
+              type="button"
+              onClick={() => {
+                this.state.chat === false
+                  ? this.setState({ chat: true })
+                  : this.setState({ chat: false });
+              }}
+            >
+              {this.state.chat === true ? (
+                " X "
+              ) : (
+                <img
+                  src="https://jodemy.netlify.app/assets/dashboard/white-chat.png"
+                  alt="btn_chat.png"
+                />
+              )}
+            </button>
+            <div className="container-fluid">
+              <div
+                className="popsNav"
+                style={
+                  this.state.statusNav === true || this.state.chat === true
+                    ? { display: "block" }
+                    : null
+                }
+                onClick={() => {
+                  if (this.state.statusNav === true) {
+                    this.setState({ statusNav: false });
+                  } else if (this.state.chat === true) {
+                    this.setState({ chat: false });
+                  }
+                }}
+              ></div>
+              <div
+                className="overlayNotif"
+                style={
+                  this.state.popsNotif === false
+                    ? { display: "none" }
+                    : { display: "flex" }
+                }
+              >
+                <div className="popsNotif">
+                  <button
+                    className="closePopsNotif"
+                    onClick={this.handleNotifPops}
+                  >
+                    x
+                  </button>
+                  <h2 className="headerPopsNotif">Notification</h2>
+                  <div className="notifPerDay">
+                    <h3 className="subHeadPopsNotif">Yesterday</h3>
+                    <div className="spoilerNotif">
+                      <img
+                        src="https://jodemy.netlify.app/assets/notif-image/notifHot-icon.png"
+                        alt="notifHot-icon"
+                      />
+                      <div className="spoilerMessage">
+                        There are 10 news update for today. Don’t miss it!
+                      </div>
+                      <div className="timeNotif">2 min</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <nav
+                id="nav-side"
+                className="menu-main"
+                style={
+                  this.state.statusNav === true ? this.state.styleNav : null
+                }
+              >
+                <div
+                  className={
+                    match.params.content === "Profile"
+                      ? "menu-profile profile-clicked"
+                      : "menu-profile"
+                  }
+                  onClick={this.state.buttonList[0].buttonAction}
+                  style={
+                    this.state.statusNav === true
+                      ? { borderRadius: "0 0 0 0" }
+                      : null
+                  }
+                >
+                  <div className="menu_picture">
+                    {/* "https://jodemy.netlify.app/assets/Profile Picture.png" */}
+                    <img
+                      src={
+                        this.props.dataUser.photo_profile !== null &&
+                        this.props.dataUser.photo_profile !== ""
+                          ? `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}${this.props.dataUser.photo_profile}`
+                          : "https://jodemy.netlify.app/assets/Profile Picture.png"
+                      }
+                      style={{
+                        borderRadius: "50%",
+                        width: "80px",
+                        height: "80px",
+                      }}
+                      alt=" Profile Pictur"
+                    />
+                  </div>
+                  <div className="menu_name">{`${this.props.dataUser.username}`}</div>
+                  <div className="menu_status">online</div>
+                </div>
+                <div className="menu_notif" onClick={this.handleNotifPops}>
+                  <img
+                    className="notif"
+                    style={
+                      this.state.popsNotif === true ? { display: "none" } : null
+                    }
+                    src={
+                      match.params.content === "Profile"
+                        ? "https://jodemy.netlify.app/assets/Notif-Icon.png"
+                        : "https://jodemy.netlify.app/assets/white-notif-icon.png"
+                    }
+                    alt="notif-Icon"
+                  />
+                </div>
+                <div className="menu-list">
+                  <div
+                    className={
+                      match.params.content === "Dashboard"
+                        ? "menu_dashboard menu-list-clicked"
+                        : "menu_dashboard"
+                    }
+                    onClick={
+                      this.props.dataUser.role === 0
+                        ? this.state.buttonList[1].buttonAction
+                        : this.state.buttonList[1].buttonAction1
+                    }
+                  >
+                    <img
+                      src="https://jodemy.netlify.app/assets/Dashboard Icon.png"
+                      alt="Dashboard Icon.png"
+                    />
+                    <span>Dashboard</span>
+                  </div>
+                  <div
+                    className={
+                      match.params.content === "Activity"
+                        ? "menu_activity menu-list-clicked"
+                        : "menu_activity"
+                    }
+                    onClick={this.state.buttonList[2].buttonAction}
+                  >
+                    <img
+                      src="https://jodemy.netlify.app/assets/Activity Icon.png"
+                      alt="Activity Icon.png"
+                    />
+                    <span>Activity</span>
+                  </div>
+                  <div className="menu_help">
+                    <img
+                      src="https://jodemy.netlify.app/assets/Help Icon.png"
+                      alt="Help Icon.png"
+                    />
+                    <span>Help</span>
+                  </div>
+                  <div
+                    className="menu_logout"
+                    onClick={() => {
+                      this.props.postLogout(
+                        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/logout`,
+                        this.props.token
+                      );
+                      persistor.purge();
+                    }}
+                  >
+                    <img
+                      src="https://jodemy.netlify.app/assets/Logout Icon.png"
+                      alt="Logout Icon.png"
+                    />
+                    <span>Logout</span>
+                  </div>
+                </div>
+              </nav>
+              <ContentList
+                data={this.state}
+                dataUser={this.props.dataUser}
+                content={match.params.content}
+                content2={match.params.content2}
+              />
+            </div>
+          </>
+        ) : null}
       </div>
     );
   }
@@ -342,6 +360,7 @@ const ContentList = (props) => {
   return result;
 };
 const mapStateToProps = (state, ownProps) => ({
+  expiry: state.auth.expiry,
   token: state.auth.results.token,
   dataUser: state.user.results,
   checkUser: state.user,
@@ -353,5 +372,8 @@ const mapDispatchToProps = (dispatch) => ({
   getMyClass: (url, token) => dispatch(getMyClass(url, token)),
   getNewClass: (url, token) => dispatch(getNewClass(url, token)),
   postLogout: (url, token) => dispatch(postLogout(url, token)),
+  updateUser: (url, token, FormData) => {
+    dispatch(updateUser(url, token, FormData));
+  },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

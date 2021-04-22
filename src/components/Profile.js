@@ -1,8 +1,23 @@
-import { React } from "react";
+import { React, useState } from "react";
 import { connect } from "react-redux";
 import "./../css/profile.css";
 import { updateUser } from "../redux/actions/user";
 function Profile(props) {
+  const [updateValue, setUpdateValue] = useState({ username: "" });
+  const [isChange, setIsChange] = useState(false);
+  const handleSubmit = () => {
+    if (updateValue.image !== null && updateValue.image) {
+      const formData = new FormData();
+      formData.append("image", updateValue.image, updateValue.image.name);
+      props.updateUser(
+        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/users`,
+        props.token,
+        formData
+      );
+      setUpdateValue({ username: "" });
+      setIsChange(false);
+    }
+  };
   return (
     <main className="profile">
       <header className=" d-flex flex-column justify-content-center align-items-center">
@@ -10,17 +25,32 @@ function Profile(props) {
           <img
             style={{ borderRadius: "50%" }}
             src={
-              props.dataUser.photo_profile !== null ||
-              !props.dataUser.photo_profile
+              props.dataUser.photo_profile !== null &&
+              props.dataUser.photo_profile !== ""
                 ? `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}${props.dataUser.photo_profile}`
                 : "https://jodemy.netlify.app/assets/Profile-Picture-banner.png"
             }
             alt="profile-pictur"
           />
-          <img
-            src="https://jodemy.netlify.app/assets/Edit Icon.png"
-            alt="Edit Icon.png"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="file"
+              name="profilePictureUpdate"
+              id="profilePictureUpdate"
+              style={{ display: "none" }}
+              onChange={(e) => {
+                setUpdateValue({ ...updateValue, image: e.target.files[0] });
+                setIsChange(true);
+              }}
+            />
+            <label htmlFor="profilePictureUpdate">
+              <img
+                src="https://jodemy.netlify.app/assets/Edit Icon.png"
+                alt="Edit Icon.png"
+              />
+            </label>
+            {isChange ? <button type="submit">Save</button> : null}
+          </form>
         </div>
         <div className="profile-name">{`${props.dataUser.username}`}</div>
       </header>

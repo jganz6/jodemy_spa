@@ -25,11 +25,25 @@ main.profile{
     width: 100px;
     height: 100px;
 }
-.profile-picture>img[alt="Edit Icon.png"]{
+.profile-picture>form>label{
+    margin:0;
     position: absolute;
     right: 0;
     bottom: 0;
     filter:drop-shadow(8px 8px 10px rgb(0, 0, 0));
+}
+.profile-picture>form>button{
+    font-size: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    right: -50px;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #5784BA;
 }
 .profile-picture>img[alt="Edit Icon.png"]:hover{
     cursor: pointer;

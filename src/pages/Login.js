@@ -5,11 +5,12 @@ import "./../css/Login.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { postLogin } from "../redux/actions/auth";
+import PopsPromptMessage from "../components/PopsPromptMessage";
 // const Axios = require("axios");
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", password: "", data: {} };
+    this.state = { value: "", password: "", data: {}, show: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -29,11 +30,27 @@ class Login extends React.Component {
       `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/auth/login`,
       postData
     );
+    if (this.props.state.auth.isRejected) {
+      this.setState({ show: true });
+    }
     event.preventDefault();
   }
   render() {
     return (
       <div className="Login">
+        {this.state.show ? (
+          <PopsPromptMessage
+            message={
+              this.props.state.auth.err.message === "Network Error"
+                ? this.props.state.auth.err.message
+                : "Wrong Email or Password !"
+            }
+            show={this.state.show}
+            setShown={(isShow) => this.setState({ show: isShow })}
+            messageOnly={true}
+            styleCustom={{ color: "red" }}
+          />
+        ) : null}
         <div className="container-fluid d-flex justify-content-center align-items-center">
           <main className="d-flex flex-column align-items-center justify-content-center">
             <h2>Login</h2>

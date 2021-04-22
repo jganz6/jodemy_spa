@@ -1,0 +1,49 @@
+.prompt-overlay{
+    background-color: rgba(0, 0, 0, 0.788);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+.prompt-overlay .prompt-container{
+    background-color: #fff;
+    width: 350px;
+    height: 200px;
+    border-radius: 40px;
+}
+.prompt-overlay .prompt-container div{
+    height: 50%;
+}
+.prompt-overlay .prompt-container div:nth-child(1){
+    display: flex;
+    padding:20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+.prompt-overlay .prompt-container .prompt-action{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.prompt-overlay .prompt-container .prompt-action button{
+    width: 30%;
+    height: 40%;
+    border: none;
+    border-radius: 40px;
+    color: #fff;
+    font-family: "Kanit";
+}
+.prompt-overlay .prompt-container .prompt-action button.prompt-accept{
+    background-color: #5784BA;
+}
+.prompt-overlay .prompt-container .prompt-action button.prompt-denied{
+    background-color: rgb(185, 18, 18);
+}

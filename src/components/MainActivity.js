@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import ListNewClass from "./ListNewClass";
 import ListMyClass from "./ListMyClass";
@@ -13,6 +13,7 @@ import {
 } from "./../redux/actions/myClass";
 import "./../css/my-class.css";
 import "./../css/activity-facilitator.css";
+import { useLocation } from "react-router-dom";
 function MainActivity(props) {
   const [viewMyClass, setViewMyClass] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -30,6 +31,8 @@ function MainActivity(props) {
     start_time: "",
     end_time: "",
   });
+  const qs = new URLSearchParams(useLocation().search);
+  console.log(qs.get());
   function viewMyClassHandler(handle) {
     setViewMyClass(handle);
   }
@@ -55,6 +58,21 @@ function MainActivity(props) {
     );
     e.preventDefault();
   };
+  useEffect(() => {
+    if (viewMyClass) {
+      if (props.role === 1) {
+        props.getMyClass(
+          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?search=${searchValue}&limit=10`,
+          props.token
+        );
+      } else if (props.role === 0) {
+        props.getMyClass(
+          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?search=${searchValue}&limit=10`,
+          props.token
+        );
+      }
+    }
+  });
   return (
     <>
       <header>

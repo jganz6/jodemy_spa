@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router-dom";
+import PopsPromptMessage from "./PopsPromptMessage";
 function ListMyClass({
   data,
   token,
@@ -12,6 +13,7 @@ function ListMyClass({
 }) {
   const [popsAction, setPopsAction] = useState(null);
   const [popsFormAction, setPopsFormAction] = useState(null);
+  const [show, setShow] = useState(false);
   const [formUpdate, setFormUpdate] = useState({
     image: null,
     class_name: "",
@@ -277,7 +279,22 @@ function ListMyClass({
               </div>
             </div>
           </td>
-          <td>{data.class_name}</td>
+          <td>
+            {data.class_name}{" "}
+            {show ? (
+              <PopsPromptMessage
+                message={`Are you sure to delete Class ${data.class_name}?`}
+                actionAccept={() =>
+                  actionDeleteClass(
+                    `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/${data.id_class}`,
+                    token
+                  )
+                }
+                show={show}
+                setShow={setShow}
+              />
+            ) : null}
+          </td>
           <td>{data.category}</td>
           <td>{data.description}</td>
           <td colSpan="1">{`${data.schedule}, ${data.start_time.slice(
@@ -322,16 +339,7 @@ function ListMyClass({
                 >
                   update
                 </div>
-                <div
-                  onClick={() =>
-                    actionDeleteClass(
-                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/${data.id_class}`,
-                      token
-                    )
-                  }
-                >
-                  delete
-                </div>
+                <div onClick={() => setShow(true)}>delete</div>
               </div>
             ) : null}
             &#x22EE;

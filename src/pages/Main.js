@@ -95,10 +95,10 @@ export class Main extends Component {
     }, 1000);
   }
   componentDidUpdate() {
-    const now = new Date();
-    if (now.getTime() > this.props.expiry) {
-      persistor.purge();
-    }
+    // const now = new Date();
+    // if (now.getTime() > this.props.expiry) {
+    //   persistor.purge();
+    // }
   }
   componentWillUnmount() {
     console.log("unmount Main");

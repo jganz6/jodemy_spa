@@ -40,7 +40,7 @@ const myClass = (state = intialState, { type, payload }) => {
         isFulfilled: true,
         results: {
           ...state.results,
-          0: [...state.results[0], payload.data.data[0].data[0]],
+          0: [payload.data.data[0].data[0], ...state.results[0]],
         },
       };
     case "POSTCLASS_PENDING":
@@ -57,7 +57,7 @@ const myClass = (state = intialState, { type, payload }) => {
           isFulfilled: true,
           results: {
             ...state.results,
-            0: [...state.results[0], payload.data.data[0].data[0]],
+            0: [payload.data.data[0].data[0], ...state.results[0]],
           },
         };
       } else {

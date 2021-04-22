@@ -122,6 +122,9 @@ input[type="time"]::-webkit-calendar-picker-indicator{
     right: 40px;
 }
 @media only screen and (max-width:768px){
+    .create-new-class>form{
+        font-size: 12px;
+    }
     .flex-box-input{
         flex-direction: column;
     }

@@ -70,10 +70,10 @@ function Dashboard(props) {
             <table style={{ marginBottom: "20px" }}>
               <tbody>
                 <tr>
-                  <td colSpan="2">Friday, 08:00 - 09:40</td>
+                  <td colSpan="2">08:00 - 10:00</td>
                   <td colSpan="2">Front-end fundamentals</td>
                   <td>
-                    24{" "}
+                    4{" "}
                     <img
                       src="https://jodemy.netlify.app/assets/activity/Student Icon.png"
                       alt="student icon"
@@ -82,10 +82,10 @@ function Dashboard(props) {
                   <td>&#x22EE;</td>
                 </tr>
                 <tr>
-                  <td colSpan="2">Friday, 08:00 - 09:40</td>
-                  <td colSpan="2">HTML for beginners</td>
+                  <td colSpan="2">14:00 - 16:00</td>
+                  <td colSpan="2">History of Europe</td>
                   <td>
-                    24{" "}
+                    3{" "}
                     <img
                       src="https://jodemy.netlify.app/assets/activity/Student Icon.png"
                       alt="student icon"

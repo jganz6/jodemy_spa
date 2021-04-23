@@ -23,7 +23,7 @@ function ListNewClass({ data, register, token }) {
       <td>{data.category}</td>
       <td>{data.description}</td>
       <td>{data.level}</td>
-      <td>{data.pricing === "0" ? data.pricing + "$" : "Free"}</td>
+      <td>{data.pricing === 0 ? "Free" : data.pricing + "$"}</td>
       <td onClick={() => setShow(true)}>
         <div className="new-class-register">Register</div>
       </td>

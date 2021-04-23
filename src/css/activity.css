@@ -210,7 +210,9 @@ tfoot>tr>td>a{
     background-color: #EEEEEE;
     border-radius: 0 0 10px 10px;
 }
-.search-filter>div{
+.search-filter>select{
+    background-color: #EEEEEE;
+    border: none;
     display: inline-block;
     font-weight: 600;
     font-size: 12px;

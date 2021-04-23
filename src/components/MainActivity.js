@@ -13,13 +13,15 @@ import {
 } from "./../redux/actions/myClass";
 import "./../css/my-class.css";
 import "./../css/activity-facilitator.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 function MainActivity(props) {
   const [viewMyClass, setViewMyClass] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [filterValue, setFilterValue] = useState("");
+  const [sortValue, setSortValue] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [pageSelect, setPageSelect] = useState(1);
+  const [onSearch, setOnSearch] = useState(false);
   const [createClass, setCreateClass] = useState({
     image: null,
     class_name: "",
@@ -31,14 +33,22 @@ function MainActivity(props) {
     start_time: "",
     end_time: "",
   });
-  const qs = new URLSearchParams(useLocation().search);
-  console.log(qs.get());
+  const history = useHistory();
+  const { search } = useLocation();
+  // const qs = new URLSearchParams(useLocation().search);
+  // console.log(search);
   function viewMyClassHandler(handle) {
     setViewMyClass(handle);
   }
   const pages = [];
-  for (let i = 1; i <= props.myClass.totalPage; i++) {
-    pages.push(i);
+  if (viewMyClass) {
+    for (let i = 1; i <= props.myClass.totalPage; i++) {
+      pages.push(i);
+    }
+  } else if (!viewMyClass) {
+    for (let i = 1; i <= props.newClass.totalPage; i++) {
+      pages.push(i);
+    }
   }
   const handleSubmit = (e) => {
     const formData = new FormData();
@@ -59,25 +69,76 @@ function MainActivity(props) {
     e.preventDefault();
   };
   useEffect(() => {
-    if (viewMyClass) {
-      if (props.role === 1) {
-        props.getMyClass(
-          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?search=${searchValue}&limit=10`,
-          props.token
-        );
-      } else if (props.role === 0) {
-        props.getMyClass(
-          `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?search=${searchValue}&limit=10`,
-          props.token
-        );
+    const params = new URLSearchParams();
+    if (searchValue) {
+      params.append("search", searchValue);
+    } else {
+      params.delete("search");
+    }
+    if (pageSelect) {
+      params.append("page", pageSelect);
+    } else {
+      params.delete("page");
+    }
+    if (filterValue) {
+      params.append("filter", filterValue);
+    } else {
+      params.delete("filter");
+    }
+    if (sortValue) {
+      params.append("sort", sortValue);
+    } else {
+      params.delete("sort");
+    }
+
+    history.push({ search: params.toString(), page: params.toString() });
+    if (onSearch) {
+      setOnSearch(false);
+      console.log("searching");
+      if (viewMyClass) {
+        if (props.role === 1) {
+          props.getMyClass(
+            `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list${search}&limit=10`,
+            props.token
+          );
+        } else if (props.role === 0) {
+          props.getMyClass(
+            `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass${search}&limit=10`,
+            props.token
+          );
+        }
+      } else {
+        if (props.role === 0) {
+          props.getNewClass(
+            `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/newClass${search}&limit=10`,
+            props.token
+          );
+        }
       }
     }
-  });
+  }, [
+    searchValue,
+    history,
+    pageSelect,
+    onSearch,
+    viewMyClass,
+    props,
+    search,
+    filterValue,
+    sortValue,
+  ]);
   return (
     <>
       <header>
         <span
-          onClick={() => viewMyClassHandler(false)}
+          onClick={() => {
+            viewMyClassHandler(false);
+            setSearchValue("");
+            setFilterValue("");
+            setSortValue("");
+            setPageSelect(1);
+            setOnSearch(true);
+          }}
           style={!viewMyClass ? { display: "none" } : null}
         >
           <img
@@ -108,17 +169,7 @@ function MainActivity(props) {
             <button
               className="btn btn-search"
               onClick={() => {
-                if (props.role === 1) {
-                  props.getMyClass(
-                    `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?search=${searchValue}&limit=10`,
-                    props.token
-                  );
-                } else if (props.role === 0) {
-                  props.getMyClass(
-                    `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?search=${searchValue}&limit=10`,
-                    props.token
-                  );
-                }
+                setOnSearch(true);
               }}
             >
               Search
@@ -128,26 +179,25 @@ function MainActivity(props) {
               <select
                 name="my-class-sort"
                 id=""
-                value={filterValue}
+                value={sortValue}
                 onChange={(e) => {
-                  setFilterValue(e.target.value);
-                  if (props.role === 1) {
-                    props.getMyClass(
-                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?filter=${filterValue}&limit=10`,
-                      props.token
-                    );
-                  } else if (props.role === 0) {
-                    props.getMyClass(
-                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?filter=${filterValue}&limit=10`,
-                      props.token
-                    );
-                  }
+                  setSortValue(e.target.value);
+                  setTimeout(() => {
+                    setOnSearch(true);
+                  }, 200);
                 }}
               >
                 <option value="">All Categories</option>
-                <option value="math">Math</option>
-                <option value="science">Science</option>
-                <option value="software">Software</option>
+                <option value="category-AZ">categories ASC</option>
+                <option value="category-ZA">categories DESC</option>
+                <option value="class_name-AZ">class name ASC</option>
+                <option value="class_name-ZA">class name DESC</option>
+                {props.role === 0 ? (
+                  <>
+                    <option value="Score-AZ">score ASC</option>
+                    <option value="Score-ZA">score DESC</option>
+                  </>
+                ) : null}
               </select>
             </div>
           </div>
@@ -182,9 +232,7 @@ function MainActivity(props) {
             )}
           </thead>
           <tbody>
-            {props.myClass[0].length === 0 || !props.myClass[0]
-              ? null
-              : viewMyClass
+            {viewMyClass
               ? props.myClass[0].map((data) => {
                   return (
                     <ListMyClass
@@ -221,7 +269,13 @@ function MainActivity(props) {
               <tr>
                 <td colSpan="8">
                   <span
-                    onClick={() => viewMyClassHandler(true)}
+                    onClick={() => {
+                      viewMyClassHandler(true);
+                      setSearchValue("");
+                      setSortValue("");
+                      setFilterValue("");
+                      setPageSelect(1);
+                    }}
                   >{`view all >`}</span>
                 </td>
               </tr>
@@ -238,17 +292,9 @@ function MainActivity(props) {
                 className="rectangle-shadow"
                 onClick={() => {
                   setPageSelect(pageSelect > 1 ? pageSelect - 1 : pageSelect);
-                  if (props.role === 1) {
-                    props.getMyClass(
-                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?page=${pageSelect}&limit=10`,
-                      props.token
-                    );
-                  } else if (props.role === 0) {
-                    props.getMyClass(
-                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?page=${pageSelect}&limit=10`,
-                      props.token
-                    );
-                  }
+                  setTimeout(() => {
+                    setOnSearch(true);
+                  }, 200);
                 }}
               >
                 &#x3c;
@@ -263,17 +309,9 @@ function MainActivity(props) {
                   }
                   onClick={() => {
                     setPageSelect(page);
-                    if (props.role === 1) {
-                      props.getMyClass(
-                        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?page=${pageSelect}&limit=10`,
-                        props.token
-                      );
-                    } else if (props.role === 0) {
-                      props.getMyClass(
-                        `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?page=${pageSelect}&limit=10`,
-                        props.token
-                      );
-                    }
+                    setTimeout(() => {
+                      setOnSearch(true);
+                    }, 200);
                   }}
                 >
                   {page}
@@ -285,17 +323,9 @@ function MainActivity(props) {
                   setPageSelect(
                     pageSelect < pages.length ? pageSelect + 1 : pageSelect
                   );
-                  if (props.role === 1) {
-                    props.getMyClass(
-                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/list?page=${pageSelect}&limit=10`,
-                      props.token
-                    );
-                  } else if (props.role === 0) {
-                    props.getMyClass(
-                      `${process.env.REACT_APP_DOMAINAPI}:${process.env.REACT_APP_PORTAPI}/class/myClass?page=${pageSelect}&limit=10`,
-                      props.token
-                    );
-                  }
+                  setTimeout(() => {
+                    setOnSearch(true);
+                  }, 200);
                 }}
               >
                 &#x3e;
@@ -497,7 +527,9 @@ function MainActivity(props) {
               type="search"
               name="input-search"
               id=""
+              value={searchValue}
               placeholder="Quick Search"
+              onChange={(e) => setSearchValue(e.target.value)}
             />
             <label htmlFor="input-search">
               <img
@@ -505,30 +537,61 @@ function MainActivity(props) {
                 alt="Search Icon.png"
               />
             </label>
-            <button className="btn btn-search">Search</button>
+            <button
+              className="btn btn-search"
+              onClick={() => setOnSearch(true)}
+            >
+              Search
+            </button>
           </div>
           <div className="search-filter">
-            <div>
-              Categories{" "}
-              <img
-                src="https://jodemy.netlify.app/assets/back-icon.png"
-                alt="back-icon.png"
-              />
-            </div>
-            <div>
-              Level{" "}
-              <img
-                src="https://jodemy.netlify.app/assets/back-icon.png"
-                alt="back-icon.png"
-              />
-            </div>
-            <div>
-              Pricing{" "}
-              <img
-                src="https://jodemy.netlify.app/assets/back-icon.png"
-                alt="back-icon.png"
-              />
-            </div>
+            <select
+              name="my-class-sort"
+              id=""
+              value={filterValue}
+              onChange={(e) => {
+                setFilterValue(e.target.value);
+                setTimeout(() => {
+                  setOnSearch(true);
+                }, 200);
+              }}
+            >
+              <option value="">Categories</option>
+              <option value="category-math">Math</option>
+              <option value="category-science">Science</option>
+              <option value="category-software">Software</option>
+            </select>
+            <select
+              name="my-class-sort"
+              id=""
+              value={filterValue}
+              onChange={(e) => {
+                setFilterValue(e.target.value);
+                setTimeout(() => {
+                  setOnSearch(true);
+                }, 200);
+              }}
+            >
+              <option value="">Level</option>
+              <option value="level-beginner">beginner</option>
+              <option value="level-advance">advance</option>
+              <option value="level-intermediate">intermediate</option>
+            </select>
+            <select
+              name="my-class-sort"
+              id=""
+              value={filterValue}
+              onChange={(e) => {
+                setFilterValue(e.target.value);
+                setTimeout(() => {
+                  setOnSearch(true);
+                }, 200);
+              }}
+            >
+              <option value="">Pricing</option>
+              <option value="pricing-0">Free</option>
+              <option value="pricing-paid">Paid</option>
+            </select>
           </div>
           <table>
             <thead>
@@ -554,16 +617,52 @@ function MainActivity(props) {
             </tbody>
           </table>
           <div className="footer-table-newclass">
-            <div>Showing 10 out of 64</div>
+            <div>
+              Showing {props.newClass[0].length} out of {props.newClass.count}
+            </div>
             <div className="list-page-newclass">
-              <div className="rectangle-shadow">&#x3c;</div>
-              <div className="rectangle-shadow rectangle_on">1</div>
-              <div className="rectangle-shadow">2</div>
-              <div className="rectangle-shadow">3</div>
-              <div className="rectangle-shadow">4</div>
-              <div className="rectangle-shadow">5</div>
-              <div>...</div>
-              <div className="rectangle-shadow">&#x3e;</div>
+              <div
+                className="rectangle-shadow"
+                onClick={() => {
+                  setPageSelect(pageSelect > 1 ? pageSelect - 1 : pageSelect);
+                  setTimeout(() => {
+                    setOnSearch(true);
+                  }, 200);
+                }}
+              >
+                &#x3c;
+              </div>
+              {pages.map((page) => (
+                <div
+                  key={page}
+                  className={
+                    pageSelect === page
+                      ? "rectangle-shadow rectangle_on"
+                      : "rectangle-shadow"
+                  }
+                  onClick={() => {
+                    setPageSelect(page);
+                    setTimeout(() => {
+                      setOnSearch(true);
+                    }, 500);
+                  }}
+                >
+                  {page}
+                </div>
+              ))}
+              <div
+                className="rectangle-shadow"
+                onClick={() => {
+                  setPageSelect(
+                    pageSelect < pages.length ? pageSelect + 1 : pageSelect
+                  );
+                  setTimeout(() => {
+                    setOnSearch(true);
+                  }, 500);
+                }}
+              >
+                &#x3e;
+              </div>
             </div>
           </div>
         </div>

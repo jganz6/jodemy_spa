@@ -46,7 +46,7 @@ class Login extends React.Component {
                 : "Wrong Email or Password !"
             }
             show={this.state.show}
-            setShown={(isShow) => this.setState({ show: isShow })}
+            setShow={(isShow) => this.setState({ show: isShow })}
             messageOnly={true}
             styleCustom={{ color: "red" }}
           />
